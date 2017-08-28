@@ -12,4 +12,4 @@ trabajos.
 * Nicolas Sastoque - jnsastoquee@unal.edu.co
 * Jonathan Granados - joagranadosme@unal.edu.co
 
-[Visita UN_trueque](https://UN_Trueque.herokuapp.com/)
+[Visita UN_trueque](https://untrueque.herokuapp.com)
