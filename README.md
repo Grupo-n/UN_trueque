@@ -8,7 +8,7 @@ trabajos.
 
 * Jairo Suarez - jaasuarezga@unal.edu.co
 * Miguel Cortes - macortesn@unal.edu.co
-* Gabriela Suaarez - gsuarezc@unal.edu.co
+* Gabriela Suarez - gsuarezc@unal.edu.co
 * Nicolas Sastoque - jnsastoquee@unal.edu.co
 * Jonathan Granados - joagranadosme@unal.edu.co
 
