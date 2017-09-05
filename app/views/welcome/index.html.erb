@@ -2,9 +2,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-md-12">
-
           <%=image_tag("logo3.png", alt: "logo UNTrueque", id:"logo-unt")%>
-
       </div>
     </div>
 
@@ -19,14 +17,16 @@
         </p>
       </div>
     </div>
-<%= link_to "logout", destroy_user_session_path, method: :delete %>
+    
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    
     <div class="row login-btns">
       <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-4 col-md-2 text-center">
         <a class="btn-log" href="login">Ingresar</a>
       </div>
       <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-0 col-md-2 text-center">
         <a class="btn-log" href="register">Registrarse </a>
-      </div>
+    </div>
 
     </div>
 
