@@ -1,6 +1,6 @@
 Características desarrolladas
 
-Desarrollo Login y Registro – Jairo Suárez y Jonathan Granados
+Desarrollo Login y Registro – Jairo Suárez y Jonathan Granados \n
 Elaboracion y diseño de mockups – Grabriela Suárez y Jonathan Granados
 Elaboración de modelo de datos - Grabriela Suárez y Jonathan Granados
 Elaboracion Landing-page - Miguel Cortes
