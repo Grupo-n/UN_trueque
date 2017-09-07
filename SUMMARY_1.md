@@ -14,6 +14,7 @@ Características desarrolladas
 
 Posibles características para siguiente Sprint
 -------------
+> - Funcionalidad en página de contacto
 > - Pagina principal (HOME) de la aplicacion
 > - Perfiles de usuario
 > - Funcionalidad para publicar producto
