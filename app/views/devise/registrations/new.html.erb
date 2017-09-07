@@ -1,42 +1,41 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="container">
-  <div class="panel panel-default devise-bs">
-    <div class="col-lg-12" style="margin:25px">
-          <%=image_tag("logoun.png", alt: "logo UNTrueque", id:"logo-unt")%>
+  <div style="padding: 10px">
+    <%=image_tag("logoun.png", alt: "logo UNTrueque", id:"logo-unt", width:"20%")%>
+  </div>
+  <div class="main-login main-center">
+    <div class="panel panel-default devise-bs">
+      <div class="panel-heading">
+        <h4><%= t('.sign_up', default: 'Sign up') %></h4>
       </div>
-    <div class="main-login main-center">
-      
-      <div class="panel panel-default devise-bs">
-        <div class="panel-heading">
-          <h2><%= t('.sign_up', default: 'Sign up') %></h2>
-        </div>
-        <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
-            <div class="form-group">
-            <%= f.label :Nombre %>
-            <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-            <%= f.label :Apellidos %>
-            <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :Contraseña %>
-              <%= f.password_field :password, class: 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :Confirmar_contraseña %>
-              <%= f.password_field :password_confirmation, class: 'form-control' %>
-            </div>
-            <%= f.submit t('.sign_up', default: 'Sign mup'), class: 'btn btn-primary' %>
-          <% end %>
-        </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
+          <div class="form-group">
+          <%= f.label :Nombre %>
+          <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+          <%= f.label :Apellidos %>
+          <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Contraseña %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Confirmar_contraseña %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          <%= f.submit t('.sign_up', default: 'Sign mup'), class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= render 'devise/shared/links' %>
+<center>
+  <%= render 'devise/shared/links' %>
+</center>
