@@ -17,3 +17,4 @@ Posibles características para siguiente Sprint
 > - Pagina principal (HOME) de la aplicacion
 > - Perfiles de usuario
 > - Funcionalidad para publicar producto
+=======
