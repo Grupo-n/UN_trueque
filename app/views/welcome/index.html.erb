@@ -1,2 +1,447 @@
-<h1>UN_trueque</h1>
-<p>Welcome page</p>
+<section class="hero">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-12">
+          <%=image_tag("logo3.png", alt: "logo UNTrueque", id:"logo-unt")%>
+      </div>
+    </div>
+
+    <div class="row lema">
+      <div class="col-md-12">
+        <h1>
+          Porque juntos podemos más
+        </h1>
+
+        <p class="tagline">
+          Una app pensada para ayudarnos mutuamente.
+        </p>
+      </div>
+    </div>
+    
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    
+    <div class="row login-btns">
+      <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-4 col-md-2 text-center">
+        <a class="btn-log" href="login">Ingresar</a>
+      </div>
+      <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-0 col-md-2 text-center">
+        <a class="btn-log" href="register">Registrarse </a>
+    </div>
+
+    </div>
+
+    <div class="row">
+      <div class="offset-md-5 col-md-2 text-center">
+        <a id="btn-more" href="#about" class=""><span class="fa fa-angle-down"></span></a>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+<!-- /Hero -->
+
+<!-- Header -->
+<header id="header">
+<div class="container">
+
+  <div id="logo" class="pull-left">
+    <a href="index.html"><%=image_tag("logo-nav.png", alt: "logo UNTrueque")%></a>
+    <!-- Uncomment below if you prefer to use a text image -->
+    <!--<h1><a href="#hero">Bell</a></h1>-->
+  </div>
+
+  <nav id="nav-menu-container">
+    <ul class="nav-menu">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#features">Características</a></li>
+      <li><a href="#team">Equipo</a></li>
+      <li><a href="/contact">Contacto</a></li>
+    </ul>
+  </nav><!-- #nav-menu-container -->
+
+
+
+<!--
+  <nav class="nav social-nav pull-right hidden-sm-down">
+    <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+  </nav>-->
+
+
+</div>
+</header><!-- #header -->
+
+<!-- About -->
+
+<section class="about" id="about">
+  <div class="container text-center">
+    <h2>
+      Sobre UN-Trueque
+    </h2>
+
+    <p class="text-justify">
+      UN Trueque es una aplicacion web orientada para estudiantes de la Universidad Nacional de Colombia que quieran realizar ventas, intercambios o donaciones de productos academicos como fotocopias, elementos electronicos, guas, libros y materiales de laboratorio; y servicios como tutorias, clases y trabajos. <br><br>
+      Esta aplicación se diferencia de otras aplicaciones de compra y venta de productos ya que hace un énfasis en el intercambio de bienes o servicios no necesariamente por un beneficio monetario y está orientada específicamente a la comunidad universitaria (en principio).
+    </p>
+
+  </div>
+</section>
+<!-- /About -->
+<!-- Parallax -->
+
+
+<!-- /Features -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="text-center">
+      Características
+    </h2>
+
+    <div class="row">
+      <div class="feature-col col-lg-4 col-xs-12">
+        <div class="card card-block text-center">
+          <div>
+            <div class="feature-icon">
+              <span class="fa fa-users"></span>
+            </div>
+          </div>
+
+          <div>
+            <h3>
+              Acceso
+            </h3>
+
+            <p>
+              Registro e ingreso de estudiantes de la Universidad Nacional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-col col-lg-4 col-xs-12">
+        <div class="card card-block text-center">
+          <div>
+            <div class="feature-icon">
+              <span class="fa fa-envelope"></span>
+            </div>
+          </div>
+
+          <div>
+            <h3>
+              Notificaciones
+            </h3>
+
+            <p>
+              Envío de notificaciones al usuario cuando un producto reciba una oferta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-col col-lg-4 col-xs-12">
+        <div class="card card-block text-center">
+          <div>
+            <div class="feature-icon">
+              <span class="fa fa-exchange"></span>
+            </div>
+          </div>
+
+          <div>
+            <h3>
+              Intercambio
+            </h3>
+
+            <p>
+              Posibilidad de intercambio entre productos y servicios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="feature-col col-lg-4 col-xs-12">
+        <div class="card card-block text-center">
+          <div>
+            <div class="feature-icon">
+              <span class="fa fa-money"></span>
+            </div>
+          </div>
+
+          <div>
+            <h3>
+              Venta
+            </h3>
+
+            <p>
+              <br>
+              Venta de productos o servicios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-col col-lg-4 col-xs-12">
+        <div class="card card-block text-center">
+          <div>
+            <div class="feature-icon">
+              <span class="fa fa-map-marker"></span>
+            </div>
+          </div>
+
+          <div>
+            <h3>
+              Ubicación
+            </h3>
+
+            <p>
+              Ubicación entre usuarios vía Google Maps para realizar las transacciones en lugares acordados por ambas partes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Team -->
+
+<section class="team" id="team">
+  <div class="container">
+    <h2 class="text-center">
+      Nuestro equipo
+    </h2>
+
+    <div class="row">
+      <div class="col-sm-4 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><%=image_tag("team-jonathan.jpg", alt: "", class:"team-img")%>
+          <div class="card-title-wrap">
+            <span class="card-title">Jonathan Granados</span> <span class="card-text">Scrum Master</span>
+          </div>
+          <div class="team-over">
+            <h4 class="hidden-md-down">
+              Connect with me
+            </h4>
+            <nav class="social-nav">
+              <a href="https://twitter.com/jonathangranad9"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com/jonathan.granados"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com/in/jonathan-granados-m%C3%A9ndez-bb4787139/"><i class="fa fa-linkedin"></i></a> <a href="mailto:joagranadosme@unal.edu.co?subject=Contact"><i class="fa fa-envelope"></i></a>
+            </nav>
+            <p>
+              Estudiante de Ingeniería de Sistemas de la Universidad Nacional de Colombia.
+            </p>
+          </div></a>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><%=image_tag("team-gabriela.jpg", alt: "", class:"team-img")%>
+          <div class="card-title-wrap">
+            <span class="card-title">Gabriela Suarez</span> <span class="card-text">Desarrollador</span>
+          </div>
+
+          <div class="team-over">
+            <h4 class="hidden-md-down">
+              Connect with me
+            </h4>
+            <nav class="social-nav">
+              <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+            </nav>
+            <p>
+              Estudiante de Ingeniería de Sistemas de la Universidad Nacional de Colombia.
+            </p>
+          </div></a>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><%=image_tag("team-miguel.jpg", alt: "", class:"team-img")%>
+          <div class="card-title-wrap">
+            <span class="card-title">Miguel Cortes</span> <span class="card-text">Desarrollador</span>
+          </div>
+
+          <div class="team-over">
+            <h4 class="hidden-md-down">
+              Connect with me
+            </h4>
+
+            <nav class="social-nav">
+              <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+            </nav>
+
+            <p>
+              Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+            </p>
+          </div></a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="offset-sm-2 col-sm-4 col-xs-6">
+        <div class="card card-block">
+          <a href="#">
+            <%=image_tag("team-jairo.jpg", alt: "", class:"team-img")%>
+
+          <div class="card-title-wrap">
+            <span class="card-title">Jairo Suarez</span> <span class="card-text">Desarrollador</span>
+          </div>
+
+          <div class="team-over">
+            <h4 class="hidden-md-down">
+              Connect with me
+            </h4>
+
+            <nav class="social-nav">
+              <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+            </nav>
+
+            <p>
+              Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+            </p>
+          </div></a>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-xs-6">
+        <div class="card card-block">
+          <a href="#"><%=image_tag("team-nicolas.jpg", alt: "", class:"team-img")%>
+          <div class="card-title-wrap">
+            <span class="card-title">Nicolás Sastoque</span> <span class="card-text">Desarrollador</span>
+          </div>
+
+          <div class="team-over">
+            <h4 class="hidden-md-down">
+              Connect with me
+            </h4>
+
+            <nav class="social-nav">
+              <a href="https://twitter.com/NicolasStq"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com/nicolas.stq"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="mailto:jnsastoquee@unal.edu.co?subject=Contact"><i class="fa fa-envelope"></i></a>
+            </nav>
+
+            <p>
+              Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+            </p>
+          </div></a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- /Team -->
+<!-- @component: footer -->
+
+
+<!--
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-title">¡Contáctanos!</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 offset-lg-2">
+        <div class="info">
+          <div>
+            <i class="fa fa-map-marker"></i>
+            <p>Cll 45 #30<br>Bogotá D.C - Colombia</p>
+          </div>
+
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p>info@UNTrueque.com</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-5">
+        <div class="form">
+          <div id="sendmessage">Tu mensaje a sido envíado. ¡Gracias!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Tu e-mail" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Escribe algo para nosotros" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+              <div class="text-center"><button type="submit">Envíar mensaje</button></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+-->
+
+<footer class="site-footer">
+  <div class="bottom">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-6 col-xs-12 text-lg-left text-center">
+          <p class="copyright-text">
+            © BELL Theme
+          </p>
+          <div class="credits">
+              <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bell
+            -->
+            <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by BootstrapMade
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="#index">Inicio</a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="#about">Sobre UN-Trueque</a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="#features">Características</a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="#team">Nuestro equipo</a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="/contact">Contacto</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a> <!-- JavaScript
