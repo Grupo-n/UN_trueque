@@ -10,6 +10,6 @@ trabajos.
 * Miguel Cortes - macortesn@unal.edu.co
 * Gabriela Suarez - gsuarezc@unal.edu.co
 * Nicolas Sastoque - jnsastoquee@unal.edu.co
-* Jonathan Granados - joagranadosm e@unal.edu.co
+* Jonathan Granados - joagranadosme@unal.edu.co
 
 [Visita UN_trueque](https://untrueque.herokuapp.com/)
