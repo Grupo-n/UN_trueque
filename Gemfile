@@ -41,6 +41,9 @@ gem 'jquery-rails'
 # login with fb
 gem 'omniauth-facebook'
 
+# Login con facebook
+gem 'omniauth-facebook'
+
 gem 'bootstrap', '~> 4.0.0.alpha'
 
 group :development, :test do
