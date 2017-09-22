@@ -39,6 +39,9 @@ gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Login con facebook
+gem 'omniauth-facebook'
+
 gem 'bootstrap', '~> 4.0.0.alpha'
 
 group :development, :test do

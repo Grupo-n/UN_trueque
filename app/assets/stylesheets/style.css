@@ -981,3 +981,30 @@ body.mobile-nav-active #mobile-nav-toggle {
     display: none;
   }
 }
+
+
+/* =============================================================
+              LOGIN Y REGISTRO
+================================================================*/
+#logo-unt{
+  margin-top: 80px;
+}
+
+.center{
+  text-align: center;
+}
+
+.btn-full{
+  width: 100%;
+}
+
+.main-login{
+    margin-top: 50px;
+}
+.main-login label{
+  font-size: 13px;
+}
+
+.main-login h2{
+  margin-bottom:  0px;
+}
