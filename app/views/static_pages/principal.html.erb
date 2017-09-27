@@ -1,3 +1,12 @@
 <h1>Página principal</h1>
 <p>Página donde estarán ubicados los productos.</p>
+
+<p>Productos: </p>
+<% if @products.blank? %>
+<p>No hay</p>
+<% else %>
+<p>Si hay</p>
+<% end %>
+
 <%= link_to "logout", destroy_user_session_path, method: :delete %>
+

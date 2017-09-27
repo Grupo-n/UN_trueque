@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Productos</h1>
+
+<% if @products.blank? %>
+<p> No hay productos</p>
+<% else %>
+<ul id="products">
+  
+  <% @products.each do |d| %>
+  <li><%= d.name %></li>
+  <% end %>
+  
+</ul>
+<% end %>
 
 <table>
   <thead>
