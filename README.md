@@ -13,3 +13,4 @@ trabajos.
 * Jonathan Granados - joagranadosme@unal.edu.co
 
 [Visita UN_trueque](https://untrueque.herokuapp.com/)
+[Trello](https://trello.com/grupo_n)
