@@ -1,4 +1,10 @@
 es:
     lemma: ¡Porque juntos podemos más!
     tagline: Una app pensada para ayudarnos mutuamente.
-    hello: Hola mundo
+    about_us: Nosotros
+    features: Características
+    team: Equipo
+    contact: Contacto
+    about_text: >
+        UN Trueque es una aplicación web orientada a estudiantes de la Universidad Nacional de Colombia que quieran realizar ventas, intercambios o donaciones de productos academicos como fotocopias, elementos electronicos, guías, libros y materiales de laboratorio; y servicios como tutorias, clases y trabajos.
+        Esta aplicación se diferencia de otras aplicaciones de compra y venta de productos ya que hace un énfasis en el intercambio de bienes o servicios no necesariamente por un beneficio monetario y está orientada específicamente a la comunidad universitaria (en principio).

@@ -56,25 +56,15 @@
 
   <nav id="nav-menu-container">
     <ul class="nav-menu">
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#features">Características</a></li>
-      <li><a href="#team">Equipo</a></li>
-      <li><a href="/contact">Contacto</a></li>
+      <li><a href="#about"><%=t :about_us %></a></li>
+      <li><a href="#features"><%=t :features %></a></li>
+      <li><a href="#team"><%=t :team %></a></li>
+      <li><a href="/contact"><%=t :contact %></a></li>
     </ul>
   </nav><!-- #nav-menu-container -->
 
-
-
-<!--
-  <nav class="nav social-nav pull-right hidden-sm-down">
-    <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
-  </nav>-->
-
-
 </div>
 </header><!-- #header -->
-
-<!-- About -->
 
 <section class="about" id="about">
   <div class="container text-center">
@@ -83,8 +73,7 @@
     </h2>
 
     <p class="text-justify">
-      UN Trueque es una aplicación web orientada a estudiantes de la Universidad Nacional de Colombia que quieran realizar ventas, intercambios o donaciones de productos academicos como fotocopias, elementos electronicos, guías, libros y materiales de laboratorio; y servicios como tutorias, clases y trabajos. <br><br>
-      Esta aplicación se diferencia de otras aplicaciones de compra y venta de productos ya que hace un énfasis en el intercambio de bienes o servicios no necesariamente por un beneficio monetario y está orientada específicamente a la comunidad universitaria (en principio).
+      <%=t :about_text %>
     </p>
 
   </div>
