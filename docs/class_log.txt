@@ -1,0 +1,5 @@
+
+Vistas de la página principal usando la gema de Bootstrap
+Mailer
+Primeras traducciones
+Scaffold y validaciones de los modelos de datos
