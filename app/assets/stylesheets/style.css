@@ -4,6 +4,10 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
@@ -980,4 +984,25 @@ body.mobile-nav-active #mobile-nav-toggle {
   #nav-menu-container {
     display: none;
   }
+}
+
+/****************************************************************************/
+.prodh1{
+  /*border: solid;*/
+  color: rgb(28, 86, 100);
+  font-weight: bold;
+  margin-bottom: 35px;
+  padding-top: 0px;
+  padding-left: 0px;
+  
+}
+
+.prodGrid{
+  border: solid;
+  padding: 10px;
+}
+
+.prodbtn{
+  text-decoration: none;
+  font-size: 20px;
 }
