@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use devise for authentication
+gem 'paperclip'
+
 gem 'devise'
 #Use twitter-bootstrap-rails
 gem 'twitter-bootstrap-rails'
@@ -38,8 +40,12 @@ gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# login with fb
+gem 'omniauth-facebook'
 
 gem 'bootstrap', '~> 4.0.0.alpha'
+
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,3 +72,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# For environment variables
+gem 'figaro'
