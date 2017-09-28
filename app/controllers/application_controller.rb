@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_locale
   #before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:index, :contact, :new]
@@ -7,6 +8,10 @@ class ApplicationController < ActionController::Base
   #def after_sign_in_path_for(resource)
   #  '/static_pages/principal'
   #aend
+  
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar, :avatar_cache])
