@@ -17,6 +17,7 @@
  *= require static_pages
  *= require application
  *= require font-awesome
+ *= require style
  */
  /*--------CONTENIDO---------------------------*/
  html{
