@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  duration: 2017-09-27 22:10:11
+  typeInt: 1
+
+two:
+  name: MyString
+  description: MyString
+  duration: 2017-09-27 22:10:11
+  typeInt: 1
