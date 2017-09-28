@@ -11,8 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require devise_bootstrap_views
- *= require_tree .
+ *= require bootstrap_and_overrides
+ *= require bootstrap-grid.min
+ *= require bootstrap-reboot.min
+ *= require static_pages
  *= require_self
  *= require font-awesome
  */
- 

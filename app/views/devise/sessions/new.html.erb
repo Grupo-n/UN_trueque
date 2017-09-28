@@ -1,5 +1,8 @@
-<div class="container">
+<% content_for :head do %>
+  <%= stylesheet_link_tag "welcome"%>
+<% end %>
 
+<div class="container">
   <div class="row">
     <div class="offset-md-4 col-md-4" style="padding: 10px">
       <%=image_tag("logoun.png", alt: "logo UNTrueque", id:"logo-unt", width:"100%")%>

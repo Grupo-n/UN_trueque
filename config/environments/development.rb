@@ -61,8 +61,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:      '',
-    password:       '',
+    user_name:      'un.truequeapp@gmail.com',
+    password:       'untrueque2017',
     domain:         'localhost:3000',
     address:       'smtp.gmail.com',
     port:          '587',

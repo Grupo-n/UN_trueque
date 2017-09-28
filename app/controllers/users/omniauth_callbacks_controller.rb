@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    # Implementaremos este método en nuestro modelo más adelante
+    
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
