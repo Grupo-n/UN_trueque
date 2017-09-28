@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  
   def index
   end
 
@@ -9,5 +10,7 @@ class WelcomeController < ApplicationController
       render '/welcome/index'
     end
   end
+  
+  
 
 end
