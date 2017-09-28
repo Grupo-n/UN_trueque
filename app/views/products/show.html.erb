@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="container">
+  <p>
+    <strong class="formLabel">Name:</strong>
+    <%= @product.name %>
+  </p>
+  
+  <p>
+    <strong class="formLabel">Description:</strong>
+    <%= @product.description %>
+  </p>
+  
+  <p>
+    <strong class="formLabel">Img:</strong>
+    <%= @product.img %>
+  </p>
+  
+  <p>
+    <strong class="formLabel">Typeint:</strong>
+    <%= @product.typeInt %>
+  </p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Img:</strong>
-  <%= @product.img %>
-</p>
-
-<p>
-  <strong>Typeint:</strong>
-  <%= @product.typeInt %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), {:class => "btn"}  %>
+<%= link_to 'Back', products_path, {:class => "btn"}  %>
