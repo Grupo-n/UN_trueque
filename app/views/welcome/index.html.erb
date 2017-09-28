@@ -17,16 +17,16 @@
         </h1>
 
         <p class="tagline">
-          Una app pensada para ayudarnos mutuamente.
+          <%=t :tagline %>
         </p>
       </div>
     </div>
     <div class="row login-btns">
       <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-4 col-md-2 text-center">
-        <a class="btn-log" href="/login">Ingresar</a>
+        <a class="btn-log" href="/login"><%=t :login %></a>
       </div>
       <div class="col-xs-12 offset-sm-3 col-sm-6 offset-md-0 col-md-2 text-center">
-        <a class="btn-log" href="/register">Registrarse </a>
+        <a class="btn-log" href="/register"><%=t :register %></a>
     </div>
 
     </div>
@@ -56,10 +56,10 @@
 
   <nav id="nav-menu-container">
     <ul class="nav-menu">
-      <li><a href="#about">Nosotros</a></li>
-      <li><a href="#features">Características</a></li>
-      <li><a href="#team">Equipo</a></li>
-      <li><a href="/contact">Contacto</a></li>
+      <li><a href="#about"><%=t :about %></a></li>
+      <li><a href="#features"><%=t :features %></a></li>
+      <li><a href="#team"><%=t :team %></a></li>
+      <li><a href="/contact"><%=t :contact %></a></li>
     </ul>
   </nav><!-- #nav-menu-container -->
 

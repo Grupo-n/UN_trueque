@@ -1,3 +1,10 @@
 es:
     hello: "¡Hola Mundo!"
     lemma: "¡Porque juntos podemos más!"
+    tagline: "Una app pensada para ayudarnos mutuamente."
+    login: "Ingresar"
+    register: "Registrarse"
+    about: "Nosotros"
+    features: "Caraterísticas"
+    team: "Equipo"
+    contact: "Contacto"
