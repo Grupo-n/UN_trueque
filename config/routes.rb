@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   resources :transactions
   resources :money
   resources :products
@@ -7,6 +8,11 @@ Rails.application.routes.draw do
   resources :items
   resources :people
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
+=======
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
+
+>>>>>>> github/miguelC-Spring2
   root :to => "welcome#new"
   get 'welcome/index'
   get 'static_pages/principal'
