@@ -69,42 +69,45 @@
 
 
       <% if current_user %>
+        <div class="navbar-wrapper" >
+            <div class="container-fluid">
+            <nav class="navbar navbar-fixed-top navbar-menu" id="navbar-menu">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><%=image_tag("logo-nav.png", alt: "logo UNTrueque", id:"logo-unt-nav")%></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
+                            <li><a href="addnew.html">Add New</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="" id="thumb-profile">
+                              <% if !current_user.nil? %>
+                                <% image_tag(current_user.avatar.url(:large)) %>
+                                <%= link_to  image_tag(current_user.avatar.url(:thumb)) , :user_edit %></li>
+                              <% end %>
+                            <li class=""><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
 
-      <div class="navbar-wrapper">
-        <div class="container-fluid">
-        <nav class="navbar navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Logo</a>
+                        </ul>
+                    </div>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" class="">Home</a></li>
-
-                        <li><a href="addnew.html">Add New</a></li>
-
-
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <li class=""><a href="#" class="" ><%= current_user.first_name %> <span class="glyphicon glyphicon-user"></span></a>                        </li>
-                        <li class=""><%= link_to  glyph(:"warning-sign") + " Logout", destroy_user_session_path, method: :delete %></li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
       </div>
       <% end %>
 
-
+      <div id="contenido">
         <%= yield %>
+      </div>
+
+
       <footer>
         <p>&copy; UN Trueque 2017</p>
       </footer>

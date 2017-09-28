@@ -15,6 +15,90 @@
  *= require bootstrap-grid.min
  *= require bootstrap-reboot.min
  *= require static_pages
- *= require_self
+ *= require application
  *= require font-awesome
  */
+ /*--------CONTENIDO---------------------------*/
+ html{
+   overflow: scroll;
+ }
+  #contenido{
+    margin-top: 70px;
+  }
+
+  .center{
+    text-align: center;
+  }
+
+
+/*---------------------FORMULARIOS---------------*/
+.panel{
+  margin-top: 30px;
+}
+.panel label{
+  font-size: 15px;
+}
+
+.btn-full{
+  width: 100%;
+}
+
+.my-btn{
+  font-size: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  background: #53a1af;
+  color: #FFF;
+}
+
+.my-btn:hover {
+  border: 2px solid #53a1af;
+  background: #fff;
+  color: #53a1af;
+}
+
+ /*------------------NAVBAR-------------------*/
+ #navbar-menu{
+   height: 70px;
+   background-color: #1c5664;
+ }
+
+ #navbar-menu #navbar{
+   height: 70px !important;
+ }
+
+#logo-unt-nav{
+  width: 200px;
+}
+
+
+.navbar-nav>li>a {
+    font-size: 18px;
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.navbar-nav>li>a:hover {
+    background-color: #3dadda;
+    font-size: 18px;
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.navbar-nav .glyphicon{
+  font-size: 14px;
+}
+
+
+#thumb-profile a{
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+}
+#thumb-profile img{
+  border-radius: 70px;
+  border:2px solid;
+}

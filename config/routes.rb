@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root :to => "welcome#new"
   get 'welcome/index'
-  get 'static_pages/principal'
+  get 'static_pages/principal' , :as => :user_home
   get '/contact' => 'welcome#contact'
+  as :user do
+    get 'users/profile', :to => 'devise/registrations#edit', :as => :user_edit
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
