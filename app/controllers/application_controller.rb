@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   #def after_sign_in_path_for(resource)
   #  '/static_pages/principal'
-  #end
+  #aend
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar, :avatar_cache])
