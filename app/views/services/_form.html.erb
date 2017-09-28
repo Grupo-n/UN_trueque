@@ -1,5 +1,5 @@
 <div class="container">  
-  <%= form_with(model: service, local: true) do |form| %>
+  <%= form_with(model: service, local: true, :html => {:class => 'form-horizontal'}) do |form| %>
     <% if service.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
@@ -11,29 +11,37 @@
         </ul>
       </div>
     <% end %>
-  
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :service_name %>
+    
+    <div class="form-group">
+      <%= form.label :name , {:class => "control-label col-xs-2 formLabel"} %>
+      <div class="col-xs-6">
+        <%= form.text_field :name, id: :service_name, class: 'form-control formInput' %>
+      </div>
     </div>
   
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_field :description, id: :service_description %>
+    <div class="form-group">
+      <%= form.label :description, {:class => "control-label col-xs-2 formLabel"} %>
+      <div class="col-xs-6">
+        <%= form.text_field :description, id: :service_description, class: 'form-control formInput' %>
+      </div>
     </div>
   
-    <div class="field">
-      <%= form.label :duration %>
-      <%= form.time_select :duration, id: :service_duration %>
+    <div class="form-group">
+      <%= form.label :duration, {:class => "control-label col-xs-2 formLabel"} %>
+      <div class="col-xs-6">
+        <%= form.time_select :duration, id: :service_duration, class: 'form-control formInput' %>
+      </div>
     </div>
   
-    <div class="field">
-      <%= form.label :typeInt %>
-      <%= form.number_field :typeInt, id: :service_typeInt %>
+    <div class="form-group">
+      <%= form.label :typeInt, {:class => "control-label col-xs-2 formLabel"} %>
+      <div class="col-xs-6">
+        <%= form.number_field :typeInt, id: :service_typeInt, class: 'form-control formInput' %>
+      </div>
     </div>
   
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit nil, class:"btn" %>
     </div>
   <% end %>
 </div>
