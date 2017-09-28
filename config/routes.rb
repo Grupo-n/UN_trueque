@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contactus/index'
+
   get '/contact' => 'welcome#contact'
 
 
