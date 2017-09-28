@@ -32,7 +32,7 @@
 en:
   hello: "Hello world!"
   lemma: "Beacause together we can do more!"
-  tagline "An app designed to help us each other."
+  tagline: "An app designed to help us each other."
   login: "Login"
   register: "Register"
   about: "Aoout us"
