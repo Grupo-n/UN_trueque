@@ -54,10 +54,10 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
                     :address        => "smtp.gmail.com",
                     :port           => 587,
-                    :domain         => "untrueque.herokuapp.com",
                     :authentication => :plain,
-                    :user_name      => ENV["GMAIL_USERNAME"],
-                    :password       => ENV["GMAIL_PASSWORD"],
+                    :domain         => "untrueque.herokuapp.com",
+                    :user_name      => "un.truequeapp@gmail.com",
+                    :password       => "untrueque2017",
                     :openssl_verify_mode  => 'none'
   }
   # Print deprecation notices to the Rails logger.
