@@ -71,7 +71,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'untrueque2.herokuapp.com'}
 
   config.action_mailer.delivery_method = :smtp
 
@@ -90,8 +90,8 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
                     :address        => "smtp.gmail.com",
                     :port           => 587,
+                    :domain         => "untrueque2.herokuapp.com",
                     :authentication => :plain,
-                    :domain         => "untrueque.herokuapp.com",
                     :user_name      => "un.truequeapp@gmail.com",
                     :password       => "untrueque2017",
                     :openssl_verify_mode  => 'none'
