@@ -92,7 +92,7 @@ Rails.application.configure do
                     :port           => 587,
                     :domain         => "untrueque.herokuapp.com",
                     :authentication => :plain,
-                    :user_name      => ENV["GMAIL_USERNAME",
+                    :user_name      => ENV["GMAIL_USERNAME"],
                     :password       => ENV["GMAIL_PASSWORD"],
                     :openssl_verify_mode  => 'none'
   }
