@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   #before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: [:index, :contact, :new]
+  before_action :authenticate_user!, except: [:index, :contact, :new, :products, :services]
 
   #def after_sign_in_path_for(resource)
   #  '/static_pages/principal'
