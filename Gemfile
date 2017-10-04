@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use devise for authentication
 gem 'paperclip'
 
+#Use dotenv for environment variables
+gem 'dotenv-rails'
+
 gem 'devise'
 #Use twitter-bootstrap-rails
 gem 'twitter-bootstrap-rails'
