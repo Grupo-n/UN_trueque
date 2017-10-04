@@ -1,11 +1,23 @@
 <h1>Página principal</h1>
 <p>Página donde estarán ubicados los productos.</p>
 
-<p>Productos: </p>
-<% if @products.blank? %>
+<h1>Productos: </h1>
+<% if @all.blank? %>
 <p>No hay</p>
 <% else %>
-<p>Si hay</p>
+<div class="container">
+    <div class="row">
+      <% @all.each do |a| %>
+      <div class="col-xs-4">
+        <div class="prodGrid">
+          <a href="#">
+            <p><%= a.id %></p>
+          </a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <%= link_to "logout", destroy_user_session_path, method: :delete %>
