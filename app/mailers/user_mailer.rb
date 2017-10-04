@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "notificaciones@untrueque.com"
+  default from: "un.truequeapp@gmail.com"
   default to: "un.truequeapp@gmail.com"
 
   def welcome_email(user)

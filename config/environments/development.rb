@@ -27,6 +27,10 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
+  config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
@@ -35,6 +39,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+=begin
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -43,6 +48,17 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
+  }
+=end
+
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :authentication => :plain,
+                    :domain         => "untrueque.herokuapp.com",
+                    :user_name      => "un.truequeapp@gmail.com",
+                    :password       => "untrueque2017",
+                    :openssl_verify_mode  => 'none'
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

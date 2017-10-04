@@ -46,17 +46,17 @@
           <%= form_for @message, url: contact_path do |message_form| %>
           <fieldset>
               <div class="form-group">
-                <%= message_form.text_field :name, placeholder: "Nombre" %>
+                <%= message_form.text_field :name, placeholder: "Tu Nombre", class: "form-control"%>
               </div>
               <div class="form-group">
-                 <%= message_form.email_field :email, placeholder: "Email"%>
+                 <%= message_form.email_field :email, placeholder: "Email", class: "form-control" %>
               </div>
               <div class="form-group">
-                <%= message_form.text_area :content, placeholder: "Message"%>
+                <%= message_form.text_area :content, placeholder: "Mensaje", class: "form-control", rows: "5"%>
               </div>
           </fieldset>
               <div class="text-center"><button type="submit">Envíar mensaje</button></div>
-                <%= message_form.submit "Send" %>
+
           </form>
         </div>
       </div>

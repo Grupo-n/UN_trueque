@@ -61,14 +61,21 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "un_trueque_#{Rails.env}"
   #config.action_mailer.perform_caching = false
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://untruque2.herokuapp.com/'}
 
   config.action_mailer.delivery_method = :smtp
 
+=begin
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -77,6 +84,17 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
+  }
+=end
+
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :domain         => "untrueque2.herokuapp.com",
+                    :authentication => :plain,
+                    :user_name      => "un.truequeapp@gmail.com",
+                    :password       => "untrueque2017",
+                    :openssl_verify_mode  => 'none'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -103,22 +121,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-  
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name:      'un.truequeapp@gmail.com',
-    password:       'untrueque2017',
-    domain:         'localhost:3000',
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
-  
-  
+
+
+
+
 end
