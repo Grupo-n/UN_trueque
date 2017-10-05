@@ -5,6 +5,7 @@
 <% if @all.blank? %>
 <p>No hay</p>
 <% else %>
+<%= current_user.id %>
 <div class="container">
     <div class="row">
       <% @all.each do |a| %>
