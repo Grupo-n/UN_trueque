@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'home/show'
+
   resources :products
   resources :services
 
@@ -19,4 +25,12 @@ Rails.application.routes.draw do
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
+
 end
