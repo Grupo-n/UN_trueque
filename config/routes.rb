@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
-
-<<<<<<< HEAD
-
   get 'my_products/index'
 
-  resources :products
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
-=======
   get 'sessions/create'
 
   get 'sessions/destroy'
@@ -15,10 +9,8 @@ Rails.application.routes.draw do
   get 'home/show'
 
   resources :products
-  resources :services
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
->>>>>>> github/Oct04Gabriela
 
   root :to => "welcome#new"
   get 'welcome/index'
