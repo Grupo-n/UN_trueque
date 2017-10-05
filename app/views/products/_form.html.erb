@@ -11,21 +11,25 @@
         </ul>
       </div>
     <% end %>
-    
+    <div class="field">
+      <%= form.file_field :image %>
+    </div>
+
     <div class="form-group">
+
       <%= form.label :name, {:class => "control-label col-xs-2 formLabel"}%>
       <div class="col-xs-6">
         <%= form.text_field :name, id: :product_name, class: 'form-control formInput'%>
       </div>
     </div>
-    
+
     <div class="form-group">
       <%= form.label :description, {:class => "control-label col-xs-2 formLabel"}%>
       <div class="col-xs-6">
         <%= form.text_field :description, id: :product_description, class: 'form-control formInput'%>
       </div>
     </div>
-    
+
     <div class="form-group">
       <%= form.label :img, {:class => "control-label col-xs-2 formLabel"} %>
       <div class="col-xs-6">
@@ -39,11 +43,11 @@
         <%= form.number_field :typeInt, id: :product_typeInt, class: 'form-control formInput'  %>
       </div>
     </div>
-    
+
     <div class="actions">
       <%= form.submit nil, class:"btn" %>
     </div>
   <% end %>
-  
-  
+
+
 </div>

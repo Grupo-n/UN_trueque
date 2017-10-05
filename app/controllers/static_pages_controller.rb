@@ -5,7 +5,6 @@ class StaticPagesController < ApplicationController
 
   def profileInformation
     render '/static_pages/profileInformation'
-
   end
 
 end

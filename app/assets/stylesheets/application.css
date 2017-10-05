@@ -138,3 +138,14 @@
 #myTabs{
   border-bottom: 2px solid #199EB8;
 }
+
+
+/*Productos y servicios*/
+.my-item {
+  border: 2px solid #1d5664 !important;
+  margin-top: 20px !important;
+}
+.my-item img{
+  width: 100%;
+  height: 300px;
+}

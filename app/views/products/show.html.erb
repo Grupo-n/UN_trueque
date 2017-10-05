@@ -1,21 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
+
+  <%= image_tag @product.image.url(:medium) %>
+
   <p>
     <strong class="formLabel">Name:</strong>
     <%= @product.name %>
   </p>
-  
+
   <p>
     <strong class="formLabel">Description:</strong>
     <%= @product.description %>
   </p>
-  
+
   <p>
     <strong class="formLabel">Img:</strong>
     <%= @product.img %>
   </p>
-  
+
   <p>
     <strong class="formLabel">Typeint:</strong>
     <%= @product.typeInt %>

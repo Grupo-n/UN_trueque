@@ -5,20 +5,36 @@
 <% if @services.blank? %>
 <p> No hay productos</p>
 <% else %>
+<section class="team" id="team">
   <div class="container">
     <div class="row">
       <% @services.each do |d| %>
-      <div class="col-xs-4">
-        <div class="prodGrid">
+      <div class="col-sm-4">
+        <div class="card card-block my-item">
           <a href="#">
-            <p><%= d.name %></p>
-            <p><%= d.description %></p>
+              <%= image_tag d.image_service.url(:medium), class:"team-img" %>
+              <div class="card-title-wrap">
+                <span class="card-title"><%= d.name %></span> <span class="card-text">Tipo: intercambio/venta/donacion</span>
+              </div>
           </a>
+          <div class="team-over">
+            <a href="#">
+            <h4 class="hidden-md-down">
+              Ver Servicio!!
+            </h4>
+
+            </a>
+
+            <p>
+              <%= d.description%>
+            </p>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+</section>
 <% end %>
 
 
