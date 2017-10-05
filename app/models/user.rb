@@ -24,5 +24,12 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome_email(self).deliver!
   end
+  
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.first_name = auth.info.name
+      user.save!
+    end
+  end
 
 end

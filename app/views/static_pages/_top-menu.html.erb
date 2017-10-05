@@ -1,0 +1,32 @@
+<div class="navbar-wrapper" >
+    <div class="container-fluid">
+    <nav class="navbar navbar-fixed-top navbar-menu" id="navbar-menu">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><%=image_tag("logo-nav.png", alt: "logo UNTrueque", id:"logo-unt-nav")%></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
+                    <li><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Vender!"  %></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="" id="thumb-profile">
+                      <% if !current_user.nil? %>
+                        <% image_tag(current_user.avatar.url(:large)) %>
+                        <%= link_to  image_tag(current_user.avatar.url(:thumb)) , :user_information %></li>
+                      <% end %>
+                    <li class=""><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+</div>

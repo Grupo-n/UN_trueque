@@ -23,3 +23,14 @@
   <%= link_to t('.sign_in_with_provider', provider: provider.to_s.titleize, default: "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider) %><br />
   <% end %>
 <% end %>
+
+
+<% if current_user %>
+  Signed in as <strong><%= current_user.name %></strong>!
+  <%= link_to "Sign out", signout_path, id: "sign_out" %>
+<% else %>
+  <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+<% end %>
+
+<%= yield %>
+
