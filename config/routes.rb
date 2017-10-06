@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-
-
   resources :products
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
-
+  
   root :to => "welcome#new"
+  
+  get 'my_products/index'
+  get 'my_products/myobjects'
+  get 'my_products/myservices'
+  
   get 'welcome/index'
   get 'static_pages/principal' , :as => :user_home
   as :user do
@@ -13,5 +16,5 @@ Rails.application.routes.draw do
   end
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
 end
