@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
-
+<h1>Mis servicios</h1>
+<% if @products.blank? %>
+<p>No hay</p>
+<% else %>
 <table>
   <thead>
     <tr>
@@ -25,10 +25,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<center>
-  <%= link_to 'New Product', new_product_path, {:class => "btn"} %>
-</center>
-
+<% end %>

@@ -1,26 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <p>
-    <strong class="formLabel">Name:</strong>
-    <%= @product.name %>
-  </p>
-  
-  <p>
-    <strong class="formLabel">Description:</strong>
-    <%= @product.description %>
-  </p>
-  
-  <p>
-    <strong class="formLabel">Img:</strong>
-    <%= @product.img %>
-  </p>
-  
-  <p>
-    <strong class="formLabel">Typeint:</strong>
-    <%= @product.typeInt %>
-  </p>
-</div>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
 
-<%= link_to 'Edit', edit_product_path(@product), {:class => "btn"}  %>
-<%= link_to 'Back', products_path, {:class => "btn"}  %>
+<p>
+  <strong>P type:</strong>
+  <%= @product.p_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
