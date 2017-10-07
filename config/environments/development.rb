@@ -41,8 +41,8 @@ Rails.application.configure do
     domain: "untrueque.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD']
+    user_name: ENV['GMAIL_USERNAMED'],
+    password: ENV['GMAIL_PASSWORDD']
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
