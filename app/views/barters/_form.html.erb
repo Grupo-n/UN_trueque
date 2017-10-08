@@ -1,0 +1,22 @@
+<%= form_with(model: barter, local: true) do |form| %>
+  <% if barter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(barter.errors.count, "error") %> prohibited this barter from being saved:</h2>
+
+      <ul>
+      <% barter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :barter_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
