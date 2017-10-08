@@ -138,3 +138,35 @@
 #myTabs{
   border-bottom: 2px solid #199EB8;
 }
+
+/*************Productos y servicios********************/
+.mt30{
+  margin-top: 30px;
+}
+
+.my-item {
+  border: 2px solid #1d5664 !important;
+  margin-top: 20px !important;
+}
+.my-item img{
+  width: 100%;
+  height: 300px;
+}
+
+.myh1{
+  margin-top: 20px;
+  color: #31708f;
+  border-bottom: 3px solid  #319eb8;
+  padding-bottom: 10px;
+}
+.form-control{
+  border: 2px solid #319eb8 !important;
+}
+.myform{
+  margin-top: 30px;
+}
+
+.img-fullproduct{
+  border: 7px solid #3dadda;
+  border-radius: 50%;
+}

@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
       end
     end
   end
-  
+
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
@@ -70,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :p_type, :description)
+      params.require(:product).permit(:product_image, :name, :p_type, :description)
     end
 end
