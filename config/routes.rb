@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :my_publications
   resources :products
   resources :services
 
