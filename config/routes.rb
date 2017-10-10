@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :choose_offers
+  resources :offers
   resources :my_publications
   resources :products
   resources :services
