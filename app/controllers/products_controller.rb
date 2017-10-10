@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
   
   def offer
+    @barter = Barter.new
     @myproducts = current_user.products.all
   end
 

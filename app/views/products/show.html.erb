@@ -1,21 +1,23 @@
 <p id="notice"><%= notice %></p>
+
 <div class="row">
     <div class="offset-md-3 col-md-6 center">
       <h1 class="myh1">Información del producto</h1>
     </div>
 </div>
+
 <div class="row">
   <div class="offset-md-4 col-md-4 center">
       <%= image_tag @product.product_image.url(:medium), class: "img-fullproduct mt30"%>
   </div>
 </div>
+
 <div class="row">
   <div class="offset-md-4 col-md-4 mt30">
     <h3 class="t-information"><strong>Name:</strong><%= @product.name %></h3>
     <h3 class="t-information"><strong>P type:</strong><%= @product.p_type %></h3>
     <h3 class="t-information">  <strong>Description:</strong><%= @product.description %></h3>
   </div>
-
 </div>
 
 <div class="row">
