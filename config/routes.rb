@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'my_products/myobjects'
   get 'my_products/myservices'
   
+  get 'products/:id/offer' => "products#offer", as: 'offer'
+  
   get 'welcome/index'
   get 'static_pages/principal' , :as => :user_home
 
