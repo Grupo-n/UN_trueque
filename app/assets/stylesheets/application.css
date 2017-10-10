@@ -20,12 +20,12 @@
  *= require style
  */
  /*--------CONTENIDO---------------------------*/
- html{
-   overflow: scroll;
- }
-  #contenido{
-    margin-top: 70px;
-  }
+html{
+  overflow: scroll;
+}
+#contenido{
+  margin-top: 70px;
+}
 
   .center{
     text-align: center;
@@ -169,4 +169,20 @@
 .img-fullproduct{
   border: 7px solid #3dadda;
   border-radius: 50%;
+}
+
+
+/*************Productos y servicios********************/
+
+
+/*************Offer********************/
+.float-right{
+  float: right;
+}
+
+.margin-top{
+  margin-top: 145px;
+}
+.full-width{
+  width: 100%;
 }
