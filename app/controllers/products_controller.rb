@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
   
   def offer
+    @myproducts = current_user.products.all
   end
 
   # GET /products/1

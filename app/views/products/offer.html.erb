@@ -1,2 +1,8 @@
-
+<h1>Producto a ofertar</h1>
 <%= @product.name %>
+
+<h1>Mis productos (los que voy a ofrecer)</h1>
+<% @myproducts.each do |d| %>
+<%= d.name %>
+<br>
+<% end %>
