@@ -5,4 +5,5 @@
     <h2><%= b.description %></h2>
     <h3><%= b.product_one_id %></h3>
     <h3><%= b.product_two_id %></h3>
+    <td><%= link_to 'Aceptar', my_offer_path(b), data: { confirm: 'Estás seguro?' } %></td>
 <% end %>
