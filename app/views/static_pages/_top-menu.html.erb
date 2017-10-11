@@ -14,7 +14,14 @@
     		    <li class><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
     		    <li><%= link_to  glyph(:"glyphicon glyphicon-shopping-cart") + "  Vender"  %></li>
     		    <% if !current_user.nil? %>
-    		        <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", :user_information %></li>
+    		        <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", nil, { :class => 'dropdown-toggle', 'data-toggle' => 'dropdown' } %>
+    		        <!--li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1</a-->
+                        <ul class="dropdown-menu">
+                            <li><%= link_to  "Mis Productos", :myobjects %></li>
+                            <li><%= link_to  "Mis Perfil", :user_information %></li>
+                        </ul>
+                    </li>
+    		        
                        
                 <% end %>
                 <li class=""><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
