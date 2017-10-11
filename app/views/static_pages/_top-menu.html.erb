@@ -1,27 +1,24 @@
-<div class="navbar-wrapper" >
+<nav id="navbar-menu" class="navbar navbar-default navbar-static-top navbar-fixed-top">
     <div class="container-fluid">
-<nav id="navbar-menu" class="navbar navbar-default navbar-static-top navbar-fixed-top navbar-menu">
-    <div class="container-fluid navbar">
     	<div class="navbar-header">
-    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
     			<span class="icon-bar"></span>
        			<span class="icon-bar"></span>
       			<span class="icon-bar"></span>  
     		<!--i class="fa fa-bars"></i-->                   
      		</button>
-      		<a class="navbar-brand" href="#"><%=image_tag("logo-nav.png", alt: "logo UNTrueque", id:"logo-unt-nav")%></a>
+      		<%= link_to image_tag("logo-nav.png", alt: "logo UNTrueque", id:"logo-unt-nav"), :user_home, class:"navbar-brand" %>
     	</div>
-    <div class="collapse navbar-collapse" id="Navbar">
+    <div id="navbar" class="collapse navbar-collapse">
     		<ul class="nav navbar-nav navbar-right">
-    		<li><a href="#">Home</a></li>
-    		<li><a href="#">Quienes Somos</a></li>
-            	<li><a href="#">Servicios</a></li>
-    	        <li><a href="#">Metodolog�a</a></li>
-    		<li><a href="#">Socios</a></li>
-    		<li><a href="#">Contáctenos</a></li>
+    		    <li class><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
+    		    <li><%= link_to  glyph(:"glyphicon glyphicon-shopping-cart") + "  Vender"  %></li>
+    		    <% if !current_user.nil? %>
+    		        <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", :user_information %></li>
+                       
+                <% end %>
+                <li class=""><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
     		</ul>
     </div>
     </div>
 </nav>
-</div>
-</div>

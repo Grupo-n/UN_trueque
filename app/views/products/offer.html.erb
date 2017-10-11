@@ -10,26 +10,106 @@
   <%= stylesheet_link_tag "application" %>
 </head>
 <body>
-
-
-<div class="container margin-top">
-    
-    <div class="row">
-        <div class="col-sm-6">
-          <%= link_to  "Nuevo", :offer,class:"btn" %>
+    <div class="content margin-top">
+        <div class="row">
+            <div class="offset-sm-2 col-sm-8">
+                <div class="panel panel-default devise-bs">
+                    <div class="panel-heading">
+                        <h2 style="padding:0; margin:0;">Ofertar</h2>
+                    </div>
+                    <div class="panel-body">
+                        <form class="margin-5-50">
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio">Producto
+                            </label>
+                            <label class="radio-inline disabled">
+                                <input type="radio" name="optradio" disabled='disabled'>Gratuito
+                            </label>
+                            <label class="radio-inline disabled">
+                                <input type="radio" name="optradio" disabled='disabled'>Servicio
+                            </label>
+                        </form>
+                        
+                        <div class="row margin-25">
+                            <div class="col-sm-6">
+                              <%= link_to  "Nuevo", :offer,class:"btn margin-5" %>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-right margin-5" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                                <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>'#modal' } %-->
+                            </div>
+                        </div>
+                        
+                        <form class="full-width margin-5-50">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" id="comment" placeholder="Añade un comentario a tu oferta"></textarea>
+                            </div>
+                            <label class="checkbox-inline float-right ">
+                                <input type="checkbox" value="">Añadir mi Ubicación
+                            </label>
+                            <br><br>
+                        </form>
+                        <%= link_to  "Ofertar", :offer, class:"btn float-right margin-5" %>
+                    </div>
+                </div>
+            </div>  
         </div>
-        <div class="col-sm-6">
-          <%= link_to  "Mis Productos", :offer,class:"btn float-right" %>
+  </div>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="thumbnail opacity">
+                                    <a href="#">
+                                        <%= image_tag("product01.jpg", alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %>
+                                        <div class="caption">
+                                            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="thumbnail opacity">
+                                    <a href="">
+                                        <%= image_tag("product04.jpg", alt: "Calculo", style:"width:100%; height:auto", class:"img-rounded") %>
+                                        <div class="caption">
+                                            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="thumbnail opacity">
+                                    <a href="">
+                                        <%= image_tag("service02.jpg", alt: "Acarreo", style:"width:100%; height:auto", class:"img-rounded") %>
+                                        <div class="caption">
+                                            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <form class="full-width margin-top">
-        <div class="form-group" style="width:100%; margin-top:150;">
-            <textarea class="form-control" rows="5" id="comment" placeholder="Añade un comentario a tu oferta"></textarea>
-        </div>
-    </form>
-    <%= link_to  "Ofertar", :offer, class:"btn float-right" %>
-</div>
+
+
+
 </body>
 </html>
 
