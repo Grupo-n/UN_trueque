@@ -1,0 +1,22 @@
+<h1>Producto a ofertar</h1>
+<%= @product.name %>
+
+<h1>Mis productos (los que voy a ofrecer)</h1>
+<% @myproducts.each do |d| %>
+<%= d.name %>
+<br>
+<% end %>
+
+<h1>Formulario</h1>
+<%= @barter.product_one_id = @product.id %>
+<%= @barter.product_two_id = @myproducts.find(5).id %>
+
+<%= form_for @barter do |b| %>
+    <%= b.label :description %>
+    <%= b.text_field :description %>
+    
+    <%= b.hidden_field :product_one_id, :value => @product.id %>
+    <%= b.hidden_field :product_two_id, :value => @myproducts.find(5).id %>
+    
+    <%= b.button :submit %>
+<% end %>

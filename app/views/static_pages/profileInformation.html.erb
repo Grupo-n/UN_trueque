@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+      <div class="offset-md-3 col-md-6 center">
+          <h2 class="t-title">Informacion de perfil</h2>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="offset-md-2 col-md-3 center">
+        <% if !current_user.nil? %>
+          <%= image_tag(current_user.avatar.url(:large) , class: "img-full") %></li>
+        <% end %>
+
+        <h3 class="t-information"><%= current_user.first_name + current_user.last_name  %></h3>
+        <h3 class="t-information"><%= current_user.email %></h3>
+        <h3 class="t-information">3217456987</h3>
+
+
+        <%= link_to  "Editar información" , :user_edit, class:"btn btn-full my-btn" %>
+
+
+      </div>
+      <div class="offset-md-1 col-md-4 center">
+        <ul class="nav nav-pills" role="tablist" id="myTabs">
+           <li role="presentation" class="active"><a id="tab1" href="#paneltab1" aria-controls="home" role="tab" data-toggle="tab"class="my-tabs" >Mis compras/cambios</a></li>
+           <li role="presentation" ><a id="tab2" href="#paneltab2" aria-controls="profile" role="tab" data-toggle="tab" class="my-tabs">Mis ventas/servicios</a></li>
+         </ul>
+
+         <!-- Tab panes -->
+         <div class="tab-content">
+           <div role="tabpanel" class="tab-pane active" id="paneltab1">Productos/servicios comprados....</div>
+           <div role="tabpanel" class="tab-pane" id="paneltab2">Productos/servicios vendidos</div>
+
+         </div>
+      </div>
+
+      </div>
+  </div>
+
+
+</div>
+
+<script type="text/javascript">
+$('#myTabs a').click(function (e) {
+    $(this).tab('show')
+})
+</script>
+
+<%= link_to t('.back', default: 'Regresar'), :back %>

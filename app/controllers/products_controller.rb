@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :offer]
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+  end
+  
+  def offer
+    @barter = Barter.new
+    @myproducts = current_user.products.all
   end
 
   # GET /products/1
@@ -27,6 +32,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     respond_to do |format|
+      @product.user = current_user
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
@@ -69,6 +75,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :img, :typeInt)
+      params.require(:product).permit(:product_image, :name, :p_type, :description)
     end
 end

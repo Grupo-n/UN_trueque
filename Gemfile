@@ -29,6 +29,8 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
+gem 'jquery-turbolinks'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -50,6 +52,8 @@ gem 'omniauth-facebook'
 gem 'bootstrap', '~> 4.0.0.alpha'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
+
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

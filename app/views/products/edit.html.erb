@@ -1,6 +1,10 @@
-<div class="container prodh1"><h1>Editing Product</h1></div>
+<div class="row">
+    <div class="offset-md-3 col-md-6 center">
+      <h1 class="myh1">Edita tu producto</h1>
+    </div>
+</div>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product, {:class => "btn"} %> 
-<%= link_to 'Back', products_path, {:class => "btn"} %>
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>

@@ -17,8 +17,8 @@ Rails.application.configure do
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
-  config.read_encrypted_secrets = true
 
+  config.read_encrypted_secrets = true
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
@@ -61,14 +61,21 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "un_trueque_#{Rails.env}"
   #config.action_mailer.perform_caching = false
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.default_url_options = { host: 'https://untruque2.herokuapp.com/'}
   config.action_mailer.delivery_method = :smtp
 
+=begin
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -79,6 +86,17 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :domain         => "untrueque2.herokuapp.com",
+                    :authentication => :plain,
+                    :user_name      => "un.truequeapp@gmail.com",
+                    :password       => "untrueque2017",
+                    :openssl_verify_mode  => 'none'
+  }
+=end
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

@@ -5,9 +5,9 @@ class WelcomeController < ApplicationController
 
   def new
     if current_user
-      render '/static_pages/principal'
+      redirect_to user_home_path
     else
-      render '/welcome/index'
+      redirect_to welcome_index_path
     end
   end
   

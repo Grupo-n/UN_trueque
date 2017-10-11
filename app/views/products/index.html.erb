@@ -1,28 +1,46 @@
-<!--p id="notice"><%= notice %></p-->
-
-<div class="container prodh1"><h1>Productos</h1></div>
-
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="offset-md-2 col-md-8 center">
+    <h1 class="myh1">Products</h1>
+  </div>
+</div>
 
 <% if @products.blank? %>
 <p> No hay productos</p>
 <% else %>
+<section class="team" id="team">
   <div class="container">
     <div class="row">
       <% @products.each do |d| %>
-      <div class="col-xs-4">
-        <div class="prodGrid">
+      <div class="col-sm-4">
+        <div class="card card-block my-item">
           <a href="#">
-            <p><%= d.name %></p>
-            <p><%= d.description%></p>
+              <%= image_tag d.product_image.url(:medium), class:"team-img" %>
+              <div class="card-title-wrap">
+                <span class="card-title"><%= d.name %></span> <span class="card-text"><%= d.p_type %></span>
+                <span><%= link_to 'Show', d %></span>
+                <span><%= link_to 'Edit', edit_product_path(d) %></span>
+                <span><%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
           </a>
+          <div class="team-over">
+            <a href="#">
+            <h4 class="hidden-md-down">
+              Ver Producto!!
+            </h4>
+
+            </a>
+            <p>
+              <%= d.description%>
+            </p>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+</section>
 <% end %>
-
-<br>
 
 <center>
   <%= link_to 'New Product', new_product_path, {:class => "btn"} %>
