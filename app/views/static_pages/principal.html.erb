@@ -45,6 +45,5 @@
   </div>
 </section>
 <% end %>
-
-
+<ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg" %> </ul>
 <%= link_to "logout", destroy_user_session_path, method: :delete %>
