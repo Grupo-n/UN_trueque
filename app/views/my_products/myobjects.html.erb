@@ -14,18 +14,19 @@
           <%  if @cont%4 == 0 %>
             <div class="thumbnail">
               <div class="opacity">
-                <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
-                  <!--%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %-->
+                <%= link_to my_offer_path(p) do %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
                   <div class="caption">
                     <h4><%= p.name %></h4>
-                    <h6><%= p.p_type %></h6>
+                    <% if p.p_type == 1 %>
+                      <p>Producto</p>
+                    <% else %>
+                      <p>Servicio</p>
+                    <% end %>
                     <p><%= p.description  %></p>
                   </div>
-                </a>
+                <% end %>
               </div>
-              <span><%= link_to 'Edit', edit_product_path(p) %></span>
-              <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></span>
             </div>
           <%  end %>
           <% @cont = @cont + 1 %>
@@ -38,17 +39,19 @@
           <%  if @cont%4 == 1 %>
             <div class="thumbnail">
               <div class="opacity">
-                <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
+                <%= link_to my_offer_path(p) do %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
                   <div class="caption">
                     <h4><%= p.name %></h4>
-                    <h6><%= p.p_type %></h6>
+                    <% if p.p_type == 1 %>
+                      <p>Producto</p>
+                    <% else %>
+                      <p>Servicio</p>
+                    <% end %>
                     <p><%= p.description  %></p>
                   </div>
-                </a>
+                <% end %>
               </div>
-              <span><%= link_to 'Edit', edit_product_path(p) %></span>
-              <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></span>
             </div>
           <%  end %>
           <% @cont = @cont + 1 %>
@@ -61,17 +64,19 @@
           <%  if @cont%4 == 2 %>
             <div class="thumbnail">
               <div class="opacity">
-                <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
+                <%= link_to my_offer_path(p) do %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
                   <div class="caption">
                     <h4><%= p.name %></h4>
-                    <h6><%= p.p_type %></h6>
+                    <% if p.p_type == 1 %>
+                      <p>Producto</p>
+                    <% else %>
+                      <p>Servicio</p>
+                    <% end %>
                     <p><%= p.description  %></p>
                   </div>
-                </a>
+                <% end %>
               </div>
-              <span><%= link_to 'Edit', edit_product_path(p) %></span>
-              <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></span>
             </div>
           <%  end %>
           <% @cont = @cont + 1 %>
@@ -84,17 +89,19 @@
           <%  if @cont%4 == 3 %>
             <div class="thumbnail">
               <div class="opacity">
-                <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
+                <%= link_to my_offer_path(p) do %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
                   <div class="caption">
                     <h4><%= p.name %></h4>
-                    <h6><%= p.p_type %></h6>
+                    <% if p.p_type == 1 %>
+                      <p>Producto</p>
+                    <% else %>
+                      <p>Servicio</p>
+                    <% end %>
                     <p><%= p.description  %></p>
                   </div>
-                </a>
+                <% end %>
               </div>
-              <span><%= link_to 'Edit', edit_product_path(p) %></span>
-              <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></span>
             </div>
           <%  end %>
           <% @cont = @cont + 1 %>
