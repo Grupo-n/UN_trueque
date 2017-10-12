@@ -90,7 +90,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
                     :address        => "smtp.gmail.com",
                     :port           => 587,
-                    :domain         => "untrueque2.herokuapp.com",
+                    :domain         => "untrueque.herokuapp.com",
                     :authentication => :plain,
                     :user_name      => "un.truequeapp@gmail.com",
                     :password       => "untrueque2017",
