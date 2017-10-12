@@ -15,7 +15,7 @@ class MyProductsController < ApplicationController
   end
 
   def offer
-    @barters = Barter.where("product_one_id = ?", @product.id)
+    @barters = Barter.where("product_one_id = ?", @product.id).paginate(:page => params[:page], :per_page => 4)
   end
 
   private

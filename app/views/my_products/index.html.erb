@@ -3,11 +3,16 @@
     <div class="row">
       <h2 class="myh">Mis Productos y Servicios</h2>
     </div>
+    
     <% if @products.blank? %>
     <h4>Debes agregar productos</h4>
     <% else %>
+    
     <div class="row">
-
+      <%= link_to 'Nuevo', new_product_path, class:'btn float-right margin-5' %>
+    </div>
+    
+    <div class="row">
       <% @cont = 0 %>
       <div class="col-xs-3">
         <% @products.each do |p| %>
