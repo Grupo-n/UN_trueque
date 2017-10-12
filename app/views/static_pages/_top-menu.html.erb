@@ -17,7 +17,9 @@
     		        <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", nil, { :class => 'dropdown-toggle', 'data-toggle' => 'dropdown' } %>
     		        <!--li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1</a-->
                         <ul class="dropdown-menu">
-                            <li><%= link_to  "Mis Productos y Servicios", :myObjectsProducts %></li>
+                            <li><%= link_to  "Mis Productos", :myObjects %></li>
+                            <li><%= link_to  "Mis Servicios", :myServices %></li>
+                            <li><%= link_to  "Mis Productos y Servicios", :myObjectsServices %></li>
                             <li><%= link_to  "Mis Perfil", :user_information %></li>
                         </ul>
                     </li>

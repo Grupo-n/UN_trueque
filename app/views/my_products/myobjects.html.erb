@@ -15,8 +15,8 @@
             <div class="thumbnail">
               <div class="opacity">
                 <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
-                  <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
+                  <!--%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %-->
                   <div class="caption">
                     <h4><%= p.name %></h4> 
                     <h6><%= p.p_type %></h6>
@@ -39,8 +39,7 @@
             <div class="thumbnail">
               <div class="opacity">
                 <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
-                  <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
                   <div class="caption">
                     <h4><%= p.name %></h4> 
                     <h6><%= p.p_type %></h6>
@@ -63,8 +62,7 @@
             <div class="thumbnail">
               <div class="opacity">
                 <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
-                  <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
                   <div class="caption">
                     <h4><%= p.name %></h4> 
                     <h6><%= p.p_type %></h6>
@@ -87,8 +85,7 @@
             <div class="thumbnail">
               <div class="opacity">
                 <a href=<%= "#{products_path}/#{p.id}" %>>
-                  <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
-                  <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
+                  <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
                   <div class="caption">
                     <h4><%= p.name %></h4> 
                     <h6><%= p.p_type %></h6>
