@@ -1,45 +1,29 @@
-<h1>Página principal</h1>
-<p>Página donde estarán ubicados los productos.</p>
-<p>Productos: </p>
-
-<div class="row">
-  <div class="offset-md-2 col-md-8 center">
-    <h1 class="myh1">Products & services</h1>
-  </div>
-</div>
-
-<% if @products.blank? %>
-<p> No hay productos</p>
-<% else %>
-
-<section class="team" id="team">
-  <div class="container">
+<div class="container margin-top">
+  <% if @products.blank? %>
+    <p> No hay productos</p>
+  <% else %>
+    <div class="row">
+      <div class="offset-md-2 col-md-8 center">
+        <h1 class="myh1">Products & services</h1>
+      </div>
+    </div>
     <div class="row">
       <% @products.each do |d| %>
-      <div class="col-sm-4">
-        <div class="card card-block my-item">
-          <a href="#">
-              <%= image_tag d.product_image.url(:medium), class:"team-img" %>
-              <div class="card-title-wrap">
-                <span class="card-title"><%= d.name %></span> <span class="card-text"><%= d.p_type %></span>
-                <span><%= link_to 'Show', d %></span>
-                <span><%= link_to 'Edit', edit_product_path(d) %></span>
-                <span><%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </div>
-          </a>
-          <div class="team-over">
-            <a href=<%= "#{products_path}/#{d.id}" %>>
-            <h4 class="hidden-md-down">
-              Ver Producto!!
-            </h4>
-
-            </a>
-            <p>
-              <%= d.description%>
-            </p>
+        <div class="col-xs-4">
+          <div class="thumbnail">
+            <div class="opacity">
+              <a href=<%= "#{products_path}/#{d.id}" %>>
+                <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
+                <%= image_tag("product01.jpg", alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %>
+                <div class="caption">
+                  <h4 class="card-title"><%= d.name %></h4>
+                  <p class="card-text"><%= d.p_type %></p>
+                  <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
     <div class="offset-md-3 col-md-6">

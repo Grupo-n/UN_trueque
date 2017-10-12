@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   get 'my_products/index'
   get 'my_products/myobjects'
   get 'my_products/myservices'
+  get 'my_products/offer'
   
   get 'products/:id/offer' => "products#offer", as: 'offer'
+  get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
   
   get 'welcome/index'
   get 'static_pages/principal' , :as => :user_home
+  get 'my_products/myobjects' , :as => :myObjects
+  get 'my_products/index' , :as => :myObjectsProducts
 
   get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information
 

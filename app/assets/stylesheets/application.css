@@ -20,12 +20,12 @@
  *= require style
  */
  /*--------CONTENIDO---------------------------*/
- html{
-   overflow: scroll;
- }
-  #contenido{
-    margin-top: 70px;
-  }
+html{
+  overflow: scroll;
+}
+#contenido{
+  margin-top: 70px;
+}
 
   .center{
     text-align: center;
@@ -61,22 +61,18 @@
   color: #53a1af;
 }
 
- /*------------------NAVBAR-------------------*/
- #navbar-menu{
-   height: 70px;
-   background-color: #1c5664;
- }
-
- #navbar-menu #navbar{
-   height: 70px !important;
- }
-
-#logo-unt-nav{
-  width: 200px;
-}
-
+ 
+ 
+/*         navbar     */
 
 .navbar-nav>li>a {
+    font-size: 18px;
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.navbar-nav ul ul li a{
     font-size: 18px;
     color: #fff;
     padding-top: 25px;
@@ -90,6 +86,15 @@
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
+.navbar-nav>ul>ul>a:hover {
+    background-color: #3dadda;
+    font-size: 18px;
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .navbar-nav .glyphicon{
   font-size: 14px;
 }
@@ -104,6 +109,53 @@
   border-radius: 70px;
   border:2px solid;
 }
+
+/*____________________________________________________________________nav-bar________________________________________*/
+
+/* navbar */
+.navbar-default {
+    background-color: #1c5664;
+    border-color: #1c5664;
+    padding: 8px 48px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#logo-unt-nav{
+  width: 200px;
+}
+
+.navbar-default .navbar-collapse {
+    background-color: #1c5664;
+    border-color: #1c5664;
+    margin: 0;
+    padding: 0;
+}
+
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    vertical-align:middle;
+    display: inline-block;
+    color: #f9fafb;
+    font-size: 15px;
+}
+.navbar-dropdown{
+    vertical-align:middle;
+    display: inline-block;
+    color: #f9fafb;
+    font-size: 15px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #bcdee7;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #f9fafb;
+    background-color: #fff;
+}
+
 
 
 /*****************Informaicion de perfil***********/
@@ -154,11 +206,16 @@
 }
 
 .myh1{
-  margin-top: 20px;
+  margin: 20px;
+  padding: 10px;
   color: #31708f;
-  border-bottom: 3px solid  #319eb8;
-  padding-bottom: 10px;
 }
+.myh{
+  margin: 20px;
+  padding: 10px;
+  color: #31708f;
+}
+
 .form-control{
   border: 2px solid #319eb8 !important;
 }
@@ -169,4 +226,47 @@
 .img-fullproduct{
   border: 7px solid #3dadda;
   border-radius: 50%;
+}
+
+
+/*************Productos y servicios********************/
+
+
+/*************Offer********************/
+.content{
+  margin: 0;
+  padding: 0;
+}
+.btn-right{
+  float: right;
+}
+.float-right{
+  float: right;
+}
+
+.margin-5{ margin:5px }
+.margin-5-50{ margin: 5px 50px }
+.margin-25{ margin: 25px }
+.margin-50{ margin: 50px; }
+.margin-top{ margin-top: 100px; }
+
+
+.full-width{
+  width: inherit;
+}
+
+@media (max-width:1110px){
+	.navbar-default {
+		padding: 8px 0;
+	}
+	.btn-right{
+    float: left;
+  }
+  .margin-25{ margin: 0 }
+  .margin-5-50{ margin: 5px 0 }
+}
+
+.opacity:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
 }
