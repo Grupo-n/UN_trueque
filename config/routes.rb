@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   
   get 'welcome/index'
   get 'static_pages/principal' , :as => :user_home
-  get 'my_products/myobjects' , :as => :myobjects
+  get 'my_products/myobjects' , :as => :myObjects
+  get 'my_products/index' , :as => :myObjectsProducts
 
   get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information
 
