@@ -308,12 +308,9 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-<<<<<<< HEAD
   wicked_pdf
   wkhtmltopdf-binary
-=======
   will_paginate-bootstrap
->>>>>>> 4a0b18494e1f076c0ce805afeda9d5b97777471a
 
 BUNDLED WITH
    1.16.0.pre.2
