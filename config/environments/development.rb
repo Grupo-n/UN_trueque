@@ -46,10 +46,10 @@ Rails.application.configure do
     domain: "untrueque.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV['GMAIL_USERNAMED'],
+    password: ENV['GMAIL_PASSWORDD']
   }
-=end
+
 
   ActionMailer::Base.smtp_settings = {
                     :address        => "smtp.gmail.com",
@@ -60,6 +60,7 @@ Rails.application.configure do
                     :password       => "untrueque2017",
                     :openssl_verify_mode  => 'none'
   }
+=end
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -81,4 +82,17 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = { host: "localhost", port: 3000}
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      user_name:      ENV['GMAIL_USERNAMED'],
+      password:       ENV['GMAIL_PASSWORDD'],
+      domain:         "localhost",
+      address:       'smtp.gmail.com',
+      port:          '587',
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
 end

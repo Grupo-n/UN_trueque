@@ -29,7 +29,7 @@
                                 <input type="radio" name="optradio" disabled='disabled'>Servicio
                             </label>
                         </form>
-                        
+
                         <div class="row margin-25">
                             <div class="col-sm-6">
                               <%= link_to "Nuevo", new_product_path, class:"btn margin-5" %>
@@ -56,10 +56,10 @@
                         <% end %>
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
   </div>
-  
+
     <!-- Modal -->
     <div class="modal fade" id="modal" role="dialog">
         <div class="modal-dialog">
@@ -72,7 +72,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            
+
                             <% @myproducts.each do |product| %>
                             <div class="col-xs-4">
                                 <div class="thumbnail opacity">
@@ -96,6 +96,8 @@
             </div>
         </div>
     </div>
+  <div class="offset-md-4 col-md-7">
+      <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
+  </div>
 </body>
 </html>
-

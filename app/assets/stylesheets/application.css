@@ -61,8 +61,8 @@ html{
   color: #53a1af;
 }
 
- 
- 
+
+
 /*         navbar     */
 
 .navbar-nav>li>a {
@@ -269,4 +269,17 @@ html{
 .opacity:hover {
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+
+.pagination>li>a,
+.pagination>li>span {
+  font-size: 15px;
+  color:#777}
+
+.pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    color: #fff;
+    background-color: #1d5664;
+    border-color: #ccc;
+    cursor: default;
 }
