@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
+    if params[:offert] != nil
+      @offert = Product.find(params[:offert])
+    else
+      @offert = Product.new
+    end
   end
 
   # GET /products/1
@@ -75,7 +80,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_image, :name, :p_type, :description)
+      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert)
     end
     
 end

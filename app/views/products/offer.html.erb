@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag "application" %>
 </head>
-<body>
+<body
     <div class="content margin-top">
         <div class="row">
             <div class="offset-sm-2 col-sm-8">
@@ -39,10 +39,19 @@
                                 <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>'#modal' } %-->
                             </div>
                         </div>
+                        
+                        <% if @offert.id == nil %>
+                        <h4>Debes seleccionar un producto.</h4>
+                        <% else %>
+                        <h4>Tu oferta es: </h4>
+                        <h5><%= @offert.name %></h5>
+                        <% end %>
+                        
+                        
                         <%= form_for @barter do |b| %>
                             <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                             <%= b.hidden_field :product_one_id, :value => @product.id %>
-                            <%= b.hidden_field :product_two_id, :value => @myproducts.find(5).id %>
+                            <%= b.hidden_field :product_two_id, :value => @offert.id %>
                             <%= b.button :submit, class: 'btn float-right margin-5' %>
                         <% end %>
                     </div>
@@ -67,16 +76,17 @@
                             <% @myproducts.each do |product| %>
                             <div class="col-xs-4">
                                 <div class="thumbnail opacity">
-                                    <a href="#">
-                                        <%= image_tag("product01.jpg", alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %>
+                                    <%= link_to offer_path(@product, :offert => product) do %>
+                                        <%= image_tag product.product_image.url(:medium), class:"team-img" %>
                                         <div class="caption">
                                             <h3><%= product.name %></h3>
                                             <p><%= product.description %></p>
                                         </div>
-                                    </a>
+                                    <% end %>
                                 </div>
                             </div>
                             <% end %>
+                            
                         </div>
                     </div>
                 </div>
