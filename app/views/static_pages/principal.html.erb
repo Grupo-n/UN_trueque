@@ -13,10 +13,11 @@
           <div class="thumbnail">
             <div class="opacity">
               <a href=<%= "#{products_path}/#{d.id}" %>>
-                <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
-                <%= image_tag("product01.jpg", alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %>
+                <%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded" %>
                 <div class="caption">
                   <h4 class="card-title"><%= d.name %></h4>
+                  <% if d.p_type == 1 %>
+                  <p class="card-text"></p>
                   <p class="card-text"><%= d.p_type %></p>
                   <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
                 </div>
