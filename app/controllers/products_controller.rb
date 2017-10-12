@@ -5,11 +5,13 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
-  
+
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
 
   # GET /products/1
@@ -77,5 +79,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:product_image, :name, :p_type, :description)
     end
-    
+
 end

@@ -1,23 +1,26 @@
 class MyProductsController < ApplicationController
   before_action :set_product, only: [:offer]
-  
+
   def index
     @user = current_user
     @products = current_user.products.all
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
-  
+
   def myobjects
     @products = current_user.products.where("p_type = ?", 1)
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
-  
+
   def myservices
     @products = current_user.products.where("p_type = ?", 2)
+    @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
-  
+
   def offer
     @barters = Barter.where("product_one_id = ?", @product.id)
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -28,5 +31,5 @@ class MyProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:product_image, :name, :p_type, :description)
     end
-  
+
 end
