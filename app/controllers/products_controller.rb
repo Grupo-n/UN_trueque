@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id) 
   end
 
   # GET /products/new

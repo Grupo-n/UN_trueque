@@ -4,12 +4,10 @@
   <div class="col-sm-8">
     <h2 class="myh1"><strong><%= @product.name %></strong></h2>
     <center>
-    <%= image_tag("product02.jpg", alt: "Cuadernos", style:"object-fit: contain", class:"img-rounded center") %>
+    <%= image_tag @product.product_image.url(:medium), alt: "Cuadernos", style:"width:50%; height:auto", class:"img-rounded center" %>
     </center>
-    <!--%= image_tag @product.product_image.url(:medium), class: "img-fullproduct mt30"%-->
   </div>
   <div class="col-sm-4 panel panel-default devise-bs">
-    <h2><strong><%= @product.name %></strong></h2>
     <h4 class="t-information"><strong>Tipo: </strong></h4>
     <% if @product.p_type == 1 %>
       <p>Producto</p>
@@ -18,6 +16,10 @@
     <% end %>
     <h4 class="t-information"><strong>Descripción: </strong></h4>
     <p><%= @product.description %></p>
+    
+     <h4 class="t-information"><strong>Vendedor: </strong></h4>
+    <p><%= @x.first.first_name %> <%= @x.first.last_name %></p>
+
     
     <div class="container margin-top">
       <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>

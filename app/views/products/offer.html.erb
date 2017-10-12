@@ -52,7 +52,7 @@
                             <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                             <%= b.hidden_field :product_one_id, :value => @product.id %>
                             <%= b.hidden_field :product_two_id, :value => @offert.id %>
-                            <%= b.button :submit, class: 'btn float-right margin-5' %>
+                            <%= b.submit 'Ofertar', class: 'btn float-right margin-5' %>
                         <% end %>
                     </div>
                 </div>
@@ -96,8 +96,5 @@
             </div>
         </div>
     </div>
-  <div class="offset-md-4 col-md-7">
-      <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
-  </div>
 </body>
 </html>

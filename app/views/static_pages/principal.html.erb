@@ -17,9 +17,10 @@
                 <div class="caption">
                   <h4 class="card-title"><%= d.name %></h4>
                   <% if d.p_type == 1 %>
-                  <p class="card-text"></p>
-                  <p class="card-text"><%= d.p_type %></p>
-                  <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                  <p class="card-text">Producto</p>
+                  <% else %>
+                  <p class="card-text">Servicio</p>
+                  <% end %>
                 </div>
               </a>
             </div>
