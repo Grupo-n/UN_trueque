@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.2)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     autoprefixer-rails (7.1.4.1)
       execjs
@@ -81,6 +84,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-bootstrap-views (0.0.11)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.6.1)
     execjs (2.7.0)
     faker (1.8.4)
@@ -254,8 +261,14 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    
+    will_paginate (3.1.6)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
+      
     wicked_pdf (1.1.0)
     wkhtmltopdf-binary (0.12.3.1)
+    
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -263,12 +276,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootstrap (~> 4.0.0.alpha)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views
+  dotenv-rails
   faker
   figaro
   font-awesome-rails
@@ -293,8 +308,12 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+<<<<<<< HEAD
   wicked_pdf
   wkhtmltopdf-binary
+=======
+  will_paginate-bootstrap
+>>>>>>> 4a0b18494e1f076c0ce805afeda9d5b97777471a
 
 BUNDLED WITH
    1.16.0.pre.2

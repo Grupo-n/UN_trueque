@@ -11,10 +11,9 @@
 #  updated_at  :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  description: MyString
-
-two:
-  description: MyString
+class Service < ApplicationRecord
+    
+    belongs_to :user, optional:true
+    
+    
+end

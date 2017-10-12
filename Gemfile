@@ -5,7 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+#Usada para paginacion
+gem 'will_paginate-bootstrap'
+#gem annotate
+gem 'annotate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use Puma as the app server
@@ -18,6 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 # Use devise for authentication
 gem 'paperclip'
+
+#Use dotenv for environment variables
+gem 'dotenv-rails'
 
 gem 'devise'
 #Use twitter-bootstrap-rails

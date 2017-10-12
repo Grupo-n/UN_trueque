@@ -5,9 +5,9 @@
     <div class="row">
       <h2 class="myh">Mis Servicios</h2>
     </div>
-    
+
     <div class="row">
-      
+
       <% @cont = 0 %>
       <div class="col-xs-3">
         <% @products.each do |p| %>
@@ -18,7 +18,7 @@
                   <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
                   <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
                   <div class="caption">
-                    <h4><%= p.name %></h4> 
+                    <h4><%= p.name %></h4>
                     <h6><%= p.p_type %></h6>
                     <p><%= p.description  %></p>
                   </div>
@@ -31,7 +31,7 @@
           <% @cont = @cont + 1 %>
         <% end %>
       </div>
-      
+
       <% @cont = 0 %>
       <div class="col-xs-3">
         <% @products.each do |p| %>
@@ -42,7 +42,7 @@
                   <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
                   <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
                   <div class="caption">
-                    <h4><%= p.name %></h4> 
+                    <h4><%= p.name %></h4>
                     <h6><%= p.p_type %></h6>
                     <p><%= p.description  %></p>
                   </div>
@@ -66,7 +66,7 @@
                   <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
                   <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
                   <div class="caption">
-                    <h4><%= p.name %></h4> 
+                    <h4><%= p.name %></h4>
                     <h6><%= p.p_type %></h6>
                     <p><%= p.description  %></p>
                   </div>
@@ -79,7 +79,7 @@
           <% @cont = @cont + 1 %>
         <% end %>
       </div>
-      
+
       <% @cont = 0 %>
       <div class="col-xs-3">
         <% @products.each do |p| %>
@@ -90,7 +90,7 @@
                   <!--%= image_tag d.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded") %-->
                   <%= image_tag("product02.jpg", alt: "Cuadernos", style:"height: 150px; object-fit: contain", class:"img-rounded") %>
                   <div class="caption">
-                    <h4><%= p.name %></h4> 
+                    <h4><%= p.name %></h4>
                     <h6><%= p.p_type %></h6>
                     <p><%= p.description  %></p>
                   </div>
@@ -105,4 +105,7 @@
       </div>
     </div>
   <% end %>
+  <div class="offset-md-4 col-md-7">
+    <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
+  </div>
 </div>
