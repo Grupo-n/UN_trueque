@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  
+
   def principal
     @products = Product.all
   end
@@ -7,5 +7,5 @@ class StaticPagesController < ApplicationController
   def profileInformation
     render '/static_pages/profileInformation'
   end
-  
+
 end

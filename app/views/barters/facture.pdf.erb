@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<HTML>
+  <head>
+
+   </head>
+<BODY>
+
+<div class="row">
+  <div class="offset-md-2 col-md-8 center">
+    <h1 class="myh1">COMPROBANTE DE TRANSACCION</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="offset-md-2 col-md-8 center">
+    <%= raw @qrcode.as_html %>
+  </div>
+</div>
+<div class="row">
+  <div class="offset-md-0 col-md-4 ">
+      <h2>-Item adquirido:</h2>
+      <h3><%= @pr1.name %></h3>
+      <h2>-Item Ofrecido:</h2>
+      <h3><%= @pr2.name %></h3>
+      <h2>-Vendedor:</h2>
+      <h3><%= @ven.first_name %> <%= @ven.last_name %></h3>
+      <h2>-Contacto:</h2>
+      <h3><%= @ven.email %></h3>
+  </div>
+
+</div>
+
+
+
+<style>
+.center{
+  text-align: center;
+}
+table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+}
+
+td {
+  border-left: solid 10px #000;
+  padding: 0;
+  margin: 0;
+  width: 0px;
+  height: 10px;
+}
+
+td.black { border-color: #000; }
+td.white { border-color: #fff; }
+</style>
+
+</BODY>
+</HTML>
