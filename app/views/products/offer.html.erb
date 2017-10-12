@@ -39,7 +39,6 @@
                                 <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>'#modal' } %-->
                             </div>
                         </div>
-                        
                         <%= form_for @barter do |b| %>
                             <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                             <%= b.hidden_field :product_one_id, :value => @product.id %>
@@ -64,6 +63,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
+                            
                             <% @myproducts.each do |product| %>
                             <div class="col-xs-4">
                                 <div class="thumbnail opacity">
@@ -76,7 +76,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <% end %>
+                            <% end
+                            
                         </div>
                     </div>
                 </div>
