@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-  
+
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id) 
   end
 
   # GET /products/new
@@ -77,5 +78,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:product_image, :name, :p_type, :description)
     end
-    
+
 end

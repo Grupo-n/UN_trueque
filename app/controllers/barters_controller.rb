@@ -1,5 +1,8 @@
+require 'digest/md5'
+require 'rqrcode'
+
 class BartersController < ApplicationController
-  before_action :set_barter, only: [:show, :edit, :update, :destroy]
+  before_action :set_barter, only: [:show, :edit, :update, :destroy, :facture]
 
   # GET /barters
   # GET /barters.json
@@ -9,7 +12,26 @@ class BartersController < ApplicationController
 
   # GET /barters/1
   # GET /barters/1.json
+
+
   def show
+    @x=Digest::MD5.hexdigest(@barter.id.to_s+"-"+@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
+  end
+
+  def facture
+    @x=Digest::MD5.hexdigest(@barter.id.to_s+"-"+@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
+    @qrcode = RQRCode::QRCode.new(@x.to_s)
+    @pr1=Product.find(@barter.product_one_id)
+    @pr2=Product.find(@barter.product_two_id)
+    @ven=User.find(@pr2.user_id)
+
+
+    respond_to do |format|
+     format.pdf do
+       render pdf: "comprobante-transaccion",
+              template: "barters/facture.pdf.erb"
+     end
+   end
   end
 
   # GET /barters/new

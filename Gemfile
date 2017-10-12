@@ -51,6 +51,13 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 
 gem 'faker'
 
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+#QR
+gem 'rqrcode'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

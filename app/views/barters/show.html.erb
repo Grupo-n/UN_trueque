@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Detalles</h1>
 <p>
+
+  <a class="ui teal button" href="<%= @barter.id %>/<%= @x %>.pdf"> Comprobante de compra</a>
+
   <strong>Description:</strong>
-  <%= @barter.description %>
+  <%= @barter.product_one_id %>
+  <%= @x %>
+
+
+
 </p>
 
 <%= link_to 'Edit', edit_barter_path(@barter) %> |
