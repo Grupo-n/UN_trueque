@@ -10,8 +10,14 @@
   </div>
   <div class="col-sm-4 panel panel-default devise-bs">
     <h2><strong><%= @product.name %></strong></h2>
-    <h4 class="t-information"><strong>Type: </strong><%= @product.p_type %></h4>
-    <h4 class="t-information"><strong>Description: </strong><%= @product.description %></h4>
+    <h4 class="t-information"><strong>Tipo: </strong></h4>
+    <% if @product.p_type == 1 %>
+      <p>Producto</p>
+    <% else %>
+      <p>Servicio</p>
+    <% end %>
+    <h4 class="t-information"><strong>Descripción: </strong></h4>
+    <p><%= @product.description %></p>
     
     <div class="container margin-top">
       <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
