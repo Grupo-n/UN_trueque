@@ -7,6 +7,11 @@ class UserMailer < ApplicationMailer
     @url  = 'http://untrueque.herokuapp.com/login'
     mail(to: @user.email, subject: 'Bienvenido a UNTrueque')
   end
+  
+  def product_accepted(user)
+    @user = user
+    mail(to: @user.email, subject: 'Tu oferta ha sido aceptada')
+  end
 
   def new_message(message)
     @message = message
