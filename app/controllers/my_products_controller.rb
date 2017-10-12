@@ -3,18 +3,15 @@ class MyProductsController < ApplicationController
 
   def index
     @user = current_user
-    @products = current_user.products.all
-    @products = Product.paginate(:page => params[:page], :per_page => 9)
+    @products = current_user.products.all.paginate(:page => params[:page], :per_page => 9)
   end
 
   def myobjects
-    @products = current_user.products.where("p_type = ?", 1)
-    @products = Product.paginate(:page => params[:page], :per_page => 9)
+    @products = current_user.products.where("p_type = ?", 1).paginate(:page => params[:page], :per_page => 9)
   end
 
   def myservices
-    @products = current_user.products.where("p_type = ?", 2)
-    @products = Product.paginate(:page => params[:page], :per_page => 9)
+    @products = current_user.products.where("p_type = ?", 2).paginate(:page => params[:page], :per_page => 9)
   end
 
   def offer
