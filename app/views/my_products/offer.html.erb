@@ -12,7 +12,7 @@
             <% @barters.each do |b| %>
                 <% p = Product.find(b.product_two_id) %>
                 <div class="thumbnail">
-                    <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
+                    <%= image_tag p.product_image.url(:medium), style:"width:100%; height:auto", class:"img-rounded center" %>
                     <div class="caption">
                         <h2><%= p.name %></h2>
                         <h3><%= b.description %></h3>

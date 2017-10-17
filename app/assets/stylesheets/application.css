@@ -191,7 +191,20 @@ html{
   border-bottom: 2px solid #199EB8;
 }
 
-/*************Productos y servicios********************/
+/*************Productos y Servicios********************/
+
+.myh{
+  margin: 20px;
+  padding: 10px;
+  color: #31708f;
+}
+
+.myh1{
+  margin: 20px;
+  padding: 10px;
+  color: #31708f;
+}
+
 .mt30{
   margin-top: 30px;
 }
@@ -205,16 +218,8 @@ html{
   height: 300px;
 }
 
-.myh1{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
-.myh{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
+
+
 
 .form-control{
   border: 2px solid #319eb8 !important;
@@ -237,9 +242,11 @@ html{
   margin: 0;
   padding: 0;
 }
+
 .btn-right{
   float: right;
 }
+
 .float-right{
   float: right;
 }
