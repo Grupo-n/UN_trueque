@@ -16,7 +16,7 @@
           <div class="thumbnail">
             <div class="opacity">
               <%= link_to my_offer_path(p) do %>
-                <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
+                <%= image_tag p.product_image.url(:medium), alt: "", style:"width:100%; height:auto", class:"img-rounded center" %>
                 <div class="caption" style="height: 100px">
                   <h4><%= p.name %></h4>
                   <% if p.p_type == 1 %>
@@ -28,6 +28,9 @@
                 </div>
               <% end %>
             </div>
+            <span><%= link_to 'Show', p %></span>
+            <span><%= link_to 'Edit', edit_product_path(p) %></span>
+            <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </div>
         </div>
       <% end %>

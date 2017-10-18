@@ -51,6 +51,7 @@
                 <% if @offert.id == nil %>
                     <h4>Debes seleccionar un producto.</h4>
                 <% else %>
+   
                     <h4 class="myh" style="margin:0; padding:0">Tu oferta es: </h4>
                     <%= image_tag @offert.product_image.url(:medium), alt: "", style:"width:100px; height:auto", class:"img-rounded margin-5" %>
                     <h6><strong>Nombre: </strong><%= @offert.name %></h6>
@@ -61,14 +62,20 @@
                     <% end %>
                     <h6><strong>Descripción: </strong><%= @offert.description %></h6>
                     <h6><strong>Ofertado el: </strong><%= @offert.updated_at %></h6>
+                    <%= link_to 'Cancelar', :back, class:"margin-5" %>
                 <% end %>
-            </div>            
+            </div>        
+            
             <%= form_for @barter do |b| %>
                 <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                 <%= b.hidden_field :product_one_id, :value => @product.id %>
                 <%= b.hidden_field :product_two_id, :value => @offert.id %>
                 <%= b.submit 'Ofertar', class: 'btn float-right margin-5' %>
             <% end %>
+            
+            <%= link_to 'Volver', :show, class:"btn btn-right margin-5" %>
+            
+            
             
         </div>
     </div>

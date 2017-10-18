@@ -1,41 +1,43 @@
 <div class="container margin-top">
     <div class="row">
-      <h2 class="myh">Ofertas</h2>
+      <h2 class="myh">Las ofertas que ha recibido tu <%= @product.name %></h2>
     </div>
     
-    <div class="row">
         
-        <% if @barters.nil? %>
+    <% if @barters.nil? %>
         <h4>Aún no has recibido ofertas para este producto.</h4>
-        <% else %>
-            <div class="col-xs-6">
+    <% else %>
+        <div class="row">
             <% @barters.each do |b| %>
                 <% p = Product.find(b.product_two_id) %>
-                <div class="thumbnail">
-                    <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
-                    <div class="caption">
-                        <h2><%= p.name %></h2>
-                        <h3><%= b.description %></h3>
-                        <%= link_to 'Ver', product_path(p), class:'btn float-right margin-5' %>
-                        <%= link_to 'Aceptar oferta', "#", class:'btn float-right margin-5' %>
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
+                        <div class="caption container-fluid">
+                            <h2><%= p.name %></h2>
+                            <h3><%= b.description %></h3>
+                            <%= link_to 'Ver', product_path(p), class:'btn float-right margin-5' %>
+                            <%= link_to 'Aceptar oferta', "#", class:'btn float-right margin-5' %>
+                        </div>
                     </div>
                 </div>
             <% end %>
-        <% end %>
-        
-    </div>
-    
-    <h1><%= @product.name %></h1>
+        </div>
+    <% end %>
 
-<% @barters.each do |b| %>
-    <h2><%= b.description %></h2>
-    <h3><%= b.product_one_id %></h3>
-    <h3><%= b.product_two_id %></h3>
-    <td><%= link_to 'Aceptar', my_offer_path(b), data: { confirm: 'Estás seguro?' } %></td>
-<% end %>
     
     <div class="offset-md-4 col-md-7">
         <ul class="pagination pagination-lg"> <%= will_paginate @barters, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
     </div>
-    
 </div>
+
+
+    <h1><%= @product.name %></h1>
+
+    <% @barters.each do |b| %>
+        <h2><%= b.description %></h2>
+        <h3><%= b.product_one_id %></h3>
+        <h3><%= b.product_two_id %></h3>
+        <td><%= link_to 'Aceptar', my_offer_path(b), data: { confirm: 'Estás seguro?' } %></td>
+    <% end %>
+    
