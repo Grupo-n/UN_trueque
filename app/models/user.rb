@@ -52,6 +52,10 @@ class User < ApplicationRecord
     end
   end
 
+  def self.get_name(product)
+    return User.find(product.user_id).first_name + " " + User.find(product.user_id).last_name
+  end
+
   after_create :send_welcome_email
 
   def send_welcome_email

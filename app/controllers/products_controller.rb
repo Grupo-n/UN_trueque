@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all.paginate(:page => params[:page], :per_page => 9)
-    @test = Product.test(current_user)
   end
 
   def offer
@@ -22,7 +21,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id)
+    @user_name = User.get_name(@product)
   end
 
   # GET /products/new

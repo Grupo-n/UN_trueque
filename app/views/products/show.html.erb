@@ -16,11 +16,11 @@
     <% end %>
     <h4 class="t-information"><strong>Descripción: </strong></h4>
     <p><%= @product.description %></p>
-    
-     <h4 class="t-information"><strong>Vendedor: </strong></h4>
-    <p><%= @x.first.first_name %> <%= @x.first.last_name %></p>
 
-    
+     <h4 class="t-information"><strong>Vendedor: </strong></h4>
+    <p><%= @user_name %></p>
+
+
     <div class="container margin-top">
       <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
       <%= link_to 'Back', :back, class:"btn btn-right" %>
