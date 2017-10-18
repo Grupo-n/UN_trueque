@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="offset-md-4 col-md-4 center">
-      <%= image_tag @product.product_image.url(:medium), class: ""%>
+      <%= image_tag @product.product_image.url(:medium), class: "img-rounded"%>
       <div class="form-group">
         <%= form.file_field :product_image %>
       </div>
@@ -36,7 +36,9 @@
         <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
       </div>
         <!--%= link_to 'Crear Producto', show_path(@product),class: 'btn my-btn' %-->
-        <%= form.submit t('.new_prod', default: 'Crear producto'),class: 'btn my-btn' %>
+          <%= link_to 'Cancelar', :user_home, class: 'btn' %>
+        <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn  btn-right' %>
+       
     </div>
   </div>
 <% end %>

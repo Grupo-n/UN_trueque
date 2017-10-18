@@ -1,3 +1,4 @@
+<!--%= stylesheet_link_tag "filename" %-->
 <div class="container margin-top">
   
   <div class="row">
@@ -16,14 +17,14 @@
             <div class="opacity">
               <%= link_to show_path(p) do %>
                 <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
-                <div class="caption" style="height: 100px">
+                <div class="caption container-fluid">
                   <h4><%= p.name %></h4>
                   <% if p.p_type == 1 %>
-                    <p>Producto</p>
+                    <h6>Producto</h6>
                   <% else %>
-                    <p>Servicio</p>
+                    <h6>Servicio</h6>
                   <% end %>
-                  <p><%= p.description  %></p>
+                  <h6><%= p.description  %></h6>
                 </div>
               <% end %>
             </div>
@@ -32,9 +33,11 @@
       <% end %>
     </div>
   <% end %>
+  
   <div class="offset-md-4 col-md-7">
     <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
   </div>
+  
 </div>
 <%= link_to "logout", destroy_user_session_path, method: :delete %>
 

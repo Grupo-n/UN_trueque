@@ -1,23 +1,31 @@
 <div class="container margin-top">
     <div class="row">
-      <h2 class="myh">Las ofertas que ha recibido tu <%= @product.name %></h2>
+        <div class="offset-md-3 col-sm-6 center">
+            <div class="container-fluid">
+                <h2 class="myh">Lo que han ofrecido por tu <br> <strong><%= @product.name %></strong></h2>
+                <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:70%; height:auto", class:"img-rounded" %>
+            </div>
+        </div>
     </div>
     
-        
-    <% if @barters.nil? %>
-        <h4>Aún no has recibido ofertas para este producto.</h4>
+    <br>
+    <% if @barters.blank? %>
+        <div class="col-md-6">
+            <h4>Aún no has recibido ofertas para este producto.</h4>
+        </div>
     <% else %>
         <div class="row">
             <% @barters.each do |b| %>
                 <% p = Product.find(b.product_two_id) %>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <div class="thumbnail">
-                        <%= image_tag p.product_image.url(:medium), alt: "Cuadernos", style:"width:100%; height:auto", class:"img-rounded center" %>
+                        <%= image_tag p.product_image.url(:medium), alt: "", class:"img-rounded center" %>
                         <div class="caption container-fluid">
-                            <h2><%= p.name %></h2>
-                            <h3><%= b.description %></h3>
-                            <%= link_to 'Ver', product_path(p), class:'btn float-right margin-5' %>
-                            <%= link_to 'Aceptar oferta', "#", class:'btn float-right margin-5' %>
+                            <h4 class="myhnot"><%= p.name %></h4>
+                            <h6><%= b.description %></h6>
+                            <br>
+                            <%= link_to 'Ver', product_path(p), class:'btn-ghost', style:"float: left"%>
+                            <%= link_to 'Aceptar', "#", class:'btn-ghost btn-right' %>
                         </div>
                     </div>
                 </div>
@@ -31,13 +39,4 @@
     </div>
 </div>
 
-
-    <h1><%= @product.name %></h1>
-
-    <% @barters.each do |b| %>
-        <h2><%= b.description %></h2>
-        <h3><%= b.product_one_id %></h3>
-        <h3><%= b.product_two_id %></h3>
-        <td><%= link_to 'Aceptar', my_offer_path(b), data: { confirm: 'Estás seguro?' } %></td>
-    <% end %>
     

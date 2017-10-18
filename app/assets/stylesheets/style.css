@@ -49,31 +49,35 @@ a {
   Elements
   ================================================== */
 .btn {
-  background-color: #199EB8;
+  background-color: #1c5664;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 800;
   color: #fff;
-  padding: 15px 45px;
-  border-radius: 50px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 5px;
 }
 
-.btn:hover {
-  background-color: #E04F00;
-  color: #fff;
+.btn:hover, .btn:focus {
+  background-color: #fff;
+  color: #1c5664;
+  border-color: #1c5664;
 }
 
-.btn:focus {
-  color: #fff;
-}
 
 .btn-ghost {
-  border: 3px solid #fff;
+  border: 2px solid #1c5664;
   background-color: transparent;
+  color: #1c5664;
+  font-size: 16px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin: 5px;
 }
 
-.btn-ghost:hover {
-  background-color: #fff;
-  color: #199EB8;
+.btn-ghost:hover, .btn-ghost:focus {
+  background-color: #1c5664;
+  color: #fff;
 }
 
 section {

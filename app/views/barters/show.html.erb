@@ -1,14 +1,21 @@
 <div class="container margin-top">
+  
   <h4 id="notice" class="myh"><%= notice %></h4>
-  <h4 class="myh margin-5"> Vas a cambiar:</h4>
-  <h4 class="margin-5"><%= @barter.product_one_id %></h4>
-  <h4 class="myh margin-5"> Por:</h4>
-  <h4 class="margin-5"><%= @barter.product_two_id %></h4>
-  <br>
-  <h4 class="margin-5"><strong>Description:</strong><%= @barter.description %><br></h4>
+  
+  <% pone = Product.find(@barter.product_one_id) %>
+  <% ptwo = Product.find(@barter.product_two_id) %>
+  
+  <h4 class="myhnot margin-top-12"> Lo que tu quieres:</h4>
+  <h6 class="margin-5"><%=  pone.name %></h6>
+  
+  <h4 class="myhnot margin-top-12"> Lo que ofreciste:</h4>
+  <h6 class="margin-5"><%=  ptwo.name %></h6>
+  
+  <h4 class="myhnot margin-top-12">Description:</h4>
+  <h6 class="margin-5"><%= @barter.description %></h6>
   
   <br>
-  <%= link_to 'Edit', edit_barter_path(@barter), class:"btn margin-5" %>
-  <%= link_to 'Aceptar', :user_home, class:"btn margin-5" %>
+  <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>
+  <%= link_to 'Aceptar', :user_home, class:"btn" %>
   
 </div>
