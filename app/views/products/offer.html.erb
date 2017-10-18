@@ -9,57 +9,70 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag "application" %>
 </head>
-<body
-    <div class="content margin-top">
-        <div class="row">
-            <div class="offset-sm-2 col-sm-8">
-                <div class="panel panel-default devise-bs">
-                    <div class="panel-heading">
-                        <h2 style="padding:0; margin:0;">Ofertar</h2>
-                    </div>
-                    <div class="panel-body">
-                        <form class="margin-5-50">
-                            <label class="radio-inline">
-                                <input type="radio" name="optradio">Producto
-                            </label>
-                            <label class="radio-inline disabled">
-                                <input type="radio" name="optradio" disabled='disabled'>Gratuito
-                            </label>
-                            <label class="radio-inline disabled">
-                                <input type="radio" name="optradio" disabled='disabled'>Servicio
-                            </label>
-                        </form>
-
-                        <div class="row margin-25">
-                            <div class="col-sm-6">
-                              <%= link_to "Nuevo", new_product_path, class:"btn margin-5" %>
-                            </div>
-                            <div class="col-sm-6">
-                                <button type="button" class="btn btn-right margin-5" data-toggle="modal" data-target="#modal">Mis Productos</button>
-                                <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>'#modal' } %-->
-                            </div>
-                        </div>
-                        
-                        <% if @offert.id == nil %>
-                        <h4>Debes seleccionar un producto.</h4>
-                        <% else %>
-                        <h4>Tu oferta es: </h4>
-                        <h5><%= @offert.name %></h5>
-                        <% end %>
-                        
-                        
-                        <%= form_for @barter do |b| %>
-                            <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
-                            <%= b.hidden_field :product_one_id, :value => @product.id %>
-                            <%= b.hidden_field :product_two_id, :value => @offert.id %>
-                            <%= b.submit 'Ofertar', class: 'btn float-right margin-5' %>
-                        <% end %>
-                    </div>
-                </div>
+<body>
+<div class="container margin-top">
+    <div class="row">
+    <div class="col-sm-12">
+      <h2 class="myh">Ofertar</h2>
+    </div>
+  </div>
+  
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="container">
+                <center>
+                    <h2 class="myh">Estas ofertando por: <br> <strong><%= @product.name %></strong></h2>
+                    <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded center" %>
+                </center>
             </div>
         </div>
-  </div>
-
+        
+    <div class="col-sm-6 panel panel-default devise-bs">
+        <div class="container-fluid">
+            
+            <!--form>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio">Producto
+                </label>
+                <label class="radio-inline disabled">
+                    <input type="radio" name="optradio" disabled='disabled'>Gratuito
+                </label>
+                <label class="radio-inline disabled">
+                    <input type="radio" name="optradio" disabled='disabled'>Servicio
+                </label>
+            </form-->
+            
+            <%= link_to "Nuevo", new_product_path, class:"btn margin-5" %>
+            <button type="button" class="btn btn-right margin-5" data-toggle="modal" data-target="#modal">Mis Productos</button>
+            <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>'#modal' } %-->
+                 
+            <br> 
+            <div class="margin-5">
+                <% if @offert.id == nil %>
+                    <h4>Debes seleccionar un producto.</h4>
+                <% else %>
+                    <h4 class="myh" style="margin:0; padding:0">Tu oferta es: </h4>
+                    <%= image_tag @offert.product_image.url(:medium), alt: "", style:"width:100px; height:auto", class:"img-rounded margin-5" %>
+                    <h6><strong>Nombre: </strong><%= @offert.name %></h6>
+                    <% if @offert.p_type == 1 %>
+                        <h6><strong>Tipo: </strong>Producto</h6>
+                    <% else %>
+                        <h6><strong>Tipo: </strong>Servicio</h6>
+                    <% end %>
+                    <h6><strong>Descripción: </strong><%= @offert.description %></h6>
+                    <h6><strong>Ofertado el: </strong><%= @offert.updated_at %></h6>
+                <% end %>
+            </div>            
+            <%= form_for @barter do |b| %>
+                <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
+                <%= b.hidden_field :product_one_id, :value => @product.id %>
+                <%= b.hidden_field :product_two_id, :value => @offert.id %>
+                <%= b.submit 'Ofertar', class: 'btn float-right margin-5' %>
+            <% end %>
+            
+        </div>
+    </div>
+    
     <!-- Modal -->
     <div class="modal fade" id="modal" role="dialog">
         <div class="modal-dialog">
@@ -67,14 +80,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Mis Productos</h4>
+                    <h4 class="modal-title">Mis Productos y Servicios</h4>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-
                             <% @myproducts.each do |product| %>
-                            <div class="col-xs-4">
+                            <div class="col-sm-3
+                            ">
                                 <div class="thumbnail opacity">
                                     <%= link_to offer_path(@product, :offert => product) do %>
                                         <%= image_tag product.product_image.url(:medium), class:"team-img" %>
@@ -86,7 +99,6 @@
                                 </div>
                             </div>
                             <% end %>
-                            
                         </div>
                     </div>
                 </div>
@@ -96,5 +108,5 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>  
+   

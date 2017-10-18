@@ -256,6 +256,7 @@ html{
 .margin-25{ margin: 25px }
 .margin-50{ margin: 50px; }
 .margin-top{ margin-top: 100px; }
+.mt{ margin-top: 50px; }
 
 
 .full-width{
@@ -267,10 +268,11 @@ html{
 		padding: 8px 0;
 	}
 	.btn-right{
-    float: left;
+    float: none;
   }
   .margin-25{ margin: 0 }
   .margin-5-50{ margin: 5px 0 }
+  .mt{ margin-top: 0; }
 }
 
 .opacity:hover {
