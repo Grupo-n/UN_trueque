@@ -3,9 +3,12 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+
   def index
     @products = Product.all
     @products = Product.paginate(:page => params[:page], :per_page => 9)
+    #@search = Product.search(params[:q])
+    #@products = @search.result.paginate(:page => params[:page], :per_page => 9)
   end
 
   def offer

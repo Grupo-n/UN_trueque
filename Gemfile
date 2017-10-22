@@ -5,7 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#Usada para paginacion
+#Use ransack for scoping, searching and filtering
+gem 'ransack'
+#Use will_paginate-bootstrap for pagination
 gem 'will_paginate-bootstrap'
 #gem annotate
 gem 'annotate'
