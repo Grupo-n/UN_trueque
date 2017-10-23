@@ -33,7 +33,10 @@
         <div class="form-group">
           <%= f.text_field :name_cont, class: "search_form_for", placeholder:  "Buscar" %>
         </div>
-        <button type="submit" class="btn btn-default">Enviar</button>
+        <%= f.submit url: "static_pages/principal"%>
+        <button type="submit" class="btn btn-default" oncliconClick="window.location = 'http://www.google.com';">Enviar</button>
+
+        </form>
         <% end %>
       </form>
     </div>
