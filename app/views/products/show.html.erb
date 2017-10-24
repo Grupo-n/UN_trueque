@@ -1,52 +1,49 @@
 <div class="container margin-top">
   <div class="row">
-    
+
     <p id="notice"><%= notice %></p>
-    
+
     <div class="col-md-8">
       <h2 class="myh"><%= @product.name %></h2>
       <center>
         <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded" %>
       </center>
     </div>
-    
+
     <div class="col-md-4">
       <div class="panel panel-default">
-        
+
         <div class="panel-heading">
           <h2 class="myhnot">Caracteristicas</h2>
         </div>
-        
+
         <div class="panel-body">
-          
+
           <h4 class="margin-top-12"><strong>Tipo: </strong></h4>
           <% if @product.p_type == 1 %>
             <h6>Producto</h6>
           <% else %>
             <h6>Servicio</h6>
           <% end %>
-          
+
           <h4 class="margin-top-12"><strong>Descripción: </strong></h4>
           <h6><%= @product.description %></h6>
-          
+
           <h4 class="margin-top-12"><strong>Vendedor: </strong></h4>
           <h6><%= @x.first.first_name %> <%= @x.first.last_name %></h6>
-          
+
           <h4 class="margin-top-12"><strong>Fecha de publicación: </strong></h4>
           <h6><%= @product.updated_at %></h6>
-          
+
         </div>
-        
+
         <div class="panel-footer">
           <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
           <%= link_to 'Back', :back, class:"btn btn-right" %>
         </div>
-        
+
       </div>
-    </div>  
-      
+    </div>
+
   </div>
 </div>
-    
-
-

@@ -27,9 +27,17 @@ class Product < ApplicationRecord
     has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
     validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 
+    def self.objects()
+      return Product.where("p_type = ?", 1)
+    end
+
+    def self.services()
+      return Product.where("p_type = ?", 2)
+    end
 
     def self.get_user_by_product_id(product_id)
       return Product.find(product_id)
     end
+
 
 end
