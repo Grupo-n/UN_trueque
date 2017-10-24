@@ -4,15 +4,15 @@ class MyProductsController < ApplicationController
 
   def index
     @user = current_user
-    @products = current_user.products.all.paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.descendent.paginate(:page => params[:page], :per_page => 12)
   end
 
   def myobjects
-    @products = current_user.products.objects().paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.objects.paginate(:page => params[:page], :per_page => 12)
   end
 
   def myservices
-    @products = current_user.products.services().paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.services.paginate(:page => params[:page], :per_page => 12)
   end
 
   def offer
@@ -20,6 +20,14 @@ class MyProductsController < ApplicationController
   end
 
   def accept
+  end
+
+  def offers_received
+    @barters = Barter.offers_received(current_user)
+  end
+
+  def offers_made
+    @barters = Barter.offers_made(current_user)
   end
 
   private

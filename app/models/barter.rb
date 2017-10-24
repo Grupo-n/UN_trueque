@@ -24,5 +24,12 @@ class Barter < ApplicationRecord
       return Barter.where("product_one_id = ?", product.id)
     end
 
+    def self.offers_received(user)
+      return Barter.where("id_one_user = ?", user.id)
+    end
+
+    def self.offers_made(user)
+      return Barter.where("id_two_user = ?", user.id)
+    end
 
 end
