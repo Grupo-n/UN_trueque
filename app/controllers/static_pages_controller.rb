@@ -7,7 +7,7 @@ before_action :search
     ##@products = Product.where(:condicion_ejemplo => 1).order("created_at DESC").paginate(:page => params[:page]), :per_page => 10)
     #@products = Product.paginate(:page => params[:page], :per_page => 9)
     @search = Product.search(params[:q])
-    @products = @search.result.paginate(:page => params[:page], :per_page => 9)
+    @products = @search.result.paginate(:page => params[:page], :per_page => 12)
   end
 
   def profileInformation
