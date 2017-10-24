@@ -10,7 +10,7 @@
 #  users_id       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#
+#  t.belongs_to   :users, index: true
 
 class Barter < ApplicationRecord
     

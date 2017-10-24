@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
-    @products = Product.paginate(:page => params[:page], :per_page => 9)
     if params[:offert] != nil
       @offert = Product.find(params[:offert])
     else

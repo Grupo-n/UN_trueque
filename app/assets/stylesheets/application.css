@@ -19,10 +19,14 @@
  *= require font-awesome
  *= require style
  */
- /*--------CONTENIDO---------------------------*/
+ /* ==================================================
+  General
+  ================================================== */
+
 html{
   overflow: scroll;
 }
+
 #contenido{
   margin-top: 70px;
 }
@@ -31,6 +35,39 @@ html{
     text-align: center;
   }
 
+.myh{
+  margin: 10px;
+  padding: 10px;
+  color: #31708f;
+}
+
+.myhnot{
+  margin: 0;
+  padding: 0;
+  color: #31708f;
+}
+
+.btn-right{
+  float: right;
+}
+
+.margin-5{ margin:5px }
+.margin-top-12{ margin-top: 12px }
+
+/* ==================================================
+  Panel
+  ================================================== */
+  
+.panel > .panel-heading {
+  background-image: none;
+  background-color: #fff;
+}
+
+.panel > .panel-footer {
+  background-image: none;
+  background-color: #fff;
+  border: 0; 
+}
 
 /*---------------------FORMULARIOS---------------*/
 .panel{
@@ -149,7 +186,7 @@ html{
 .navbar-default .navbar-nav > li > a:focus {
     color: #bcdee7;
 }
-.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .acimg-fulltive > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: #f9fafb;
@@ -161,17 +198,12 @@ html{
 /*****************Informaicion de perfil***********/
 
 .img-full{
-  width: 100%;
-  border: 7px solid #3dadda;
+  width: 70%;
+  border: 5px solid #1c5664;
   border-radius: 50%;
 }
-.t-information{
-  margin-top: 12px;
-}
 
-.t-title{
-  margin-top: 20px;
-}
+
 
 .my-tabs{
   font-size: 15px;
@@ -191,7 +223,12 @@ html{
   border-bottom: 2px solid #199EB8;
 }
 
-/*************Productos y servicios********************/
+/*************Productos y Servicios********************/
+
+
+
+
+
 .mt30{
   margin-top: 30px;
 }
@@ -205,16 +242,8 @@ html{
   height: 300px;
 }
 
-.myh1{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
-.myh{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
+
+
 
 .form-control{
   border: 2px solid #319eb8 !important;
@@ -237,18 +266,19 @@ html{
   margin: 0;
   padding: 0;
 }
-.btn-right{
-  float: right;
-}
+
+
+
 .float-right{
   float: right;
 }
 
-.margin-5{ margin:5px }
+
 .margin-5-50{ margin: 5px 50px }
 .margin-25{ margin: 25px }
 .margin-50{ margin: 50px; }
 .margin-top{ margin-top: 100px; }
+.mt{ margin-top: 50px; }
 
 
 .full-width{
@@ -260,10 +290,11 @@ html{
 		padding: 8px 0;
 	}
 	.btn-right{
-    float: left;
+    float: none;
   }
   .margin-25{ margin: 0 }
   .margin-5-50{ margin: 5px 0 }
+  .mt{ margin-top: 0; }
 }
 
 .opacity:hover {
