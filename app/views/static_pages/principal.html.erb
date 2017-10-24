@@ -1,12 +1,14 @@
 <!--%= stylesheet_link_tag "filename" %-->
 <div class="container margin-top">
-  
+
+  <h4 id="notice" class="myh"><%= notice %></h4>
+
   <div class="row">
     <div class="offset-sm-2 col-sm-8 center">
-      <h1 class="myh">Products & services</h1>
+      <h1 class="myh">Productos & Servicios</h1>
     </div>
   </div>
-    
+
   <% if @products.blank? %>
     <h4>No hay productos</h4>
   <% else %>
@@ -33,13 +35,10 @@
       <% end %>
     </div>
   <% end %>
-  
+
   <div class="offset-md-4 col-md-7">
     <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
   </div>
-  
+
 </div>
 <%= link_to "logout", destroy_user_session_path, method: :delete %>
-
- 
-              
