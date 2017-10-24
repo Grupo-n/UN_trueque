@@ -80,6 +80,22 @@ a {
   color: #fff;
 }
 
+/* boton para fondos verdes*/
+.btn-inverse {
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 3px 6px;
+  background-color: transparent;
+  height: 30px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.btn-inverse:hover, .btn-inverse:focus {
+  background-color: #fff;
+  color: #1c5664;
+}
+
 section {
   padding: 85px 0;
 }
@@ -862,7 +878,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .site-footer h2,
-.site-footer .btn {
+.site-footer .btn{
   margin-bottom: 25px;
 }
 
