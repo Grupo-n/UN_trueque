@@ -10,7 +10,11 @@
 #  users_id       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  t.belongs_to   :users, index: true
+#  money          :integer
+#  confirmation   :string
+#  id_one_user    :integer          #Owner
+#  id_two_user    :integer          #Offer
+#
 
 class Barter < ApplicationRecord
 
