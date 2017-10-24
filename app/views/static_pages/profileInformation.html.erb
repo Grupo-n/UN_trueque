@@ -1,42 +1,25 @@
-<div class="container margin-top">
-  <div class="row">
-      <div class="offset-md-3 col-md-6 center">
-          <h2 class="myh">Informacion de perfil</h2>
-      </div>
-  </div>
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag "application" %>
+<% end %>
 
-  <div class="row">
-    <div class="col-md-6 center">
-      <% if !current_user.nil? %>
-        <%= image_tag(current_user.avatar.url(:large) , class: "img-full") %></li>
-      <% end %>
-  
-      <h4 class="margin-top-12"><%= current_user.first_name + current_user.last_name  %></h4>
-      <h4 class="margin-top-12"><%= current_user.email %></h4>
-      <h4 class="margin-top-12">3217456987</h4>
-  
-      <%= link_to  "Editar información" , :user_edit, class:"btn" %>
-    </div>
-    <div class="col-md-6 center">
-      <ul class="nav nav-pills" role="tablist" id="myTabs">
-        <li role="presentation" class="active"><a id="tab1" href="#paneltab1" aria-controls="home" role="tab" data-toggle="tab"class="my-tabs" >Mis compras/cambios</a></li>
-        <li role="presentation" ><a id="tab2" href="#paneltab2" aria-controls="profile" role="tab" data-toggle="tab" class="my-tabs">Mis ventas/servicios</a></li>
-      </ul>
-  
-       <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="paneltab1">Productos/servicios comprados....</div>
-        <div role="tabpanel" class="tab-pane" id="paneltab2">Productos/servicios vendidos</div>
+<div class="container">
+  <h2>Collapsible Panel</h2>
+  <p>Click on the collapsible panel to open and close it.</p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapseOne">Collapsible panel</a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">Panel Body</div>
+        <div class="panel-footer">Panel Footer</div>
       </div>
     </div>
   </div>
-  <%= link_to t('.back', default: 'Regresar'), :back, class:"btn" %>
 </div>
-
-<script type="text/javascript">
-$('#myTabs a').click(function (e) {
-    $(this).tab('show')
-})
-</script>
-
 

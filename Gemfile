@@ -54,7 +54,7 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 
 gem 'bootstrap', '~> 4.0.0.alpha'
-gem 'bootstrap-sass', '~> 3.3.7'
+
 gem 'autoprefixer-rails'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x

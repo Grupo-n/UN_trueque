@@ -31,9 +31,17 @@ html{
   margin-top: 70px;
 }
 
-  .center{
-    text-align: center;
-  }
+.superCenter{
+  display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	vertical-align: middle;
+}
+
+.center{
+	text-align: center;
+}
 
 .myh{
   margin: 10px;
@@ -67,6 +75,49 @@ html{
 }
 
 /* ==================================================
+  grid
+  ================================================== */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-thumbnail {
+	border: 1px solid rgb( 221, 221, 221);
+	border-radius: 4px;
+	background-color: #fff;
+	width: 100%;
+	margin: 15px 5px;
+	padding: 10px;
+}
+
+.opacity:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.opacity h4, .opacity h6 {
+  color: #000;
+}
+
+.minibtn {
+  border: 1px solid #1c5664;
+  background-color: #fff;
+  color: #1c5664;
+  font-size: 16px;
+  padding: 0px 6px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.minibtn:hover, .minibtn:focus {
+  background-color: #1c5664;
+  color: #fff;
+}
+
+/* ==================================================
   Panel
   ================================================== */
   
@@ -81,6 +132,45 @@ html{
   border: 0; 
 }
 
+/* ==================================================
+  stars
+  ================================================== */
+.rating{
+  overflow: hidden;
+  vertical-align: bottom;
+  display: inline-block;
+  width: auto;
+  height: 30px;
+}
+.rating > input{
+  opacity: 0;
+}
+.rating > label{
+  position: relative;
+  display: block;
+  float: right;
+  background: url('star-off-big.png');
+  background-size: 30px 30px;
+}
+.rating > label:before{
+  display: block;
+  opacity: 0;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: url('star-on-big.png');
+  background-size: 30px 30px;
+  transition: opacity 0.2s linear;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating:not(:hover) > :checked ~ label:before{
+  opacity: 1;
+}
+
+.raiting > label:focus{
+  opacity: 1;
+}
 /*---------------------FORMULARIOS---------------*/
 .panel{
   margin-top: 30px;
@@ -303,10 +393,7 @@ html{
   .mt{ margin-top: 0; }
 }
 
-.opacity:hover {
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-}
+
 
 
 .pagination>li>a,

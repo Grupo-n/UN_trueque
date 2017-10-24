@@ -12,11 +12,13 @@
   <% else %>
     <div class="row">
       <% @products.each do |p| %>
-        <div class="col-sm-3">
-          <div class="thumbnail">
+        <div class="col-sm-3 row-eq-height">
+          <div class="my-thumbnail">
             <div class="opacity">
               <%= link_to my_offer_path(p) do %>
-                <%= image_tag p.product_image.url(:medium), alt: "", style:"width:100%; height:auto", class:"img-rounded" %>
+                <div class="center" style="height:200px">
+                  <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
+                </div>
                 <div class="caption container-fluid" style="height: 100px">
                   <h4><%= p.name %></h4>
                   <% if p.p_type == 1 %>
@@ -28,9 +30,8 @@
                 </div>
               <% end %>
             </div>
-            <span><%= link_to 'Show', p %></span>
-            <span><%= link_to 'Edit', edit_product_path(p) %></span>
-            <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+            <span><%= link_to 'Edit', edit_product_path(p), class:"minibtn" %></span>
+            <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?'}, class:"minibtn" %></td>
           </div>
         </div>
       <% end %>

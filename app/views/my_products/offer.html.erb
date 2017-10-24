@@ -3,7 +3,7 @@
         <div class="offset-md-3 col-sm-6 center">
             <div class="container-fluid">
                 <h2 class="myh">Lo que han ofrecido por tu <br> <strong><%= @product.name %></strong></h2>
-                <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:70%; height:auto", class:"img-rounded" %>
+                <%= image_tag @product.product_image.url(:medium), alt: "", style:"max-height:200px", class:"img-rounded" %>
             </div>
         </div>
     </div>
@@ -17,15 +17,19 @@
         <div class="row">
             <% @barters.each do |b| %>
                 <% p = Product.find(b.product_two_id) %>
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <%= image_tag p.product_image.url(:medium), alt: "", class:"img-rounded center" %>
-                        <div class="caption container-fluid">
-                            <h4 class="myhnot"><%= p.name %></h4>
-                            <h6><%= b.description %></h6>
-                            <br>
-                            <%= link_to 'Ver', product_path(p), class:'btn-ghost', style:"float: left"%>
-                            <%= link_to 'Aceptar', "#", class:'btn-ghost btn-right' %>
+                <div class="col-md-3 row-eq-height">
+                    <div class="my-thumbnail">
+                        <div class="opacity">
+                            <div class="center" style="height:200px">
+                                <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
+                            </div>
+                            <div class="caption container-fluid">
+                                <h4 class="myhnot"><%= p.name %></h4>
+                                <h6><%= b.description %></h6>
+                                <br>
+                                <%= link_to 'Ver', product_path(p), class:'btn-ghost', style:"float: left"%>
+                                <%= link_to 'Aceptar', "#", class:'btn-ghost btn-right' %>
+                            </div>
                         </div>
                     </div>
                 </div>
