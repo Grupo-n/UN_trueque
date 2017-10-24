@@ -7,15 +7,15 @@ class MyProductsController < ApplicationController
   end
 
   def myobjects
-    @products = current_user.products.where("p_type = ?", 1).paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.objects().paginate(:page => params[:page], :per_page => 12)
   end
 
   def myservices
-    @products = current_user.products.where("p_type = ?", 2).paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.services().paginate(:page => params[:page], :per_page => 12)
   end
 
   def offer
-    @barters = Barter.where("product_one_id = ?", @product.id).paginate(:page => params[:page], :per_page => 4)
+    @barters = Barter.offers(@product).paginate(:page => params[:page], :per_page => 12)
   end
 
   private

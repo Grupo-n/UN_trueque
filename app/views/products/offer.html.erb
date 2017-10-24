@@ -6,27 +6,27 @@
 <% end %>
 
 <div class="container margin-top">
-    
+
     <h2 class="myh">Ofertar</h2>
 
     <div class="row">
-        
+
         <div class="col-md-6">
             <center>
                 <h2 class="myh">Estas ofertando por: <br> <strong><%= @product.name %></strong></h2>
                 <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded" %>
             </center>
         </div>
-        
+
         <div class="col-md-6">
             <div class="container-fluid panel panel-default">
-                
+
                 <div class="panel-heading">
                     <h2 class="myhnot">Tu Oferta</h2>
                 </div>
-                
+
                 <div class="panel-body">
-                    
+
                     <!--form>
                         <label class="radio-inline">
                             <input type="radio" name="optradio">Producto
@@ -38,17 +38,17 @@
                             <input type="radio" name="optradio" disabled='disabled'>Servicio
                         </label>
                     </form-->
-                    
+
                     <%= link_to "Nuevo", new_product_path, class:"btn" %>
                     <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
                     <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>' #modal' } %-->
-                    
-                    <br> 
+
+                    <br>
                     <div class="margin-5">
                         <% if @offert.id == nil %>
                             <h4>Debes seleccionar un producto.</h4>
                         <% else %>
-           
+
                             <h4 class="myhnot">Tu oferta es: </h4>
                             <%= image_tag @offert.product_image.url(:medium), alt: "", style:"width:100px; height:auto", class:"img-rounded margin-5" %>
                             <h6><strong>Nombre: </strong><%= @offert.name %></h6>
@@ -61,10 +61,10 @@
                             <h6><strong>Fecha de publicación: </strong><%= @offert.updated_at %></h6>
                             <%= link_to 'Cancelar', :back, class:"margin-5" %>
                         <% end %>
-                    </div>  
-                    
+                    </div>
+
                 </div>
-                
+
                 <div class="panel-footer">
                     <%= form_for @barter do |b| %>
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
@@ -72,13 +72,12 @@
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
                         <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
                     <% end %>
-                    
                     <%= link_to 'Volver', :show, class:"btn btn-right" %>
                 </div>
-            
+
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="modal" role="dialog">
         <div class="modal-dialog">
@@ -113,6 +112,5 @@
             </div>
         </div>
     </div>
-    
-</div>  
-   
+
+</div>

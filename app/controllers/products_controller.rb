@@ -5,15 +5,14 @@ class ProductsController < ApplicationController
   # GET /products.json
 
   def index
-    @products = Product.all
-    @products = Product.paginate(:page => params[:page], :per_page => 9)
-    #@search = Product.search(params[:q])
-    #@products = @search.result.paginate(:page => params[:page], :per_page => 9)
+    @products = Product.all.paginate(:page => params[:page], :per_page => 12)
   end
 
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
+    @products = Product.all.paginate(:page => params[:page], :per_page => 12)
+
     if params[:offert] != nil
       @offert = Product.find(params[:offert])
     else
@@ -24,7 +23,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id)
+    @user_name = User.get_name(@product)
   end
 
   # GET /products/new
