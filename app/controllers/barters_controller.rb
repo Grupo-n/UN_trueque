@@ -10,6 +10,7 @@ class BartersController < ApplicationController
   # GET /barters/1
   # GET /barters/1.json
   def show
+    @barter = Barter.find(params[:id])
   end
 
   # GET /barters/new
@@ -25,9 +26,12 @@ class BartersController < ApplicationController
   # POST /barters.json
   def create
     @barter = Barter.new(barter_params)
-
+    @product = Product.get_user_by_product_id(@barter.product_one_id)
+    @user = User.get_user(@product)
+    @userbarters = current_user
     respond_to do |format|
       if @barter.save
+        UserMailer.new_barter(@barter, @product, @user, @userbarters).deliver
         format.html { redirect_to @barter, notice: 'Barter was successfully created.' }
         format.json { render :show, status: :created, location: @barter }
       else

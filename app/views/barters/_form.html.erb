@@ -13,10 +13,11 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :barter_description %>
+    <%= form.text_field :description, id: :barter_description, autofocus: true, class: 'form-control' %>
   </div>
-
+  
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Actualizar Barter', class: 'btn' %>
   </div>
 <% end %>

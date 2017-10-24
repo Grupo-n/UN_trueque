@@ -62,4 +62,8 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver!
   end
 
+  def self.get_user(product)
+    return User.find(product.user_id)
+  end
+
 end

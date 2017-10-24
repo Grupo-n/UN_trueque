@@ -5,7 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#Usada para paginacion
+#Use ransack for scoping, searching and filtering
+gem 'ransack'
+#Use will_paginate-bootstrap for pagination
 gem 'will_paginate-bootstrap'
 #gem annotate
 gem 'annotate'
@@ -52,6 +54,8 @@ gem 'jquery-rails'
 gem 'omniauth-facebook'
 
 gem 'bootstrap', '~> 4.0.0.alpha'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'autoprefixer-rails'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 

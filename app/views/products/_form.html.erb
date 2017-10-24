@@ -12,52 +12,33 @@
   <% end %>
 
 
-<div class="row">
-  <div class="offset-md-4 col-md-4 center">
-      <%= image_tag @product.product_image.url(:medium), class: "img-fullproduct mt30"%>
-  </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.file_field :product_image %>
+  <div class="row">
+    <div class="offset-md-4 col-md-4 center">
+      <%= image_tag @product.product_image.url(:medium), class: "img-rounded"%>
+      <div class="form-group">
+        <%= form.file_field :product_image %>
+      </div>
     </div>
   </div>
-</div>
-
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
+  
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :p_type %>
+        <%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
+      </div>
+        <!--%= link_to 'Crear Producto', show_path(@product),class: 'btn my-btn' %-->
+        <%= link_to 'Cancelar', :user_home, class: 'btn' %>
+        <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn  btn-right' %>
+       
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :p_type %>
-      <%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-5 col-md-2">
-    <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn btn-full my-btn' %>
-  </div>
-</div>
-
 <% end %>

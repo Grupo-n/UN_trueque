@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :barters, :products, :services
+  resources :barters
 
+  resources :products do
+    collection do
+      match 'search' => 'application#search', via: [:get, :post], as: :search
+    end
+  end
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   #Pagina principal
@@ -12,7 +17,8 @@ Rails.application.routes.draw do
   get 'my_products/myobjects'
   get 'my_products/myservices'
   get 'my_products/offer'
-
+  
+  get 'products/:id/show' => "products#show", as: 'show'
   get 'products/:id/offer' => "products#offer", as: 'offer'
   get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
 
