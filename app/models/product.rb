@@ -32,7 +32,7 @@ class Product < ApplicationRecord
     end
 
     def self.services()
-      return Product.where("p_type = ?", 2
+      return Product.where("p_type = ?", 2)
     end
 
     def self.get_user_by_product_id(product_id)

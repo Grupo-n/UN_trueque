@@ -14,7 +14,7 @@ before_action :search
   private
       def search
         if params[:search]
-          search_params = CGI::escapeHTML(params[:seach])
+          search_params = CGI::escapeHTML(params[:search])
           redirect_to ("/static_pages/principal?utf8=%E2%9C%93&search=#{search_params}")
         end
       end
