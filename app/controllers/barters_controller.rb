@@ -73,6 +73,6 @@ class BartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
     end
 end

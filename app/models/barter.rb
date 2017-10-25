@@ -12,6 +12,8 @@
 #  updated_at     :datetime         not null
 #  money          :integer
 #  confirmation   :string
+#  id_one_user    :integer          #Owner
+#  id_two_user    :integer          #Offer
 #
 
 class Barter < ApplicationRecord

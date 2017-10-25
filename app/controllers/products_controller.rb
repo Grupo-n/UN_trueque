@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
     @barter = Barter.new
     @myproducts = current_user.products.all
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
+    @owner_user = User.get_user(@product)
+    @offer_user = current_user
 
     if params[:offert] != nil
       @offert = Product.find(params[:offert])
