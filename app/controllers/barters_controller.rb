@@ -10,6 +10,7 @@ class BartersController < ApplicationController
   # GET /barters/1
   # GET /barters/1.json
   def show
+    @barter = Barter.find(params[:id])
   end
 
   # GET /barters/new
@@ -25,10 +26,13 @@ class BartersController < ApplicationController
   # POST /barters.json
   def create
     @barter = Barter.new(barter_params)
-
+    @product = Product.get_user_by_product_id(@barter.product_one_id)
+    @user = User.get_user(@product)
+    @userbarters = current_user
     respond_to do |format|
       if @barter.save
-        format.html { redirect_to @barter, notice: 'Barter was successfully created.' }
+        UserMailer.new_barter(@barter, @product, @user, @userbarters).deliver
+        format.html { redirect_to root_path, notice: '¡Producto creado!' }
         format.json { render :show, status: :created, location: @barter }
       else
         format.html { render :new }
@@ -69,6 +73,7 @@ class BartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
+      #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 end

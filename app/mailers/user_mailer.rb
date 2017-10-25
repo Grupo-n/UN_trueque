@@ -13,4 +13,13 @@ class UserMailer < ApplicationMailer
     mail subject: "Message contact from #{message.name}"
   end
 
+  def new_barter(barter, product, user, userbarters)
+    @barter = barter
+    @product = product
+    @user = user
+    @userbarters = userbarters
+    @url = 'http://untrueque.herokuapp.com'
+    mail(to: @user.email, subject: 'Recibiste una nueva oferta')
+  end
+
 end

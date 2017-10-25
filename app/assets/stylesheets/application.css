@@ -19,19 +19,158 @@
  *= require font-awesome
  *= require style
  */
- /*--------CONTENIDO---------------------------*/
+ /* ==================================================
+  General
+  ================================================== */
+
 html{
   overflow: scroll;
 }
+
 #contenido{
   margin-top: 70px;
 }
 
-  .center{
-    text-align: center;
-  }
+.superCenter{
+  display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	vertical-align: middle;
+}
 
+.center{
+	text-align: center;
+}
 
+.myh{
+  margin: 10px;
+  padding: 10px;
+  color: #31708f;
+}
+
+.myhnot{
+  margin: 0;
+  padding: 0;
+  color: #31708f;
+}
+
+.btn-right{
+  float: right;
+}
+
+.margin-5{ margin:5px }
+.margin-top-12{ margin-top: 12px }
+
+/* ==================================================
+  forms
+  ================================================== */
+
+.form-control{
+  border: 2px solid #1c5664 !important;
+}
+
+.myform{
+  margin-top: 30px;
+}
+
+/* ==================================================
+  grid
+  ================================================== */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-thumbnail {
+	border: 1px solid rgb( 221, 221, 221);
+	border-radius: 4px;
+	background-color: #fff;
+	width: 100%;
+	margin: 15px 5px;
+	padding: 10px;
+}
+
+.opacity:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.opacity h4, .opacity h6 {
+  color: #000;
+}
+
+.minibtn {
+  border: 1px solid #1c5664;
+  background-color: #fff;
+  color: #1c5664;
+  font-size: 16px;
+  padding: 0px 6px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.minibtn:hover, .minibtn:focus {
+  background-color: #1c5664;
+  color: #fff;
+}
+
+/* ==================================================
+  Panel
+  ================================================== */
+  
+.panel > .panel-heading {
+  background-image: none;
+  background-color: #fff;
+}
+
+.panel > .panel-footer {
+  background-image: none;
+  background-color: #fff;
+  border: 0; 
+}
+
+/* ==================================================
+  stars
+  ================================================== */
+.rating{
+  overflow: hidden;
+  vertical-align: bottom;
+  display: inline-block;
+  width: auto;
+  height: 30px;
+}
+.rating > input{
+  opacity: 0;
+}
+.rating > label{
+  position: relative;
+  display: block;
+  float: right;
+  background: url('star-off-big.png');
+  background-size: 30px 30px;
+}
+.rating > label:before{
+  display: block;
+  opacity: 0;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: url('star-on-big.png');
+  background-size: 30px 30px;
+  transition: opacity 0.2s linear;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating:not(:hover) > :checked ~ label:before{
+  opacity: 1;
+}
+
+.raiting > label:focus{
+  opacity: 1;
+}
 /*---------------------FORMULARIOS---------------*/
 .panel{
   margin-top: 30px;
@@ -149,7 +288,7 @@ html{
 .navbar-default .navbar-nav > li > a:focus {
     color: #bcdee7;
 }
-.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .acimg-fulltive > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: #f9fafb;
@@ -161,17 +300,12 @@ html{
 /*****************Informaicion de perfil***********/
 
 .img-full{
-  width: 100%;
-  border: 7px solid #3dadda;
+  width: 70%;
+  border: 5px solid #1c5664;
   border-radius: 50%;
 }
-.t-information{
-  margin-top: 12px;
-}
 
-.t-title{
-  margin-top: 20px;
-}
+
 
 .my-tabs{
   font-size: 15px;
@@ -191,7 +325,12 @@ html{
   border-bottom: 2px solid #199EB8;
 }
 
-/*************Productos y servicios********************/
+/*************Productos y Servicios********************/
+
+
+
+
+
 .mt30{
   margin-top: 30px;
 }
@@ -205,23 +344,9 @@ html{
   height: 300px;
 }
 
-.myh1{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
-.myh{
-  margin: 20px;
-  padding: 10px;
-  color: #31708f;
-}
 
-.form-control{
-  border: 2px solid #319eb8 !important;
-}
-.myform{
-  margin-top: 30px;
-}
+
+
 
 .img-fullproduct{
   border: 7px solid #3dadda;
@@ -237,18 +362,19 @@ html{
   margin: 0;
   padding: 0;
 }
-.btn-right{
-  float: right;
-}
+
+
+
 .float-right{
   float: right;
 }
 
-.margin-5{ margin:5px }
+
 .margin-5-50{ margin: 5px 50px }
 .margin-25{ margin: 25px }
 .margin-50{ margin: 50px; }
 .margin-top{ margin-top: 100px; }
+.mt{ margin-top: 50px; }
 
 
 .full-width{
@@ -260,16 +386,14 @@ html{
 		padding: 8px 0;
 	}
 	.btn-right{
-    float: left;
+    float: none;
   }
   .margin-25{ margin: 0 }
   .margin-5-50{ margin: 5px 0 }
+  .mt{ margin-top: 0; }
 }
 
-.opacity:hover {
-  opacity: 0.5;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
-}
+
 
 
 .pagination>li>a,

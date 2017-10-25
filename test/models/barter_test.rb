@@ -1,14 +1,19 @@
 # == Schema Information
 #
-# Table name: services
+# Table name: barters
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :string
-#  duration    :time
-#  typeInt     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :integer          not null, primary key
+#  description    :string
+#  product_one_id :integer
+#  product_two_id :integer
+#  state          :integer
+#  users_id       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  money          :integer
+#  confirmation   :string
+#  id_one_user    :integer
+#  id_two_user    :integer
 #
 
 require 'test_helper'

@@ -30,6 +30,7 @@
 #  avatar_content_type    :string
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  score                  :float
 #
 
 class User < ApplicationRecord
@@ -60,6 +61,10 @@ class User < ApplicationRecord
 
   def send_welcome_email
     UserMailer.welcome_email(self).deliver!
+  end
+
+  def self.get_user(product)
+    return User.find(product.user_id)
   end
 
 end

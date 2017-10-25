@@ -1,29 +1,64 @@
 <div class="container margin-top">
-<div class="row">
-  <p id="notice"><%= notice %></p>
-  <div class="col-sm-8">
-    <h2 class="myh1"><strong><%= @product.name %></strong></h2>
-    <center>
-    <%= image_tag @product.product_image.url(:medium), alt: "Cuadernos", style:"width:50%; height:auto", class:"img-rounded center" %>
-    </center>
-  </div>
-  <div class="col-sm-4 panel panel-default devise-bs">
-    <h4 class="t-information"><strong>Tipo: </strong></h4>
-    <% if @product.p_type == 1 %>
-      <p>Producto</p>
-    <% else %>
-      <p>Servicio</p>
-    <% end %>
-    <h4 class="t-information"><strong>Descripción: </strong></h4>
-    <p><%= @product.description %></p>
+  <div class="row">
 
-     <h4 class="t-information"><strong>Vendedor: </strong></h4>
-    <p><%= @user_name %></p>
+    <p id="notice"><%= notice %></p>
 
-
-    <div class="container margin-top">
-      <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
-      <%= link_to 'Back', :back, class:"btn btn-right" %>
+    <div class="col-md-8">
+      <h2 class="myh"><%= @product.name %></h2>
+      <center>
+        <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded" %>
+      </center>
     </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h2 class="myhnot">Caracteristicas</h2>
+        </div>
+
+        <div class="panel-body">
+
+          <h4 class="margin-top-12"><strong>Tipo: </strong></h4>
+          <% if @product.p_type == 1 %>
+            <h6>Producto</h6>
+          <% else %>
+            <h6>Servicio</h6>
+          <% end %>
+
+          <h4 class="margin-top-12"><strong>Descripción: </strong></h4>
+          <h6><%= @product.description %></h6>
+
+          <h4 class="margin-top-12"><strong>Vendedor: </strong></h4>
+          <h6><%= @user_name %></h6>
+
+          <h4 class="margin-top-12"><strong>Fecha de publicación: </strong></h4>
+          <h6><%= @product.updated_at %></h6>
+
+          <br>
+          <div id="raiting-show" class="container-fluid">
+            <span class="rating">
+              <input id="rating5" type="radio" name="rating" value="5">
+              <label for="rating5">5</label>
+              <input id="rating4" type="radio" name="rating" value="4">
+              <label for="rating4">4</label>
+              <input id="rating3" type="radio" name="rating" value="3">
+              <label for="rating3">3</label>
+              <input id="rating2" type="radio" name="rating" value="2" checked>
+              <label for="rating2">2</label>
+              <input id="rating1" type="radio" name="rating" value="1">
+              <label for="rating1">1</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="panel-footer">
+          <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
+          <%= link_to 'Back', :back, class:"btn btn-right" %>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
