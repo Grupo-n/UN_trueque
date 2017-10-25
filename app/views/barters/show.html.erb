@@ -4,6 +4,8 @@
   <strong>Description:</strong>
   <%= @barter.description %>
 </p>
-
+<a class="ui teal button" href="facture.pdf"> Descargar como PDF</a>
+<%= link_to 'PDF' , @barter.id.to_s+".pdf" %>
 <%= link_to 'Edit', edit_barter_path(@barter) %> |
 <%= link_to 'Back', barters_path %>
+<%= raw @qr.as_html %>
