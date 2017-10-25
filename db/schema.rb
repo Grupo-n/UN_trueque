@@ -24,7 +24,17 @@ ActiveRecord::Schema.define(version: 20171024210939) do
     t.float "longitude", default: -74.082719
     t.string "title"
     t.text "address"
+    t.integer "money"
+    t.string "confirmation"
+    t.integer "id_one_user"
+    t.integer "id_two_user"
     t.index ["users_id"], name: "index_barters_on_users_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -47,6 +57,12 @@ ActiveRecord::Schema.define(version: 20171024210939) do
     t.string "product_image_content_type"
     t.integer "product_image_file_size"
     t.datetime "product_image_updated_at"
+    t.integer "category"
+    t.time "duration"
+    t.integer "interests"
+    t.boolean "available"
+    t.integer "quantity"
+    t.boolean "state"
     t.index ["users_id"], name: "index_products_on_users_id"
   end
 
@@ -78,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171024210939) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float "score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

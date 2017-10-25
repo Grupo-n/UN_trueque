@@ -31,5 +31,6 @@ class Barter < ApplicationRecord
     def self.offers_made(user)
       return Barter.where("id_two_user = ?", user.id)
     end
+    
 
 end

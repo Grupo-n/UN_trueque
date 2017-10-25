@@ -14,6 +14,10 @@
   <h4 class="myhnot margin-top-12">Description:</h4>
   <h6 class="margin-5"><%= @barter.description %></h6>
   
+  <h4 class="myhnot margin-top-12">Ubicación:</h4>
+  <h6 class="margin-5"><%= @barter.latitude %></h6>
+  <h6 class="margin-5"><%= @barter.longitude %></h6>
+  
   <br>
   <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>
   <%= link_to 'Aceptar', :user_home, class:"btn" %>
