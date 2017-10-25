@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'my_products/myobjects' , :as => :myObjects
   get 'my_products/myservices' , :as => :myServices
   get 'my_products/index' , :as => :myObjectsServices
+  get 'my_products/myposts' , :as => :myPosts
 
   #Información de usuario
   get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information

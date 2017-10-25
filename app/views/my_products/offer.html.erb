@@ -3,7 +3,9 @@
         <div class="offset-md-3 col-sm-6 center">
             <div class="container-fluid">
                 <h2 class="myh">Lo que han ofrecido por tu <br> <strong><%= @product.name %></strong></h2>
-                <%= image_tag @product.product_image.url(:medium), alt: "", style:"max-height:200px", class:"img-rounded" %>
+                <div class="center" style="height:250px">
+                    <%= image_tag @product.product_image.url(:medium), alt: "", style:"max-height:250px", class:"img-rounded" %>
+                </div>
             </div>
         </div>
     </div>
@@ -20,7 +22,7 @@
                 <div class="col-md-3 row-eq-height">
                     <div class="my-thumbnail">
                         <div class="opacity">
-                            <div class="center" style="height:200px">
+                            <div class="superCenter" style="height:200px">
                                 <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                             </div>
                             <div class="caption container-fluid">
