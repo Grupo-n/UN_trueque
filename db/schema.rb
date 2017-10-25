@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024133301) do
+ActiveRecord::Schema.define(version: 20171024210939) do
 
   create_table "barters", force: :cascade do |t|
     t.string "description"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20171024133301) do
     t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", default: 4.635487
+    t.float "longitude", default: -74.082719
+    t.string "title"
+    t.text "address"
     t.index ["users_id"], name: "index_barters_on_users_id"
   end
 
