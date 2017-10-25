@@ -59,7 +59,6 @@ gem 'faker'
 
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 gem 'rqrcode'
 gem 'wkhtmltopdf-heroku'
 group :development, :test do
