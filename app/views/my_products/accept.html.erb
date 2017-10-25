@@ -4,5 +4,6 @@
 <p><%= @barter.inspect %></p>
 <%= form_for @barter do |f| %>
   <%= f.text_area :confirmation, class: 'form-control', rows: '5', placeholder: 'Escribe un mensaje de conformación aquí' %>
+  <%= f.hidden_field :state, :value => 2 %>
   <%= f.submit 'Confirmar', class: 'btn  btn-right' %>
 <% end %>

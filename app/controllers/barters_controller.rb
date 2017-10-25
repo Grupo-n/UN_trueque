@@ -32,7 +32,7 @@ class BartersController < ApplicationController
     respond_to do |format|
       if @barter.save
         UserMailer.new_barter(@barter, @product, @user, @userbarters).deliver
-        format.html { redirect_to root_path, notice: '¡Producto creado!' }
+        format.html { redirect_to root_path, notice: '¡Oferta realizada!' }
         format.json { render :show, status: :created, location: @barter }
       else
         format.html { render :new }
