@@ -19,7 +19,12 @@ class MyProductsController < ApplicationController
     @barters = Barter.offers(@product).paginate(:page => params[:page], :per_page => 12)
   end
 
+  def mytransactions
+   @barters = Barter.my_transactions(current_user)
+  end
+
   def accept
+
   end
 
   def offers_received

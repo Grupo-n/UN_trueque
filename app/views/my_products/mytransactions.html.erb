@@ -1,0 +1,35 @@
+<h1 class="myh margin-top">Transacciones</h1>
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Producto1</th>
+        <th>Producto2</th>
+        <th>Dinero</th>
+        <th>Descripcion</th>
+        <th>Confirmacion</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th colspan="7"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @barters.each do |barter| %>
+        <tr>
+          <td><%= barter.product_one_id %></td>
+          <td><%= barter.product_two_id %></td>
+          <td><%= barter.money %></td>
+          <td><%= barter.description %></td>
+          <td><%= barter.state %></td>
+          <td><%= barter.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <br>
+
+</div>
