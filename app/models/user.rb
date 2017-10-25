@@ -47,7 +47,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.avatar = auth.info.image
+      user.avatar = "https://graph.facebook.com/#{auth.uid}/picture?type=large"
       user.skip_confirmation!
     end
   end
