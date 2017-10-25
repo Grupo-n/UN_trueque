@@ -14,6 +14,12 @@
 #  product_image_content_type :string
 #  product_image_file_size    :integer
 #  product_image_updated_at   :datetime
+#  category                   :integer
+#  duration                   :time
+#  interests                  :integer
+#  available                  :boolean
+#  quantity                   :integer
+#  state                      :boolean
 #
 
 require 'test_helper'

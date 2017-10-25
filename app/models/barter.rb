@@ -10,7 +10,9 @@
 #  users_id       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  t.belongs_to   :users, index: true
+#  money          :integer
+#  confirmation   :string
+#
 
 class Barter < ApplicationRecord
 
@@ -18,6 +20,10 @@ class Barter < ApplicationRecord
 
     def self.offers(product)
       return Barter.where("product_one_id = ?", product.id)
+    end
+
+    def self.done
+
     end
 
 
