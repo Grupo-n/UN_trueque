@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    
+
     <br>
     <% if @barters.blank? %>
         <div class="col-md-6">
@@ -30,7 +30,7 @@
                                 <h6><%= b.description %></h6>
                                 <br>
                                 <%= link_to 'Ver', product_path(p), class:'btn-ghost', style:"float: left"%>
-                                <%= link_to 'Aceptar', "#", class:'btn-ghost btn-right' %>
+                                <%= link_to 'Aceptar', accept_path(b.id), class:'btn-ghost btn-right' %>
                             </div>
                         </div>
                     </div>
@@ -39,10 +39,8 @@
         </div>
     <% end %>
 
-    
+
     <div class="offset-md-4 col-md-7">
         <ul class="pagination pagination-lg"> <%= will_paginate @barters, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
     </div>
 </div>
-
-    
