@@ -6,46 +6,34 @@
 <% end %>
 
 <div class="row margin-top">
-  <div class="col-md-4 ">
+  <div class="col-md-3 ">
     <div class="container">
-      <div id="accordion" class="panel-group">
+      <div id="accordion-profile" class="panel-group">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Publicaciones", :myPosts %></h4>
-          </div>
+          <h4><%= link_to  "Mis Publicaciones", :myPosts, class:"link" %></h4>
         </div>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Productos", :myObjects %></h4>
-          </div>
+          <h4><%= link_to  "Mis Productos", :myObjects, class:"link" %></h4>
         </div>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Servicios", :myServices %></h4>
-          </div>
+          <h4><%= link_to  "Mis Servicios", :myServices, class:"link" %></h4>
         </div>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Mis Ofertas</a></h4>
-          </div>
+          <h4><a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="link">Mis Ofertas</a></h4>
           <div id="collapse3" class="panel-collapse collapse">
             <div class="panel-body">
               <ul>
-                <li><%= link_to  "Realizadas", nil  %></li>
-                <li><%= link_to  "Recibidas", nil  %></li>
+                <li><h6><%= link_to  "Realizadas", nil, class:"link" %></h6></li>
+                <li><h6><%= link_to  "Recibidas", nil, class:"link"  %></h6></li>
               </ul>
             </div>
           </div>
         </div>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Servicios", nil %></h4>
-          </div>
+          <h4 class=""><%= link_to  "Mis Transacciones", nil, class:"link" %></h4>
         </div>
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Perfil", :user_information %></h4>
-          </div>
+          <h4 class=""><%= link_to  "Mi Perfil", :user_information, class:"link" %></h4>
         </div>
       </div>
     </div> 
@@ -54,12 +42,12 @@
   <div class="col-md-6 center">
     <h2 class="myh">Informacion de perfil</h2>
     <% if !current_user.nil? %>
-      <%= image_tag(current_user.avatar.url(:large) , class: "img-full") %></li>
+      <%= image_tag(current_user.avatar.url(:large) , class: "img-profile img-circle") %></li>
     <% end %>
     <h4 class="margin-top-12"><%= current_user.first_name + current_user.last_name  %></h4><br>
     <h4 class="margin-top-12"><%= current_user.email %></h4><br>
     <h4 class="margin-top-12">3217456987</h4>
-    <%= link_to  "Editar información" , :user_edit, class:"btn" %>
+    <%= link_to  "Editar información" , :user_edit, class:"btn margin-top-12" %>
   </div>
 </div>
 

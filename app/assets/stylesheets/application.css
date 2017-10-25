@@ -297,35 +297,34 @@ html{
 
 
 
-/*****************Informaicion de perfil***********/
+/* ==================================================
+  perfil
+  ================================================== */
 
-.img-full{
+.img-profile{
   width: 200px;
   height: 200px;
   border: 5px solid #1c5664;
-  border-radius: 50%;
+  padding:0;
+  margin: 0;
 }
-
-
-
-.my-tabs{
-  font-size: 15px;
-  color: black;
+#accordion-profile .panel, 
+#accordion-profile .panel-default{
+  background-color: #fff;
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 0;
 }
-
-.my-tabs:focus{
-  background-color: #199EB8!important;
-  color: #fff;
+#accordion-profile .link{
+  text-decoration: none;
+  color: #1d5664;
 }
-
-.nav-pills>li.active>a{
-  background-color: #199EB8!important;
+#accordion-profile h4 > .link:hover{
+  margin: 5px 15px;
 }
-
-#myTabs{
-  border-bottom: 2px solid #199EB8;
+#accordion-profile .link:hover{
+  opacity: 0.5;
 }
-
 /*************Productos y Servicios********************/
 
 
