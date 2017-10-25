@@ -1,5 +1,5 @@
 require 'digest/md5'
-require 'rqrcode'
+#require 'rqrcode'
 
 class BartersController < ApplicationController
   before_action :set_barter, only: [:show, :edit, :update, :destroy]
@@ -14,7 +14,7 @@ class BartersController < ApplicationController
   # GET /barters/1.json
   def show
     @hashcode = Digest::MD5.hexdigest(@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
-    @qr = RQRCode::QRCode.new(@hashcode.to_s)
+    #@qr = RQRCode::QRCode.new(@hashcode.to_s)
 
     respond_to do |format|
       format.html
