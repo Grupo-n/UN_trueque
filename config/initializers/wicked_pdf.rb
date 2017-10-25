@@ -8,7 +8,10 @@
 #
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
-WickedPdf.config ||= {}
-WickedPdf.config.merge!({
-  # your extra configurations here
-})
+if Rails.env.production?
+  wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf"
+else
+  wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"
+end
+
+WickedPdf.config = { exe_path: wkhtmltopdf_path, wkhtmltopdf: wkhtmltopdf_path }
