@@ -17,10 +17,11 @@ Rails.application.routes.draw do
   get 'my_products/myobjects'
   get 'my_products/myservices'
   get 'my_products/offer'
-  
+
   get 'products/:id/show' => "products#show", as: 'show'
   get 'products/:id/offer' => "products#offer", as: 'offer'
   get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
+  get 'my_products/:id/accept' => "my_products#accept", as: 'accept'
 
   #Pagina principal
   get 'welcome/index'
