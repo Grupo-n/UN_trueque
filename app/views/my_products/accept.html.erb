@@ -1,25 +1,12 @@
-<h1>Mapa</h1>
-
-
-<div class="panel-footer">
-  <%= form_for @barter do |b| %>
-  <%#= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
-    <h6><strong>Lugar del trueque: </strong></h6>
-    <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
-    <%= b.submit 'Finalizar', class: 'btn  btn-right' %>
-  <% end %>
+<div class="container margin-top">
+  <h2 class="myhnot">Mapa</h2>
+  
+  <div class="panel-footer">
+    <%= form_for @barter do |b| %>
+    <%#= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
+      <h6><strong>Lugar del trueque: </strong></h6>
+      <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
+      <%= b.submit 'Finalizar', class: 'btn  btn-right' %>
+    <% end %>
+  </div>
 </div>
-
-<p><%#= @barter.inspect %></p>
-<%= form_for @barter do |f| %>
-  <%= f.text_area :confirmation, class: 'form-control', rows: '5', placeholder: 'Escribe un mensaje de conformación aquí' %>
-  <%= f.hidden_field :state, :value => 2 %>
-
-  <% @product_one.available = false %>
-  <% @product_one.save %>
-  <%= @product_two.available = false %>
-  <% @product_two.save %>
-
-  <%= f.submit 'Confirmar', class: 'btn  btn-right' %>
-<% end %>
-
