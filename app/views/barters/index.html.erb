@@ -1,42 +1,54 @@
-<h1 class="myh margin-top">Barters</h1>
+<h1 class="myh margin-top center">Barters</h1>
 <div class="container">
-  
+
   <p id="notice"><%= notice %></p>
-  
-  
-  <table class="table">
+
+
+  <table class="table table-barter">
     <thead>
       <tr>
         <th>Producto1</th>
         <th>Producto2</th>
         <th>Description</th>
+
+        <th>Estado</th>
+
         <th>Address</th>
         <th>latitude</th>
         <th>longitude</th>
+
         <th colspan="3"></th>
       </tr>
     </thead>
-  
+
     <tbody>
       <% @barters.each do |barter| %>
         <tr>
-          <td><%= barter.product_one_id %></td>
-          <td><%= barter.product_two_id %></td>
-          <td><%= barter.description %></td>
+          <td class="info"><%= barter.product_one_id %></td>
+          <td class="info"><%= barter.product_two_id %></td>
+          <td class="info"><%= barter.description %></td>
+          <% if barter.state==1 %>
+            <td class="info">Pendiente</td>
+          <% elsif barter.state==2 %>
+            <td class="info">Aprobado</td>
+          <% elsif barter.state==3 %>
+            <td class="info">Rechazado</td>
+          <% end %>
           <td><%= barter.address %></td>
           <td><%= barter.latitude %></td>
           <td><%= barter.longitude %></td>
-          <td><%= link_to 'Show', barter %></td>
-          <td><%= link_to 'Edit', edit_barter_path(barter) %></td>
-          <td><%= link_to 'Destroy', barter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="info"></td>
+          <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), barter %></td>
+          <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_barter_path(barter) %></td>
+          <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  
-  
+
+
   <br>
-  
+
   <%= link_to 'New Barter', new_barter_path %>
-  
+
 </div>
