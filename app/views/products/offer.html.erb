@@ -73,7 +73,7 @@
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
                         <%= b.hidden_field :id_two_user, :value => @offer_user.id %>
-                        <%= b.hidden_field :state, :value => 0 %>
+                        <%= b.hidden_field :state, :value => 1 %>
                         <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
                     <% end %>
                     <%= link_to 'Volver', :show, class:"btn btn-right" %>
