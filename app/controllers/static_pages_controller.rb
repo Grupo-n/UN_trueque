@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
 before_action :search
 
   def principal
+    @categories = Category.all
     @search = Product.descendent.search(params[:q])
     @products = @search.result.paginate(:page => params[:page], :per_page => 12)
   end
