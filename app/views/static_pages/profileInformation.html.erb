@@ -30,10 +30,14 @@
           </div>
         </div>
         <div class="panel panel-default">
-          <h4 class=""><%= link_to  "Mis Transacciones", nil, class:"link" %></h4>
+          <div class="panel-heading">
+            <h4 class="panel-title"><%= link_to  "Mis Transacciones", mytransactions_path %></h4>
+          </div>
         </div>
         <div class="panel panel-default">
-          <h4 class=""><%= link_to  "Mi Perfil", :user_information, class:"link" %></h4>
+          <div class="panel-heading">
+            <h4 class="panel-title"><%= link_to  "Mi Perfil", :user_information %></h4>
+          </div>
         </div>
       </div>
     </div>
