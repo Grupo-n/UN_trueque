@@ -26,17 +26,22 @@
   <div class="row">
     <div class="offset-md-4 col-md-4">
       <div class="form-group">
-        <%= form.label :name %>
+        <%= form.label "Nombre" %>
         <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= form.label :p_type %>
-        <%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>
+        <%= form.label "Tipo" %>
+        <%= select_tag(:p_type, options_for_select([['Producto', 1], ['Servicio', 2]])) %>
       </div>
       <div class="form-group">
-        <%= form.label :description %>
+        <%= form.label "Descripción" %>
         <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <%= form.label "Tipo" %>
+        <%= select_tag(:category, options_for_select(@categories.collect{ |c| [c.name, c.id]})) %>
+      </div>
+
 
       <%= form.hidden_field :available, :value=>true %>
 
