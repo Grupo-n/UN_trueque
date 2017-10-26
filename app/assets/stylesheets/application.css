@@ -408,3 +408,19 @@ html{
     border-color: #ccc;
     cursor: default;
 }
+
+
+/******************************GRAFICAS****************************/
+
+#stadis-title{
+  border-bottom: 2px solid  #1d5664;
+}
+#products-per-day{
+  margin: auto;
+}
+#products-services{
+  margin: auto;
+}
+#max-sellers{
+  margin: auto;
+}

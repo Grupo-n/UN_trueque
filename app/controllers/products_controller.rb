@@ -8,6 +8,17 @@ class ProductsController < ApplicationController
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
   end
 
+  def statistics
+    @products = Product.all
+
+
+    respond_to do |format|
+      format.html
+      format.pdf{render javascript_delay: 5000, template:
+      "pdf/general-statistics", pdf: "general-statistics"}
+    end
+  end
+
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all

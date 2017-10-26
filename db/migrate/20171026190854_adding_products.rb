@@ -20,6 +20,10 @@ class AddingProducts < ActiveRecord::Migration[5.1]
       p.user = u
       p.available = true
       p.created_at = Faker::Time.between(2.months.ago, Date.today, :all)
+      p.category = rand(1..15)
+      p.interests = rand(1..15)
+      p.quantity = 1
+      p.state = true
       p.save
       $i += 1
     end

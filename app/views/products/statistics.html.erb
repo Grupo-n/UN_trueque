@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="offset-md-2 col-md-8">
+    <h1 id="stadis-title" class="myh1 center">Estadisticas Generales</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="myh center">Publicaciones por dia</h2>
+    <%= area_chart @products.group_by_day(:created_at).count ,id: "products-per-day", width: "1000px", height: "400px", xtitle: "Dia", ytitle: "Productos/Servicios publicados" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="myh center">Productos VS Servicios</h2>
+
+    <%= pie_chart @products.group(:p_type).count, id: "products-services", width: "400px", height: "400px" %>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="myh center">Maximos Vendedores</h2>
+    <%= column_chart @products.group(:user_id).count, id: "max-sellers", width: "1000px", height: "400px"%>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Obtener PDF' , "products.pdf", class:"btn btn-primary" %>
+  </div>
+</div>

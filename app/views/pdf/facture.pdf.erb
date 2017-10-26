@@ -1,12 +1,75 @@
 <html>
   <head>
     <%= wicked_pdf_stylesheet_link_tag 'pdf'%>
+
   </head>
   <body>
     <div id="">
-        <h1>FACTURA</h1>
-        <h1><%= @hashcode %></h1>
-        <%= raw @qr.as_html %>
+          <h1 class="center">COMPROBANTE DE TRANSACCION</h1>
+          <div id="logo">
+            <%= wicked_pdf_image_tag "logoun.png" %>
+          </div>
+
+          <div id="qr-code">
+            <%= raw @qr.as_html %>
+          </div>
+
+          <div class="info">
+
+            <div id="info-po">
+              <h1>Producto Ofrecido</h1>
+              <%= wicked_pdf_image_tag @pr1.product_image.url(:medium) %>
+              <h3><%= @pr1.name %></h3>
+              <% if @pr2.p_type == 1 %>
+                <h3>Producto</h3>
+              <% elsif @pr2.p_type == 2 %>
+                <h3>Servicio</h3>
+              <% end %>
+              <p><%= @pr2.description %></p>
+
+            </div>
+
+            <div id="info-pc">
+              <h1>Producto Adquirido</h1>
+              <%= wicked_pdf_image_tag @pr2.product_image.url(:medium) %>
+              <h3><%= @pr2.name %></h3>
+              <% if @pr2.p_type == 1 %>
+                <h3>Producto</h3>
+              <% elsif @pr2.p_type == 2 %>
+                <h3>Servicio</h3>
+              <% end %>
+              <p><%= @pr2.description %></p>
+
+            </div>
+
+          </div>
+
+          <div class="info">
+
+            <div id="info-po">
+              <h1>Info. Vendedor</h1>
+              <%= wicked_pdf_image_tag @ven.avatar.url(:medium) %>
+              <h3><%= @ven.first_name+" "+ @ven.last_name %></h3>
+              <h3><%= @ven.email %></h3>
+
+            </div>
+
+            <div id="info-pc">
+              <h1>Info. comprador</h1>
+              <%= wicked_pdf_image_tag @com.avatar.url(:medium) %>
+              <h3><%= @com.first_name+" "+ @com.last_name %></h3>
+              <h3><%= @com.email %></h3>
+
+            </div>
+
+          </div>
+
+
+
+
+
+    </div>
+
     </div>
   </body>
 </html>
