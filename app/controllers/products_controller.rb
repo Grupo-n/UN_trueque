@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @user = User.get_user(@product)
-    @user_name = User.get_name(@product)    
+    @user_name = User.get_name(@product)
   end
 
   # GET /products/new
@@ -87,7 +87,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert)
+      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available)
     end
 
 end

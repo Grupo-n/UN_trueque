@@ -1,4 +1,4 @@
-class AddingProfucts < ActiveRecord::Migration[5.1]
+class AddingProducts < ActiveRecord::Migration[5.1]
 
   require 'faker'
 
@@ -18,6 +18,7 @@ class AddingProfucts < ActiveRecord::Migration[5.1]
       p.p_type = rand(1..2)
       p.description = Faker::Commerce.department(2)
       p.user = u
+      p.available = true
       p.save
       $i += 1
     end

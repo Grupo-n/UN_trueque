@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="offset-md-4 col-md-4">
       <div class="form-group">
@@ -37,10 +37,13 @@
         <%= form.label :description %>
         <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
       </div>
+
+      <%= form.hidden_field :available, :value=>true %>
+
         <!--%= link_to 'Crear Producto', show_path(@product),class: 'btn my-btn' %-->
         <%= link_to 'Cancelar', :user_home, class: 'btn' %>
         <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn  btn-right' %>
-       
+
     </div>
   </div>
 <% end %>
