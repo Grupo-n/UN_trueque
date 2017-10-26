@@ -14,6 +14,12 @@
 #  product_image_content_type :string
 #  product_image_file_size    :integer
 #  product_image_updated_at   :datetime
+#  category                   :integer
+#  duration                   :time
+#  interests                  :integer
+#  available                  :boolean
+#  quantity                   :integer
+#  state                      :boolean
 #
 
 class Product < ApplicationRecord
@@ -27,12 +33,16 @@ class Product < ApplicationRecord
     has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
     validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 
-    def self.objects()
-      return Product.where("p_type = ?", 1)
+    def self.descendent
+      return Product.where("available = ?", true).order('created_at DESC')
     end
 
-    def self.services()
-      return Product.where("p_type = ?", 2)
+    def self.objects
+      return Product.where("p_type = ? AND available = ?", 1, true)
+    end
+
+    def self.services
+      return Product.where("p_type = ? AND available = ?", 2, true)
     end
 
     def self.get_user_by_product_id(product_id)

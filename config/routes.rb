@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'my_products/myobjects'
   get 'my_products/myservices'
   get 'my_products/offer'
+  get 'my_products/mytransactions' => "my_products#mytransactions", as: 'mytransactions'
+  get 'my_products/offers_made'
+  get 'my_products/offers_received'
 
   get 'products/:id/show' => "products#show", as: 'show'
   get 'products/:id/offer' => "products#offer", as: 'offer'

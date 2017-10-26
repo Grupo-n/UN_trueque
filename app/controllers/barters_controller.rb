@@ -1,3 +1,6 @@
+require 'digest/md5'
+#require 'rqrcode'
+
 class BartersController < ApplicationController
   before_action :set_barter, only: [:show, :edit, :update, :destroy]
 
@@ -11,6 +14,14 @@ class BartersController < ApplicationController
   # GET /barters/1.json
   def show
     @barter = Barter.find(params[:id])
+    @hashcode = Digest::MD5.hexdigest(@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
+    @qr = RQRCode::QRCode.new(@hashcode.to_s)
+
+    respond_to do |format|
+      format.html
+      format.pdf{render template:
+      "pdf/facture", pdf: "facture"}
+    end
   end
 
   # GET /barters/new
@@ -32,7 +43,7 @@ class BartersController < ApplicationController
     respond_to do |format|
       if @barter.save
         UserMailer.new_barter(@barter, @product, @user, @userbarters).deliver
-        format.html { redirect_to root_path, notice: '¡Producto creado!' }
+        format.html { redirect_to root_path, notice: '¡Oferta realizada!' }
         format.json { render :show, status: :created, location: @barter }
       else
         format.html { render :new }
@@ -73,6 +84,6 @@ class BartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
     end
 end

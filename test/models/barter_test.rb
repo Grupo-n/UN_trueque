@@ -10,6 +10,10 @@
 #  users_id       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  money          :integer
+#  confirmation   :string
+#  id_one_user    :integer
+#  id_two_user    :integer
 #
 
 require 'test_helper'

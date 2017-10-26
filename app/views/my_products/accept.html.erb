@@ -1,1 +1,15 @@
-<h1></h1>
+<h1>Mapa</h1>
+<p>Aqui va a estar ubicado el mapa que va a hacer Sastoquemelo</p>
+
+<p><%= @barter.inspect %></p>
+<%= form_for @barter do |f| %>
+  <%= f.text_area :confirmation, class: 'form-control', rows: '5', placeholder: 'Escribe un mensaje de conformación aquí' %>
+  <%= f.hidden_field :state, :value => 2 %>
+
+  <% @product_one.available = false %>
+  <% @product_one.save %>
+  <%= @product_two.available = false %>
+  <% @product_two.save %>
+
+  <%= f.submit 'Confirmar', class: 'btn  btn-right' %>
+<% end %>

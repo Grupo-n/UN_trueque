@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
     @barter = Barter.new
     @myproducts = current_user.products.all
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
+    @owner_user = User.get_user(@product)
+    @offer_user = current_user
 
     if params[:offert] != nil
       @offert = Product.find(params[:offert])
@@ -23,6 +25,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @user = User.get_user(@product)
     @user_name = User.get_name(@product)
   end
 
@@ -43,7 +46,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       @product.user = current_user
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to my_products_index_path, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -84,7 +87,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert)
+      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available)
     end
 
 end

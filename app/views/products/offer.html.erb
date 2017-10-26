@@ -71,6 +71,9 @@
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                         <%= b.hidden_field :product_one_id, :value => @product.id %>
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
+                        <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
+                        <%= b.hidden_field :id_two_user, :value => @offer_user.id %>
+                        <%= b.hidden_field :state, :value => 0 %>
                         <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
                     <% end %>
                     <%= link_to 'Volver', :show, class:"btn btn-right" %>
