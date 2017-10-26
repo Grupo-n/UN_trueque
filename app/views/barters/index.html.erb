@@ -10,6 +10,9 @@
         <th>Producto1</th>
         <th>Producto2</th>
         <th>Description</th>
+        <th>Address</th>
+        <th>latitude</th>
+        <th>longitude</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -20,6 +23,9 @@
           <td><%= barter.product_one_id %></td>
           <td><%= barter.product_two_id %></td>
           <td><%= barter.description %></td>
+          <td><%= barter.address %></td>
+          <td><%= barter.latitude %></td>
+          <td><%= barter.longitude %></td>
           <td><%= link_to 'Show', barter %></td>
           <td><%= link_to 'Edit', edit_barter_path(barter) %></td>
           <td><%= link_to 'Destroy', barter, method: :delete, data: { confirm: 'Are you sure?' } %></td>

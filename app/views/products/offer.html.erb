@@ -69,6 +69,8 @@
                 <div class="panel-footer">
                     <%= form_for @barter do |b| %>
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
+                        <h6><strong>Lugar del trueque: </strong></h6>
+                        <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional' %>
                         <%= b.hidden_field :product_one_id, :value => @product.id %>
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
