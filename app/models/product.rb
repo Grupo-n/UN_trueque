@@ -34,15 +34,15 @@ class Product < ApplicationRecord
     validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 
     def self.descendent
-      return Product.all.order('created_at DESC')
+      return Product.where("available = ?", true).order('created_at DESC')
     end
 
     def self.objects
-      return Product.where("p_type = ?", 1)
+      return Product.where("p_type = ? AND available = ?", 1, true)
     end
 
     def self.services
-      return Product.where("p_type = ?", 2)
+      return Product.where("p_type = ? AND available = ?", 2, true)
     end
 
     def self.get_user_by_product_id(product_id)
