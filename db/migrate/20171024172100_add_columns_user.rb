@@ -1,5 +1,5 @@
 class AddColumnsUser < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :score, :double
+    add_column :users, :score, :decimal
   end
 end
