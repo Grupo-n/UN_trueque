@@ -19,6 +19,12 @@ class BartersController < ApplicationController
     @hashcode = Digest::MD5.hexdigest(@pone.id.to_s+"-"+@ptwo.id.to_s)
     @qr = RQRCode::QRCode.new(@hashcode.to_s)
 
+    @pr1=Product.find(@barter.product_one_id)
+    @pr2=Product.find(@barter.product_two_id)
+    @ven=User.find(@pr1.user_id)
+    @com=User.find(@pr2.user_id)
+
+
     respond_to do |format|
       format.html
       format.pdf{render template:
@@ -86,6 +92,8 @@ class BartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :latitude, :longitude, :address)
+      #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
+    
 end

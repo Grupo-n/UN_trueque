@@ -8,6 +8,17 @@ class ProductsController < ApplicationController
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
   end
 
+  def statistics
+    @products = Product.all
+
+
+    respond_to do |format|
+      format.html
+      format.pdf{render javascript_delay: 5000, template:
+      "pdf/general-statistics", pdf: "general-statistics"}
+    end
+  end
+
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
@@ -32,6 +43,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   # GET /products/1/edit
@@ -87,7 +99,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available)
+      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available, :category)
     end
 
 end
