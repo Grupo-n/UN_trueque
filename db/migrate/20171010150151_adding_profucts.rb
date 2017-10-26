@@ -1,16 +1,16 @@
 class AddingProfucts < ActiveRecord::Migration[5.1]
-  
+
   require 'faker'
-  
+
   def up
-    
+
     u = User.new()
     u.id = 1
     u.first_name = "UN_trueque"
     u.last_name = "App"
     u.email = "un.truequeapp@gmail.com"
     u.save
-    
+
     $i = 0
     while $i < 20 do
       p = Product.new
@@ -21,7 +21,7 @@ class AddingProfucts < ActiveRecord::Migration[5.1]
       p.save
       $i += 1
     end
-      
+
   end
-  
+
 end

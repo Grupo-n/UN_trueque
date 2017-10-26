@@ -33,4 +33,8 @@ class Barter < ApplicationRecord
     end
     
 
+    def self.my_transactions(user)
+      return Barter.where("(id_two_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)
+    end
+
 end

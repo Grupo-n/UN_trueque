@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'my_products/index'
   get 'my_products/myobjects'
   get 'my_products/myservices'
+  get 'my_products/offer'
+  get 'my_products/mytransactions' => "my_products#mytransactions", as: 'mytransactions'
   get 'my_products/offers_made'
   get 'my_products/offers_received'
 
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   get 'my_products/myobjects' , :as => :myObjects
   get 'my_products/myservices' , :as => :myServices
   get 'my_products/index' , :as => :myObjectsServices
+  get 'my_products/myposts' , :as => :myPosts
 
   #Información de usuario
   get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information

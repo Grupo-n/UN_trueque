@@ -300,7 +300,8 @@ html{
 /*****************Informaicion de perfil***********/
 
 .img-full{
-  width: 70%;
+  width: 200px;
+  height: 200px;
   border: 5px solid #1c5664;
   border-radius: 50%;
 }
