@@ -13,8 +13,10 @@ class BartersController < ApplicationController
   # GET /barters/1
   # GET /barters/1.json
   def show
+    @pone = Product.find(@barter.product_one_id)
+    @ptwo = Product.find(@barter.product_two_id)
     @barter = Barter.find(params[:id])
-    @hashcode = Digest::MD5.hexdigest(@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
+    @hashcode = Digest::MD5.hexdigest(@pone.id.to_s+"-"+@ptwo.id.to_s)
     @qr = RQRCode::QRCode.new(@hashcode.to_s)
 
     respond_to do |format|

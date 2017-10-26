@@ -2,31 +2,61 @@
 
   <h4 id="notice" class="myh"><%= notice %></h4>
 
-  <% pone = Product.find(@barter.product_one_id) %>
-  <% ptwo = Product.find(@barter.product_two_id) %>
 
-  <h4 class="myhnot margin-top-12"> Lo que tu quieres:</h4>
-  <h6 class="margin-5"><%=  pone.name %></h6>
 
-  <h4 class="myhnot margin-top-12"> Lo que ofreciste:</h4>
-  <h6 class="margin-5"><%=  ptwo.name %></h6>
+<div class="row">
+  <div class="col-md-6 center">
+    <h2 class="myhnot margin-top-12 center"> Lo que tu quieres</h2>
 
-  <h4 class="myhnot margin-top-12">Description:</h4>
-  <h6 class="margin-5"><%= @barter.description %></h6>
+    <%= image_tag @pone.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
+    <h5 class="margin-5"><%=  @pone.name %></h5>
+    <h5 class="margin-5"><%=  @pone.description %></h5>
 
-  <br>
-  <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>
-  <%= link_to 'Aceptar', :user_home, class:"btn" %>
+
+  </div>
+
+
+  <div class="col-md-6 center">
+    <h2 class="myhnot margin-top-12 center"> Lo que ofreciste</h2>
+    <%= image_tag @ptwo.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
+    <h5 class="margin-5"><%=  @ptwo.name %></h6>
+    <h5 class="margin-5"><%=  @ptwo.description %></h5>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 center">
+    <h4 class="myhnot margin-top-12 center">Description:</h4>
+    <h6 class="margin-5"><%= @barter.description %></h6>
+  </div>
 
 </div>
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @barter.description %>
-</p>
-<a class="ui teal button" href="facture.pdf"> Descargar como PDF</a>
-<%= link_to 'PDF' , @barter.id.to_s+".pdf" %>
-<%= link_to 'Edit', edit_barter_path(@barter) %> |
+
+  <br>
+
+  <div class="row">
+      <div class="offset-sm-1 col-sm-3 right">
+          <%= link_to 'Edit', edit_barter_path(@barter), class:"btn btn-w" %>
+      </div>
+      <div class="col-sm-4 center">
+        <%= link_to 'Aceptar', :user_home, class:"btn btn-w" %>
+      </div>
+      <div class="col-sm-3 left">
+        <%= link_to 'PDF' , @barter.id.to_s+".pdf",class:"btn btn-w" %>
+      </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+      <%= link_to 'Back', barters_path ,class:"btn btn-w" %>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_barter_path(@barter) %>
 <%= link_to 'Back', barters_path %>
 <%= raw @qr.as_html %>

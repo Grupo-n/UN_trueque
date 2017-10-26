@@ -120,7 +120,7 @@ html{
 /* ==================================================
   Panel
   ================================================== */
-  
+
 .panel > .panel-heading {
   background-image: none;
   background-color: #fff;
@@ -129,7 +129,7 @@ html{
 .panel > .panel-footer {
   background-image: none;
   background-color: #fff;
-  border: 0; 
+  border: 0;
 }
 
 /* ==================================================
@@ -407,4 +407,42 @@ html{
     background-color: #1d5664;
     border-color: #ccc;
     cursor: default;
+}
+
+
+
+/* BTN-FACEBOOKJ*/
+.btn-facebook{
+  background-color: #4267b2 !important;
+  border: 2px solid #fff !important;
+}
+.btn-facebook:hover{
+  background-color: #fff !important;
+  border: 2px solid #4267b2 !important;
+  color: #4267b2 !important;
+}
+
+/*TABLES*/
+
+.table-barter{
+  font-size: 15px;
+}
+.table-barter a .glyphicon{
+  color:#1d5664;
+}
+.table-barter a .glyphicon:hover{
+  color:  #2b9ab5;
+}
+
+.table-barter .info{
+  background-color: rgba(29, 86, 100, 0.15) !important;
+}
+.btn-w{
+  width: 150px;
+}
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
 }
