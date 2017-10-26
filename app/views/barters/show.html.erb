@@ -13,6 +13,12 @@
 
   <h4 class="myhnot margin-top-12">Description:</h4>
   <h6 class="margin-5"><%= @barter.description %></h6>
+  
+  <h4 class="myhnot margin-top-12">Ubicación:</h4>
+  <h6 class="margin-5"><%= @barter.latitude %></h6>
+  <h6 class="margin-5"><%= @barter.longitude %></h6>
+  
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
 
   <br>
   <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>

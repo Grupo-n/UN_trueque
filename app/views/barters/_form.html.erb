@@ -16,8 +16,15 @@
     <%= form.text_field :description, id: :barter_description, autofocus: true, class: 'form-control' %>
   </div>
   
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :barter_address, autofocus: true, class: 'form-control' %>
+  </div>
+  
   <br>
   <div class="actions">
     <%= form.submit 'Actualizar Barter', class: 'btn' %>
   </div>
+
+  
 <% end %>
