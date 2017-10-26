@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928210649) do
+ActiveRecord::Schema.define(version: 20171024210939) do
+
+  create_table "barters", force: :cascade do |t|
+    t.string "description"
+    t.integer "product_one_id"
+    t.integer "product_two_id"
+    t.integer "state"
+    t.integer "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude", default: 4.635487
+    t.float "longitude", default: -74.082719
+    t.string "title"
+    t.text "address"
+    t.integer "money"
+    t.string "confirmation"
+    t.integer "id_one_user"
+    t.integer "id_two_user"
+    t.index ["users_id"], name: "index_barters_on_users_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string "name"
@@ -22,20 +47,23 @@ ActiveRecord::Schema.define(version: 20170928210649) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.integer "p_type"
     t.string "description"
-    t.string "img"
-    t.integer "typeInt"
+    t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.integer "user_id"
+    t.string "product_image_file_name"
+    t.string "product_image_content_type"
+    t.integer "product_image_file_size"
+    t.datetime "product_image_updated_at"
+    t.integer "category"
     t.time "duration"
-    t.integer "typeInt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "interests"
+    t.boolean "available"
+    t.integer "quantity"
+    t.boolean "state"
+    t.index ["users_id"], name: "index_products_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,6 +77,13 @@ ActiveRecord::Schema.define(version: 20170928210649) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
@@ -59,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170928210649) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float "score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
