@@ -64,6 +64,7 @@ gem 'faker'
 
 gem 'wicked_pdf'
 gem 'rqrcode'
+gem 'wkhtmltopdf'
 gem 'wkhtmltopdf-heroku'
 
 gem 'sprockets-rails'
