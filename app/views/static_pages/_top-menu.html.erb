@@ -11,7 +11,14 @@
       <form class="navbar-form navbar-left" role="search" action="/static_pages/principal">
         <%= search_form_for @search, url: user_home_url do |f| %>
           <div class="form-group">
-            <%= f.text_field :name_cont, class: "search_form_for form-control", placeholder:  "Buscar" %>
+            <%= f.text_field :name_eq, class: "search_form_for form-control", placeholder:  "Buscar" %>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+              <div class="form-group">
+                    <%= f.label "Categoria" %>
+                    <%= select_tag(:category_eq, options_for_select( @categories.collect{ |c| [c.name, c.id]})) %>
+              </div>
+            </div>
             <%= f.submit url: "static_pages/principal", class:"btn-inverse"%>
           </div>
         <% end %>
