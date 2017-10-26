@@ -26,7 +26,7 @@
           <% elsif barter.state==3 %>
             <td class="info">Rechazado</td>
           <% end %>
-          <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), barter %></td>
+          <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), accept_path(barter) %></td>
           <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_barter_path(barter) %></td>
           <td class="info"><%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

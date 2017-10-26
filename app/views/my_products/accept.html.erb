@@ -1,12 +1,21 @@
 <div class="container margin-top">
   <h2 class="myhnot">Mapa</h2>
-  
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
   <div class="panel-footer">
     <%= form_for @barter do |b| %>
-    <%#= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
       <h6><strong>Lugar del trueque: </strong></h6>
       <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
-      <%= b.submit 'Finalizar', class: 'btn  btn-right' %>
+      <%= @product_one.available = false %>
+      <%= @product_one.save %>
+
+      <%= @product_two.available = false %>
+      <%= @product_two.save %>
+
+      <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
+
     <% end %>
+    <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
+    <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
+    <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
   </div>
 </div>
