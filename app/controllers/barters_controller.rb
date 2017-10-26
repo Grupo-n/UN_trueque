@@ -16,6 +16,12 @@ class BartersController < ApplicationController
     @hashcode = Digest::MD5.hexdigest(@barter.product_one_id.to_s+"-"+@barter.product_two_id.to_s)
     @qr = RQRCode::QRCode.new(@hashcode.to_s)
 
+    @pr1=Product.find(@barter.product_one_id)
+    @pr2=Product.find(@barter.product_two_id)
+    @ven=User.find(@pr1.user_id)
+    @com=User.find(@pr2.user_id)
+
+
     respond_to do |format|
       format.html
       format.pdf{render template:
