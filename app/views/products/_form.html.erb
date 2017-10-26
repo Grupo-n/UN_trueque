@@ -54,6 +54,8 @@
   </div>
 </div>
 
+<%= form.hidden_field :available, :value=>true %>
+
 <div class="row">
   <div class="offset-md-5 col-md-2">
     <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn btn-full my-btn' %>
