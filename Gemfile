@@ -59,8 +59,14 @@ gem 'faker'
 
 
 gem 'wicked_pdf'
+
 gem 'rqrcode'
+
 gem 'wkhtmltopdf-heroku'
+
+gem 'chartkick'
+
+gem 'groupdate'
 
 gem 'sprockets-rails'
 group :development, :test do

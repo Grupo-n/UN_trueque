@@ -2,6 +2,7 @@
   <% if @products.blank? %>
     <p> No hay productos</p>
   <% else %>
+  <%= line_chart @products.group_by_day(:created_at).count %>
     <div class="row">
       <div class="offset-md-2 col-md-8 center">
         <h1 class="myh1">Products & services</h1>
