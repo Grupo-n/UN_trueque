@@ -8,6 +8,17 @@ class ProductsController < ApplicationController
     @products = Product.paginate(:page => params[:page], :per_page => 9)
   end
 
+  def statistics
+    @products = Product.all
+
+
+    respond_to do |format|
+      format.html
+      format.pdf{render javascript_delay: 5000, template:
+      "pdf/general-statistics", pdf: "general-statistics"}
+    end
+  end
+
   def offer
     @barter = Barter.new
     @myproducts = current_user.products.all
@@ -22,7 +33,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id) 
+    @x=User.joins(:products).select("products.id,first_name,last_name,name,p_type,description").where("products.id = ?", @product.id)
   end
 
   # GET /products/new

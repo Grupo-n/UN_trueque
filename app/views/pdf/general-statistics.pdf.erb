@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <%= wicked_pdf_stylesheet_link_tag 'pdf'%>
+
+    <%= javascript_include_tag  "https://raw.githubusercontent.com/ankane/chartkick/master/app/assets/javascripts/chartkick.js" %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
+
+  </head>
+
+  </head>
+  <body>
+    <div id="">
+      <div class="row-pdf">
+          <h1 id="stadis-title" class="myh1 center">Estadisticas Generales</h1>
+      </div>
+
+      <div class="row-pdf">
+          <h2 class="myh center">Publicaciones por dia</h2>
+          <%= area_chart @products.group_by_day(:created_at).count ,id: "products-per-day", width: "1000px", height: "400px", xtitle: "Dia", ytitle: "Productos/Servicios publicados" %>
+
+      </div>
+
+      <div class="row-pdf">
+
+          <h2 class="myh center">Productos VS Servicios</h2>
+
+          <%= pie_chart @products.group(:p_type).count, id: "products-services", width: "400px", height: "400px" %>
+
+      </div>
+
+      <div class="row-pdf">
+
+          <h2 class="myh center">Maximos Vendedores</h2>
+          <%= column_chart @products.group(:user_id).count, id: "max-sellers", width: "1000px", height: "400px"%>
+
+      </div>
+
+    </div>
+    </div>
+  </body>
+</html>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'my_products/offer'
 
   get 'products/:id/offer' => "products#offer", as: 'offer'
+  get 'statistics/products', :to => "products#statistics", :as => :products_statistics
   get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
 
   #Pagina principal

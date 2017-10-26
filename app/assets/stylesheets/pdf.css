@@ -47,3 +47,29 @@ td.white { border-color: #fff; }
   text-align: center;
   float: right;
 }
+
+
+
+/*ESTADISTICAS*/
+.row-pdf{
+  width: 100%;
+}
+.myh1 {
+    margin: 20px;
+    padding: 10px;
+    color: #31708f;
+}
+
+
+#stadis-title{
+  border-bottom: 2px solid  #1d5664;
+}
+#products-per-day{
+  margin: auto;
+}
+#products-services{
+  margin: auto;
+}
+#max-sellers{
+  margin: auto;
+}
