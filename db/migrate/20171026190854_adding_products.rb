@@ -19,6 +19,7 @@ class AddingProducts < ActiveRecord::Migration[5.1]
       p.description = Faker::Commerce.department(2)
       p.user = u
       p.available = true
+      p.created_at = Faker::Time.between(2.months.ago, Date.today, :all)
       p.save
       $i += 1
     end

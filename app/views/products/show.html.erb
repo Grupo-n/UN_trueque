@@ -10,8 +10,6 @@
       </center>
     </div>
 
-    <%= @products.inspect %>
-
     <div class="col-md-4">
       <div class="panel panel-default">
 
@@ -33,59 +31,14 @@
 
           <h4 class="margin-top-12"><strong>Vendedor: </strong></h4>
           <h6><%= @user_name %></h6>
+          <h6>Calificación: <%= @user.score %></h6>
 
           <h4 class="margin-top-12"><strong>Fecha de publicación: </strong></h4>
           <h6><%= @product.updated_at %></h6>
 
           <br>
 
-          <div id="raiting-show" class="container-fluid">
-            <span class="rating">
-              <% if @user.score != nil %>
-                <% if @user.score >= 1 %>
-                <p>1</p>
-                <input id="rating1" type="radio" name="rating" value="1" checked>
-                <% else %>
-                <input id="rating1" type="radio" name="rating" value="1">
-                <% end %>
-                <label for="rating1">1</label>
 
-                <% if @user.score >= 2 %>
-                <p>2</p>
-                <input id="rating2" type="radio" name="rating" value="2" checked>
-                <% else %>
-                <input id="rating2" type="radio" name="rating" value="2">
-                <% end %>
-                <label for="rating2">2</label>
-
-                <% if @user.score >= 3 %>
-                <p>3</p>
-                <input id="rating3" type="radio" name="rating" value="3" checked>
-                <% else %>
-                <input id="rating3" type="radio" name="rating" value="3">
-                <% end %>
-                <label for="rating4">3</label>
-
-                <% if @user.score >= 4 %>
-                <p>4</p>
-                <input id="rating4" type="radio" name="rating" value="4" checked>
-                <% else %>
-                <input id="rating4" type="radio" name="rating" value="4">
-                <% end %>
-                <label for="rating4">4</label>
-
-                <% if @user.score >= 5 %>
-                <p>5</p>
-                <input id="rating5" type="radio" name="rating" value="5" checked>
-                <% else %>
-                <input id="rating5" type="radio" name="rating" value="5">
-                <% end %>
-                <label for="rating5">5</label>
-
-              <% end %>
-            </span>
-          </div>
-        </div>
 
         <div class="panel-footer">
           <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
