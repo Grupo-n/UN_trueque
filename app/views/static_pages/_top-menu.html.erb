@@ -10,17 +10,27 @@
       <%= link_to image_tag("logo-nav.png", alt: "logo UNTrueque", id:"logo-unt-nav"), :user_home, class:"navbar-brand" %>
       <form class="navbar-form navbar-left" role="search" action="/static_pages/principal">
         <%= search_form_for @search, url: user_home_url do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name_eq, class: "search_form_for form-control", placeholder:  "Buscar" %>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-            <div class="dropdown-menu dropdown-menu-right" role="menu">
-              <div class="form-group">
-                    <%= f.label "Categoria" %>
-                    <%= select_tag(:category_eq, options_for_select( @categories.collect{ |c| [c.name, c.id]})) %>
-              </div>
+        <div class="form-group">
+          <%= f.text_field :name_cont, class: "search_form_for form-control", placeholder:  "Buscar" %>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" role="menu">
+            <div class="form-group">
+              <%= f.label "Categoria" %>
+              <%= select_tag(:category_eq, options_for_select( @categories.collect{ |c| [c.name, c.id]})) %>
             </div>
-            <%= f.submit url: "static_pages/principal", class:"btn-inverse"%>
+            <div class="form-group">
+              <%= f.label "Cantidad" %>
+              <%= f.text_field :quantity_eq, class:"search_form_for form-control"%>
+            </div>
+            <div class="form-group">
+              <%= f.label "Estado" %>
+              <%= select_tag(:state_eq, options_for_select([["Nuevo", "true"], ["Usado", "false"]])) %>
+            </div>
           </div>
+          <%= f.submit url: "static_pages/principal", class:"btn-inverse"%>
+        </div>
         <% end %>
       </form>
     </div>
@@ -31,7 +41,7 @@
         <li><%= link_to  glyph(:"glyphicon glyphicon-shopping-cart") + "  Vender", new_product_path  %></li>
         <li><%= link_to  glyph(:"glyphicon glyphicon-envelope") + "  Contáctanos", contact_path  %></li>
         <% if !current_user.nil? %>
-          <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", :user_information %></li>
+        <li><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", :user_information %></li>
         <% end %>
         <li class=""><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
