@@ -18,9 +18,8 @@
   <h6 class="margin-5"><%= @barter.latitude %></h6>
   <h6 class="margin-5"><%= @barter.longitude %></h6>
   
-  <!-- Este es un mapa generado por google, sólo para mostrar en el ejemplo -->
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.767954750138!2d-74.08476582082127!3d4.63543887723593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMzgnMDcuOCJOIDc0wrAwNCc1Ny44Ilc!5e0!3m2!1ses-419!2sco!4v1508949099567" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-  
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
+
   <br>
   <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>
   <%= link_to 'Aceptar', :user_home, class:"btn" %>

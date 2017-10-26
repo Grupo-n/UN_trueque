@@ -22,7 +22,8 @@ class Barter < ApplicationRecord
     
     #attr_accessible :address, :latitude, :longitude
     geocoded_by :address
-    after_validation :geocode
+    after_validation :geocode, :if => :address_changed?
+
 
     def self.offers(product)
       return Barter.where("product_one_id = ?", product.id)
