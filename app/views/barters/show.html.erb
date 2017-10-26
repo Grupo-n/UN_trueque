@@ -39,8 +39,8 @@
       <div class="offset-sm-1 col-sm-3 right">
           <%= link_to 'Edit', edit_barter_path(@barter), class:"btn btn-w" %>
       </div>
-      <div class="col-sm-4 center">
-        <%= link_to 'Aceptar', :user_home, class:"btn btn-w" %>
+      <div class="col-sm-4 left">
+        
       </div>
       <div class="col-sm-3 left">
         <%= link_to 'PDF' , @barter.id.to_s+".pdf",class:"btn btn-w" %>
@@ -54,36 +54,3 @@
       <%= link_to 'Back', barters_path ,class:"btn btn-w" %>
   </div>
 </div>
-
-
-<%= link_to 'Edit', edit_barter_path(@barter) %>
-
-  <% if @barter.description != "" %>
-    <h4 class="myhnot margin-top-12">Description:</h4>
-    <h6 class="margin-5"><%= @barter.description %></h6>
-  <% end %>
-
-  <h4 class="myhnot margin-top-12">Ubicación:</h4>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
-
-  <br>
-  <%= link_to 'Edit', edit_barter_path(@barter), class:"btn" %>
-  <%= link_to 'Aceptar', :user_home, class:"btn" %>
-  <br>
-  <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
-  <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
-  <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
-  <!--%= link_to 'Back', barters_path %-->
-  <%= raw @qr.as_html%>
-
-</div>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <!--strong>Description:</strong>
-  <!--%= @barter.description %-->
-</p>
-<%= link_to 'PDF' , @barter.id.to_s+".pdf" %>
-<%= link_to 'Edit', edit_barter_path(@barter) %> |
-<%= link_to 'Back', barters_path %>
-<%= raw @qr.as_html %>
