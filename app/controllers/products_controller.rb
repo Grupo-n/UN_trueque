@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
 
   def offer
     @barter = Barter.new
-    @myproducts = current_user.products.all
+    #@myproducts = current_user.products.all
+    @myproducts = current_user.products.descendent.paginate(:page => params[:page], :per_page => 12)
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
     @owner_user = User.get_user(@product)
     @offer_user = current_user
