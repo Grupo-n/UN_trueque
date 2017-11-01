@@ -8,18 +8,22 @@
 #  product_two_id :integer
 #  state          :integer
 #  users_id       :integer
-#  created_at     :datetime         railnot null
+#  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  latitude       :float            default(4.635487)
+#  longitude      :float            default(-74.082719)
 #  money          :integer
 #  confirmation   :string
-#  id_one_user    :integer          #Owner
-#  id_two_user    :integer          #Offer
+#  id_one_user    :integer
+#  id_two_user    :integer
+#  title          :string
+#  address        :text
 #
 
 class Barter < ApplicationRecord
 
     has_many :products
-    
+
     #attr_accessible :address, :latitude, :longitude
     geocoded_by :address
     after_validation :geocode, :if => :address_changed?
@@ -36,10 +40,10 @@ class Barter < ApplicationRecord
     def self.offers_made(user)
       return Barter.where("id_two_user = ?", user.id)
     end
-    
+
 
     def self.my_transactions(user)
-      return Barter.where("(id_two_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)
+      return Barter.where("(id_one_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)
     end
 
 end

@@ -10,6 +10,8 @@
 
       <%= @product_two.available = false %>
       <%= @product_two.save %>
+      <%= @barter.state = 2 %>
+      <%= @barter.save%>
 
       <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
 

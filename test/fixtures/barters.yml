@@ -10,10 +10,14 @@
 #  users_id       :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  latitude       :float            default(4.635487)
+#  longitude      :float            default(-74.082719)
 #  money          :integer
 #  confirmation   :string
 #  id_one_user    :integer
 #  id_two_user    :integer
+#  title          :string
+#  address        :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
