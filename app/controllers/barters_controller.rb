@@ -65,7 +65,7 @@ class BartersController < ApplicationController
   def update
     respond_to do |format|
       if @barter.update(barter_params)
-        format.html { redirect_to @barter, notice: 'Barter was successfully updated.' }
+        format.html { redirect_to user_home_path, notice: 'La oferta ha sido aceptada' }
         format.json { render :show, status: :ok, location: @barter }
       else
         format.html { render :edit }
@@ -95,5 +95,5 @@ class BartersController < ApplicationController
       params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :latitude, :longitude, :address)
       #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
-    
+
 end
