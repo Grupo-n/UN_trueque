@@ -13,9 +13,12 @@ class BartersController < ApplicationController
   # GET /barters/1
   # GET /barters/1.json
   def show
-    @pone = Product.find(@barter.product_one_id)
-    @ptwo = Product.find(@barter.product_two_id)
-    @barter = Barter.find(params[:id])
+    #@pone = Product.find(@barter.product_one_id)
+    #@ptwo = Product.find(@barter.product_two_id)
+
+    @pone = @barter.get_product_one
+    @ptwo = @barter.get_product_two
+
     @hashcode = Digest::MD5.hexdigest(@pone.id.to_s+"-"+@ptwo.id.to_s)
     @qr = RQRCode::QRCode.new(@hashcode.to_s)
 
@@ -27,8 +30,7 @@ class BartersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.pdf{render template:
-      "pdf/facture", pdf: "facture"}
+      format.pdf{render template:"pdf/facture", pdf: "facture"}
     end
   end
 
@@ -85,15 +87,12 @@ class BartersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_barter
       @barter = Barter.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
       params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :latitude, :longitude, :address)
-      #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 
 end

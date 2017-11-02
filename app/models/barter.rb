@@ -41,6 +41,13 @@ class Barter < ApplicationRecord
       return Barter.where("id_two_user = ?", user.id)
     end
 
+    def self.get_product_one
+      return Product.find(self.product_one_id)
+    end
+
+    def self.get_product_two
+      return Product.find(self.product_two_id)
+    end
 
     def self.my_transactions(user)
       return Barter.where("(id_one_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)

@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
   def statistics
     @products = Product.all
 
-
     respond_to do |format|
       format.html
       format.pdf{render javascript_delay: 5000, template:
@@ -20,8 +19,8 @@ class ProductsController < ApplicationController
   end
 
   def offer
+
     @barter = Barter.new
-    #@myproducts = current_user.products.all
     @myproducts = current_user.products.descendent.paginate(:page => params[:page], :per_page => 12)
     @products = Product.all.paginate(:page => params[:page], :per_page => 12)
     @owner_user = User.get_user(@product)
@@ -32,6 +31,7 @@ class ProductsController < ApplicationController
     else
       @offert = Product.new
     end
+
   end
 
   # GET /products/1
