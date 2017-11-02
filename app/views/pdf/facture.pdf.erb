@@ -18,27 +18,27 @@
 
             <div id="info-po">
               <h1>Producto Ofrecido</h1>
-              <%= wicked_pdf_image_tag @pr1.product_image.url(:medium) %>
-              <h3><%= @pr1.name %></h3>
-              <% if @pr2.p_type == 1 %>
+              <%= wicked_pdf_image_tag @pone.product_image.url(:medium) %>
+              <h3><%= @pone.name %></h3>
+              <% if @ptwo.p_type == 1 %>
                 <h3>Producto</h3>
-              <% elsif @pr2.p_type == 2 %>
+              <% elsif @ptwo.p_type == 2 %>
                 <h3>Servicio</h3>
               <% end %>
-              <p><%= @pr2.description %></p>
+              <p><%= @ptwo.description %></p>
 
             </div>
 
             <div id="info-pc">
               <h1>Producto Adquirido</h1>
-              <%= wicked_pdf_image_tag @pr2.product_image.url(:medium) %>
-              <h3><%= @pr2.name %></h3>
-              <% if @pr2.p_type == 1 %>
+              <%= wicked_pdf_image_tag @ptwo.product_image.url(:medium) %>
+              <h3><%= @ptwo.name %></h3>
+              <% if @ptwo.p_type == 1 %>
                 <h3>Producto</h3>
-              <% elsif @pr2.p_type == 2 %>
+              <% elsif @ptwo.p_type == 2 %>
                 <h3>Servicio</h3>
               <% end %>
-              <p><%= @pr2.description %></p>
+              <p><%= @ptwo.description %></p>
 
             </div>
 

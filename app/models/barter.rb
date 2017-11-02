@@ -28,6 +28,17 @@ class Barter < ApplicationRecord
     geocoded_by :address
     after_validation :geocode, :if => :address_changed?
 
+    def get_product_one
+      Product.find(self.product_one_id)
+    end
+
+    def get_product_two
+      Product.find(self.product_two_id)
+    end
+
+    def get_QR
+      RQRCode::QRCode.new(Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s))
+    end
 
     def self.offers(product)
       return Barter.where("product_one_id = ?", product.id)
@@ -39,14 +50,6 @@ class Barter < ApplicationRecord
 
     def self.offers_made(user)
       return Barter.where("id_two_user = ?", user.id)
-    end
-
-    def self.get_product_one
-      return Product.find(self.product_one_id)
-    end
-
-    def self.get_product_two
-      return Product.find(self.product_two_id)
     end
 
     def self.my_transactions(user)

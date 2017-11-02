@@ -24,8 +24,8 @@ class MyProductsController < ApplicationController
   end
 
   def accept
-    @product_one = Product.find(@barter.product_one_id)
-    @product_two = Product.find(@barter.product_two_id)
+    @product_one = @barter.get_product_one
+    @product_two = @barter.get_product_two
   end
 
   def offers_received

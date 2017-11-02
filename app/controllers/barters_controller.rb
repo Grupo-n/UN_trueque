@@ -13,20 +13,14 @@ class BartersController < ApplicationController
   # GET /barters/1
   # GET /barters/1.json
   def show
-    #@pone = Product.find(@barter.product_one_id)
-    #@ptwo = Product.find(@barter.product_two_id)
+
+    @qr = @barter.get_QR
 
     @pone = @barter.get_product_one
     @ptwo = @barter.get_product_two
 
-    @hashcode = Digest::MD5.hexdigest(@pone.id.to_s+"-"+@ptwo.id.to_s)
-    @qr = RQRCode::QRCode.new(@hashcode.to_s)
-
-    @pr1=Product.find(@barter.product_one_id)
-    @pr2=Product.find(@barter.product_two_id)
-    @ven=User.find(@pr1.user_id)
-    @com=User.find(@pr2.user_id)
-
+    @ven = @pone.get_user
+    @com = @ptwo.get_user
 
     respond_to do |format|
       format.html
@@ -47,8 +41,8 @@ class BartersController < ApplicationController
   # POST /barters.json
   def create
     @barter = Barter.new(barter_params)
-    @product = Product.get_user_by_product_id(@barter.product_one_id)
-    @user = User.get_user(@product)
+    @product = @barter.get_product_one
+    @user = @product.get_user
     @userbarters = current_user
     respond_to do |format|
       if @barter.save

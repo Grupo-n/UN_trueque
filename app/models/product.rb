@@ -33,6 +33,10 @@ class Product < ApplicationRecord
     has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
     validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 
+    def get_user
+      User.find(self.user_id)
+    end
+
     def self.descendent
       return Product.where("available = ?", true).order('created_at DESC')
     end
@@ -44,10 +48,5 @@ class Product < ApplicationRecord
     def self.services
       return Product.where("p_type = ? AND available = ?", 2, true)
     end
-
-    def self.get_user_by_product_id(product_id)
-      return Product.find(product_id)
-    end
-
 
 end
