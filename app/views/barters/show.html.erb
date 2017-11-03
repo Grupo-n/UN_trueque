@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-md-6 center">
-    <h2 class="myhnot margin-top-12 center"> Lo que tu quieres</h2>
+    <h2 class="myhnot margin-top-12 center"> Tu producto</h2>
 
     <%= image_tag @pone.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
     <h5 class="margin-5"><%=  @pone.name %></h5>
@@ -15,7 +15,7 @@
 
 
   <div class="col-md-6 center">
-    <h2 class="myhnot margin-top-12 center"> Lo que ofreciste</h2>
+    <h2 class="myhnot margin-top-12 center"> Lo que te han ofrecido</h2>
     <%= image_tag @ptwo.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
     <h5 class="margin-5"><%=  @ptwo.name %></h6>
     <h5 class="margin-5"><%=  @ptwo.description %></h5>
@@ -34,14 +34,9 @@
   <br>
 
   <div class="row">
-      <div class="offset-sm-1 col-sm-3 right">
-          <%= link_to 'Edit', edit_barter_path(@barter), class:"btn btn-w" %>
-      </div>
-      <div class="col-sm-4 left">
-        
-      </div>
-      <div class="col-sm-3 left">
-        <%= link_to 'PDF' , @barter.id.to_s+".pdf",class:"btn btn-w" %>
+
+      <div class="col-md-12 center">
+        <%= link_to 'Contraofertar', show_path(@ptwo), class:"btn btn-w" %>
       </div>
   </div>
 
@@ -49,6 +44,6 @@
 
 <div class="row">
   <div class="col-md-3">
-      <%= link_to 'Back', barters_path ,class:"btn btn-w" %>
+      <%= link_to 'Back', my_products_offers_received_path ,class:"btn btn-w" %>
   </div>
 </div>
