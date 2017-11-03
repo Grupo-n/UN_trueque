@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :barters
+  resources :comments
 
   resources :products do
     collection do
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
   get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
   get 'my_products/:id/accept' => "my_products#accept", as: 'accept'
+
+
 
   #Pagina principal
   get 'welcome/index'

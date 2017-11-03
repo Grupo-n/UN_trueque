@@ -24,6 +24,9 @@ class MyProductsController < ApplicationController
   end
 
   def accept
+    @user = current_user
+    @comment = Comment.new
+    @comments = @barter.get_comments
     @product_one = @barter.get_product_one
     @product_two = @barter.get_product_two
   end

@@ -40,6 +40,10 @@ class Barter < ApplicationRecord
       RQRCode::QRCode.new(Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s))
     end
 
+    def get_comments
+      Comment.where(barter: self.id)
+    end
+
     def self.offers(product)
       return Barter.where("product_one_id = ?", product.id)
     end

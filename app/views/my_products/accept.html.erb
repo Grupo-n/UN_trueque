@@ -1,4 +1,5 @@
 <div class="container margin-top">
+
   <h2 class="myhnot">Mapa</h2>
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
   <div class="panel-footer">
@@ -14,8 +15,25 @@
       <%= @barter.save%>
 
       <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
-
     <% end %>
+
+    <% if @comments.nil? %>
+    <p>Aún no hay comentarios</p>
+    <% else %>
+      <% @comments.each do |c| %>
+        <p><%= c.get_user %> dijo:</p>
+        <p><%= c.content %></p>
+      <% end %>
+    <% end %>
+
+    <%= form_for @comment do |c| %>
+      <%= c.hidden_field :barter, :value => @barter.id %>
+      <%= c.hidden_field :user, :value => @user.id %>
+      <%= c.text_area :content %>
+
+      <%= c.submit 'Comentar', class: 'btn btn-right' %>
+    <% end %>
+
     <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
     <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
     <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
