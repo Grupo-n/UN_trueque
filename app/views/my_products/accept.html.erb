@@ -1,41 +1,55 @@
-<div class="container margin-top">
-
-  <h2 class="myhnot">Mapa</h2>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
-  <div class="panel-footer">
-    <%= form_for @barter do |b| %>
-      <h6><strong>Lugar del trueque: </strong></h6>
-      <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
-      <%= @product_one.available = false %>
-      <%= @product_one.save %>
-
-      <%= @product_two.available = false %>
-      <%= @product_two.save %>
-      <%= @barter.state = 2 %>
-      <%= @barter.save%>
-
-      <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
-    <% end %>
-
-    <% if @comments.nil? %>
-    <p>Aún no hay comentarios</p>
-    <% else %>
-      <% @comments.each do |c| %>
-        <p><%= c.get_user %> dijo:</p>
-        <p><%= c.content %></p>
-      <% end %>
-    <% end %>
-
-    <%= form_for @comment do |c| %>
-      <%= c.hidden_field :barter, :value => @barter.id %>
-      <%= c.hidden_field :user, :value => @user.id %>
-      <%= c.text_area :content %>
-
-      <%= c.submit 'Comentar', class: 'btn btn-right' %>
-    <% end %>
-
-    <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
-    <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
-    <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
+<div class="container mt">
+  <div class="row row-eq-height">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-4">
+          <div class="container-fluid my-thumbnail superCenter">
+            <%= image_tag "product04.jpg", alt: "", style:"max-height:180px; max-width:160px", class:"img-rounded" %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <span class="glyphicon glyphicon-arrow-right" style="float:left; font-size:90px; color:#1d5664"></span>
+          <span class="glyphicon glyphicon-arrow-left" style="float:right; font-size:90px; color:#1d5664"></span>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="container-fluid my-thumbnail superCenter">
+            <%= image_tag "product04.jpg", alt: "", style:"max-height:180px; max-width:160px", class:"img-rounded" %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid">
+        <h2 class="myh">Mapa</h2>
+        <center><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %></center>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="container-fluid panel panel-default">
+        <div class="panel-heading">
+          <h2 class="myhnot">Mensajes</h2>
+        </div>
+        <div class="panel-body">
+          <div class="container-fluid" style="height: 150px; overflow-y: scroll;">
+            <% if @comments.nil? %>
+              <p>Aún no hay comentarios</p>
+            <% else %>
+              <% @comments.each do |c| %>
+                <p><%= c.get_user %> dijo:</p>
+                <p><%= c.content %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <%= form_for @comment  do |c| %>
+            <%= c.hidden_field :barter, :value => @barter.id %>
+            <%= c.hidden_field :user, :value => @user.id %>
+            <%= c.text_area :content, style:"width:100%; background-color:#fff;" %>
+            <%= c.submit 'Comentar', class: 'btn btn-ghost btn-right' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

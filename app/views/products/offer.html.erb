@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
-<div class="container margin-top">
+<div class="container mt">
 
     <h2 class="myh">Ofertar</h2>
 
@@ -40,8 +40,8 @@
                         </label>
                     </form>
 
-                    <%= link_to "Nuevo", new_product_path, class:"btn" %>
-                    <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                    <%= link_to "Nuevo", new_product_path, class:"btn btn-default" %>
+                    <button type="button" class="btn btn-default btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
                     <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>' #modal' } %-->
 
                     <br>
@@ -74,9 +74,9 @@
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
                         <%= b.hidden_field :id_two_user, :value => @offer_user.id %>
                         <%= b.hidden_field :state, :value => 1 %>
-                        <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
+                        <%= b.submit 'Ofertar', class: 'btn btn-default btn-right' %>
                     <% end %>
-                    <%= link_to 'Volver', :show, class:"btn btn-right" %>
+                    <%= link_to 'Volver', :show, class:"btn btn-default btn-right" %>
                 </div>
 
         </div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

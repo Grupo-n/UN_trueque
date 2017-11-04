@@ -1,9 +1,9 @@
-<div class="container margin-top">
+<div class="container mt">
   
   <div class="row">
     <div class="col-sm-12">
       <h2 class="myh">Mis Productos y Servicios</h2>
-      <%= link_to 'Nuevo', new_product_path, class:'btn margin-5 btn-right' %>
+      <%= link_to 'Nuevo', new_product_path, class:'btn btn-default btn-right' %>
     </div>
   </div>
   
@@ -30,8 +30,8 @@
                 </div>
               <% end %>
             </div>
-            <span><%= link_to 'Edit', edit_product_path(p), class:"minibtn" %></span>
-            <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?'}, class:"minibtn" %></td>
+            <span><%= link_to 'Edit', edit_product_path(p), class:"btn btn-ghost" %></span>
+            <span><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-ghost" %></td>
           </div>
         </div>
       <% end %>

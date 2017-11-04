@@ -12,7 +12,7 @@
     <div class="row">
       <% @products.each do |d| %>
       <div class="col-sm-4">
-        <div class="card card-block my-item">
+        <div class="card card-block">
           <a href="#">
               <%= image_tag d.product_image.url(:medium), class:"team-img" %>
               <div class="card-title-wrap">
@@ -45,5 +45,5 @@
 <% end %>
 
 <center>
-  <%= link_to 'New Product', new_product_path, {:class => "btn"} %>
+  <%= link_to 'New Product', new_product_path, {:class => "btn btn-default"} %>
 </center>

@@ -4,13 +4,7 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
 */
-*, *:before, *:after {
-  box-sizing: border-box;
-}
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", Helvetica, Arial, sans-serif;
-}
 
 p {
   line-height: 1.55;
@@ -48,54 +42,7 @@ a {
 /* ==================================================
   Elements
   ================================================== */
-.btn {
-  background-color: #1c5664;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  color: #fff;
-  font-size: 13px !important;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin: 5px;
-}
 
-.btn:hover, .btn:focus {
-  background-color: #fff;
-  color: #1c5664;
-  border-color: #1c5664;
-}
-
-
-.btn-ghost {
-  border: 2px solid #1c5664;
-  background-color: transparent;
-  color: #1c5664;
-  font-size: 16px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  margin: 5px;
-}
-
-.btn-ghost:hover, .btn-ghost:focus {
-  background-color: #1c5664;
-  color: #fff;
-}
-
-/* boton para fondos verdes*/
-.btn-inverse {
-  border: 1px solid #fff;
-  border-radius: 2px;
-  padding: 3px 6px;
-  background-color: transparent;
-  height: 30px;
-  color: #fff;
-  font-size: 13px;
-}
-
-.btn-inverse:hover, .btn-inverse:focus {
-  background-color: #fff;
-  color: #1c5664;
-}
 
 section {
   padding: 85px 0;
@@ -610,7 +557,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   opacity: .75;
 }
 
-.cta .btn-ghost {
+.cta {
   position: relative;
   top: 13px;
 }
@@ -788,11 +735,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* ==================================================
   Contact Section
   ================================================== */
-#contact {
-  background: #f7f7f7;
-  padding: 80px 0;
-}
-
 #contact h2 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
   color: #199EB8;
@@ -809,14 +751,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 24px;
 }
 
-#contact .form #sendmessage {
-  color: #199EB8;
-  border: 1px solid #199EB8;
-  display: none;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
+#contact .info p {
+  padding: 0 0 10px 50px;
+  line-height: 24px;
 }
 
 #contact .form #errormessage {

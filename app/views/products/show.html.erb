@@ -1,4 +1,4 @@
-<div class="container margin-top">
+<div class="container mt">
   <div class="row">
 
     <p id="notice"><%= notice %></p>
@@ -19,29 +19,29 @@
 
         <div class="panel-body">
 
-          <h4 class="margin-top-12"><strong>Tipo: </strong></h4>
+          <h4 class="mt-12"><strong>Tipo: </strong></h4>
           <% if @product.p_type == 1 %>
             <h6>Producto</h6>
           <% else %>
             <h6>Servicio</h6>
           <% end %>
 
-          <h4 class="margin-top-12"><strong>Descripción: </strong></h4>
+          <h4 class="mt-12"><strong>Descripción: </strong></h4>
           <h6><%= @product.description %></h6>
 
-          <h4 class="margin-top-12"><strong>Vendedor: </strong></h4>
+          <h4 class="mt-12"><strong>Vendedor: </strong></h4>
           <h6><%= @user_name %></h6>
           <h6>Calificación: <%= @user.score %></h6>
 
-          <h4 class="margin-top-12"><strong>Fecha de publicación: </strong></h4>
+          <h4 class="mt-12"><strong>Fecha de publicación: </strong></h4>
           <h6><%= @product.updated_at %></h6>
           <br>
           
         </div>
 
         <div class="panel-footer">
-          <%= link_to 'Ofertar', offer_path(@product), class:"btn" %>
-          <%= link_to 'Atras', :back, class:"btn btn-right" %>
+          <%= link_to 'Ofertar', offer_path(@product), class:"btn btn-default" %>
+          <%= link_to 'Atras', :back, class:"btn btn-default  btn-right" %>
         </div>
 
       </div>
