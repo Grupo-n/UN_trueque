@@ -303,7 +303,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   background-color: #fff;
 }
 .navbar-form{
-  border: 0 solid #1c5664 !important;
+  border: 0px solid #1c5664;
 }
 
 /* ==================================================
