@@ -2,6 +2,7 @@ require 'digest/md5'
 #require 'rqrcode'
 
 class BartersController < ApplicationController
+  
   before_action :set_barter, only: [:show, :edit, :update, :destroy]
 
   # GET /barters
