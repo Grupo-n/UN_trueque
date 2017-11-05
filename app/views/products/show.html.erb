@@ -1,16 +1,12 @@
 <div class="container mt">
+  <p id="notice"><%= notice %></p>
+  <h2 class="myh" style=""><%= @product.name %></h2>
   <div class="row">
-
-    <p id="notice"><%= notice %></p>
-
-    <div class="col-md-8">
-      <h2 class="myh"><%= @product.name %></h2>
-      <center>
-        <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded" %>
-      </center>
+    <div class="col-sm-6 superCenter" style="">
+      <%= image_tag @product.product_image, alt: "", style:"", class:"img-rounded img-responsive" %>
     </div>
-
-    <div class="col-md-4">
+    
+    <div class="col-sm-6">
       <div class="panel panel-default">
 
         <div class="panel-heading">
@@ -18,34 +14,29 @@
         </div>
 
         <div class="panel-body">
-
           <h4 class="mt-12"><strong>Tipo: </strong></h4>
           <% if @product.p_type == 1 %>
-            <h6>Producto</h6>
+            <h4>Producto</h4>
           <% else %>
-            <h6>Servicio</h6>
+            <h4>Servicio</h4>
           <% end %>
 
           <h4 class="mt-12"><strong>Descripción: </strong></h4>
-          <h6><%= @product.description %></h6>
+          <h4><%= @product.description %></h4>
 
           <h4 class="mt-12"><strong>Vendedor: </strong></h4>
-          <h6><%= @user_name %></h6>
-          <h6>Calificación: <%= @user.score %></h6>
+          <h4><%= @user_name %></h4>
+          <h4>Calificación: <%= @user.score %></h4>
 
           <h4 class="mt-12"><strong>Fecha de publicación: </strong></h4>
-          <h6><%= @product.updated_at %></h6>
-          <br>
-          
+          <h4><%= @product.updated_at %></h4>
         </div>
 
         <div class="panel-footer">
-          <%= link_to 'Ofertar', offer_path(@product), class:"btn btn-default" %>
-          <%= link_to 'Atras', :back, class:"btn btn-default  btn-right" %>
+          <%= link_to 'Atras', :back, class:"btn btn-default" %>
+          <%= link_to 'Ofertar', offer_path(@product), class:"btn btn-default   btn-right" %>
         </div>
 
       </div>
     </div>
-
   </div>
-</div>

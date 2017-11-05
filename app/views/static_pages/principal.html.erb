@@ -8,16 +8,16 @@
   <% else %>
     <div class="row">
       <% @products.each do |p| %>
-        <div class="col-xs-3">
+        <div class="col-sm-3">
           <div class="thumbnail">
-            <%= link_to my_offer_path(p) do %>
+            <%= link_to show_path(p) do %>
               <div class="opacity">
                 <!--a href="/w3images/lights.jpg" target="_blank"-->
-                <div class="superCenter" style="height:200px">
-                  <%= image_tag p.product_image.url(:medium), alt: "", style:"width:100%; max-height:200px", class:"img-rounded img-responsive" %>
+                <div class="superCenter img-div-size" style="">
+                  <%= image_tag p.product_image.url(:medium), alt: "", style:"", class:"img-rounded img-responsive img-size" %>
                 </div>
                 <!--img src="/w3images/lights.jpg" alt="Lights" style="width:100%"-->
-                <div class="caption container-fluid" style="height: 100px">
+                <div class="caption container-fluid caption-div-size" style="">
                   <h4><%= p.name %></h4>
                   <% if p.p_type == 1 %>
                     <h6>Producto</h6>
