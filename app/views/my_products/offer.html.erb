@@ -30,7 +30,7 @@
                                 <h6><%= b.description %></h6>
                                 <br>
                                 <%= link_to 'Ver', barter_path(b), class:'btn-ghost', style:"float: left"%>
-                                <%= link_to 'Negociar', accept_path(b.id), class:'btn-ghost', style:"float: center" %>
+                                <%= link_to 'Negociar', accept_my_product_path(b), class:'btn-ghost', style:"float: center" %>
                                 <%= link_to 'Rechazar', b, class:'btn-ghost',style: "float: right", method: :delete, data: { confirm: '¿Estás segur@?' } %>
                             </div>
                         </div>

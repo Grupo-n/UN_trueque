@@ -1,12 +1,12 @@
 <div class="container margin-top">
-  
+
   <div class="row">
     <div class="col-sm-12">
       <h2 class="myh">Mis Productos y Servicios</h2>
       <%= link_to 'Nuevo', new_product_path, class:'btn margin-5 btn-right' %>
     </div>
   </div>
-  
+
   <% if @products.blank? %>
      <h4>Debes agregar productos</h4>
   <% else %>
@@ -15,7 +15,7 @@
         <div class="col-sm-3 row-eq-height">
           <div class="my-thumbnail">
             <div class="opacity">
-              <%= link_to my_offer_path(p) do %>
+              <%= link_to offer_my_product_path(p.id) do %>
                 <div class="superCenter" style="height:200px">
                   <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                 </div>
@@ -35,7 +35,7 @@
           </div>
         </div>
       <% end %>
-    </div> 
+    </div>
   <% end %>
 
   <div class="offset-md-4 col-md-7">

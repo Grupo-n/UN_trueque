@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-resources :barters
   #Pagina principal
   root :to => "welcome#new"
 
@@ -8,11 +7,11 @@ resources :barters
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   scope(path_names: { new: 'nueva', show: 'ver' }) do
-    resources :barters, path: 'barters', only: [:show, :new, :edit, :create, :update]
+    resources :barters, path: 'barters', only: [:show, :new, :edit, :create, :update, :destroy]
   end
 
   scope(path_names: { new: 'nuevo', show: 'ver', edit: 'editar' }) do
-    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update] do
+    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product] do
       collection do
         match 'search' => 'application#search', via: [:get, :post], as: :search
       end
@@ -59,6 +58,7 @@ resources :barters
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
 
 
+=begin
   #Productos usuario
   get 'my_products/index'
   get 'my_products/myobjects'
@@ -82,5 +82,5 @@ resources :barters
   get 'my_products/index' , :as => :myObjectsServices
   get 'my_products/myposts' , :as => :myPosts
 
-
+=end
   end

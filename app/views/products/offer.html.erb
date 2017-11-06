@@ -70,7 +70,7 @@
                     <%= form_for @barter do |b| %>
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                         <!--h6><strong>Lugar del trueque: </strong></h6-->
-                        
+
                         <%#= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional' %>
                         <%= b.hidden_field :product_one_id, :value => @product.id %>
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
@@ -79,7 +79,7 @@
                         <%= b.hidden_field :state, :value => 1 %>
                         <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
                     <% end %>
-                    <%= link_to 'Volver', :show, class:"btn btn-right" %>
+                    <%= link_to 'Volver', product_path, class:"btn btn-right" %>
                 </div>
 
         </div>
@@ -100,7 +100,7 @@
                             <% @myproducts.each do |product| %>
                                 <div class="col-sm-4 row-eq-height">
                                     <div class="my-thumbnail opacity">
-                                        <%= link_to offer_path(@product, :offert => product) do %>
+                                        <%= link_to offer_product_path(@product, :offert => product) do %>
                                         <div class="superCenter" style="height:150px">
                                           <%= image_tag product.product_image.url(:medium), alt: "", style:"max-height:150px", class:"img-rounded" %>
                                         </div>
