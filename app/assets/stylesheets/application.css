@@ -36,7 +36,7 @@
 
 html, body{
   overflow: scroll;
-  min-width: 300px;
+  min-width: 500px;
 }
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -47,6 +47,37 @@ html, body{
 div, h1, h2, h3, h4, h5, h6, p, .btn {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
+.m-5{ margin:5px }
+.m-25{ margin: 25px }
+.m-50{ margin: 50px; }
+.m-5-50{ margin: 5px 50px }
+.mt{ margin-top: 100px; }
+.mt-12{ margin-top: 12px }
+.mt-50{ margin-top: 50px; }
+.edge{
+  border: 1px solid  #31708f;
+  border-radius: 4px;
+}
+.full-width{
+  width: 100%;
+}
+.myh{
+  margin: 10px;
+  padding: 10px;
+  color: #31708f;
+}
+.myhnot{
+  margin: 0;
+  padding: 0;
+  color: #31708f;
+}
+.btn-right{
+  float: right;
+}
+
+/* ==================================================
+ Flex-Boxes
+ ================================================== */
 .superCenter{
   display: -moz-flex;
 	display: -webkit-flex;
@@ -63,6 +94,27 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 	-ms-align-items: center;
 	align-items: center;
     
+}
+.flexWrap{
+  display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+  
+  -moz-justify-content: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+  
+  -moz-align-items: center;
+	-webkit-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
+  
+  -moz-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .center{ text-align: center; }
 .verticalCenter{
@@ -106,37 +158,10 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 	align-self: center;
 }
 .flex-item {
-    background-color: cornflowerblue;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-}
-.m-5{ margin:5px }
-.m-25{ margin: 25px }
-.m-50{ margin: 50px; }
-.m-5-50{ margin: 5px 50px }
-.mt{ margin-top: 100px; }
-.mt-12{ margin-top: 12px }
-.mt-50{ margin-top: 50px; }
-.edge{
-  border: 1px solid  #31708f;
-  border-radius: 4px;
-}
-.full-width{
-  width: 100%;
-}
-.myh{
+  background-color: cornflowerblue;
+  width: 100px;
+  height: 100px;
   margin: 10px;
-  padding: 10px;
-  color: #31708f;
-}
-.myhnot{
-  margin: 0;
-  padding: 0;
-  color: #31708f;
-}
-.btn-right{
-  float: right;
 }
 
 /* ==================================================
@@ -392,7 +417,10 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 .right{
   text-align: right;
 }
-
+.icono{
+  color: #1c5664;
+  font-size: 50px;
+}
 /* ==================================================
   Estadisticas
   ================================================== */

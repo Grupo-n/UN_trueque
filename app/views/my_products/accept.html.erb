@@ -1,36 +1,63 @@
 <div class="container mt">
-  <div class="row row-eq-height">
+  <div class="row">
     <div class="col-md-6">
       <div class="row">
-        <div class="col-md-offset-1 col-md-4">
-          <div class="container-fluid my-thumbnail superCenter">
-            <%= image_tag "product04.jpg", alt: "", style:"max-height:180px; max-width:160px", class:"img-rounded" %>
+        <div class="col-md-5 center">
+          <%  @pone = @barter.get_product_one %>
+          <h2 class="myhnot mt-12 center"> Tu Producto </h2><br><br>
+          <br>
+          <div class="superCenter img-div-size" style="">
+            <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+          </div>
+          <div class="caption container-fluid caption-div-size" style="">
+            <h4><%= @pone.name %></h4>
+            <% if @pone.p_type == 1 %>
+              <h6>Producto</h6>
+            <% else %>
+              <h6>Servicio</h6>
+            <% end %>
+            <h6><%= @pone.description  %></h6>
           </div>
         </div>
-        <div class="col-md-2">
-          <span class="glyphicon glyphicon-arrow-right" style="float:left; font-size:90px; color:#1d5664"></span>
-          <span class="glyphicon glyphicon-arrow-left" style="float:right; font-size:90px; color:#1d5664"></span>
-        </div>
         
-        <div class="col-md-4">
-          <div class="container-fluid my-thumbnail superCenter">
-            <%= image_tag "product04.jpg", alt: "", style:"max-height:180px; max-width:160px", class:"img-rounded" %>
+        <div class="col-md-1 superCenter">
+          <div class="container-fluid">
+          <span class="glyphicon glyphicon-arrow-right icono" style=""></span>
+          <span class="glyphicon glyphicon-arrow-left icono" style=""></span>
+          </div>
+        </div>
+  
+        <div class="col-md-5 center">
+          <%  @ptwo = @barter.get_product_two %>
+          <h2 class="myhnot mt-12 center"> Lo Que Te Ofrecen </h2>
+          <br>
+          <div class="superCenter img-div-size" style="">
+            <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+          </div>
+          <div class="caption container-fluid caption-div-size" style="">
+            <h4><%= @ptwo.name %></h4>
+            <% if @ptwo.p_type == 1 %>
+              <h6>Producto</h6>
+            <% else %>
+              <h6>Servicio</h6>
+            <% end %>
+            <h6><%= @ptwo.description  %></h6>
           </div>
         </div>
       </div>
-      
       <div class="container-fluid">
         <h2 class="myh">Mapa</h2>
         <center><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %></center>
+        <%= link_to 'Editar Ubicación', nil,class:"btn btn-ghost" %>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="container-fluid panel panel-default">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h2 class="myhnot">Mensajes</h2>
         </div>
         <div class="panel-body">
-          <div class="container-fluid" style="height: 150px; overflow-y: scroll;">
+          <div class="container-fluid" style="height: 600px; overflow-y: scroll;">
             <% if @comments.nil? %>
               <p>Aún no hay comentarios</p>
             <% else %>
