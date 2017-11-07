@@ -8,12 +8,12 @@
 <div class="container mt">
 
     <h2 class="myh">Estas ofertando por: <b><%= @product.name %></b></h2>
-    
+
     <div class="row">
-    
+
         <div class="col-sm-6 superCenter">
             <%= image_tag @product.product_image, alt: "", style:"", class:"img-rounded img-responsive" %>
-        </div>  
+        </div>
 
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -25,18 +25,23 @@
                 <div class="panel-body">
                     <form>
                         <label class="radio-inline">
-                            <input type="radio" name="optradio">Producto
+                            <input type="radio" name="optradio" class="buttons-product">Producto
                         </label>
-                        <label class="radio-inline disabled">
-                            <input type="radio" name="optradio" disabled='disabled'>Gratuito
-                        </label>
-                        <label class="radio-inline disabled">
-                            <input type="radio" name="optradio" disabled='disabled'>Servicio
+
+                        <label class="radio-inline">
+                            <input type="radio" name="optradio"  class="buttons-service">Servicio
                         </label>
                     </form>
 
-                    <%= link_to "Nuevo", new_product_path, class:"btn btn-default" %>
-                    <button type="button" class="btn btn-default btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                    <div id="buttons-product" style="display:none;">
+                      <%= link_to "Nuevo", new_product_path, class:"btn" %>
+                      <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                    </div>
+                    <div id="buttons-service" style="display:none;">
+                      <%= link_to "Nuevo", new_product_path, class:"btn" %>
+                      <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Servicios</button>
+                    </div>
+
                     <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>' #modal' } %-->
 
                     <br>
@@ -63,6 +68,9 @@
                 <div class="panel-footer">
                     <%= form_for @barter do |b| %>
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
+                        <!--h6><strong>Lugar del trueque: </strong></h6-->
+
+                        <%#= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional' %>
                         <%= b.hidden_field :product_one_id, :value => @product.id %>
                         <%= b.hidden_field :product_two_id, :value => @offert.id %>
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
@@ -112,4 +120,14 @@
             </div>
         </div>
     </div>
+
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(':radio').click(function() {
+      $('#' + $(this).attr('class')).fadeIn().siblings('div').hide();
+  }).filter(':checked').click();
+});
+
+</script>

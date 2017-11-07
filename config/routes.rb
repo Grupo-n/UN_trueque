@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
   get 'my_products/:id/offer' => "my_products#offer", as: 'my_offer'
   get 'my_products/:id/accept' => "my_products#accept", as: 'accept'
+  get 'my_products/:id/change_ubication' => "barters#change_ubication", as: 'change_ubication'
+
 
 
 
