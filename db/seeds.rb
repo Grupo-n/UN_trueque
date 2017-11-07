@@ -3,17 +3,17 @@ require 'faker'
 User.create(email: "joagranadosme@unal.edu.co", first_name: "Jonathan",
   last_name: "Granados Méndez", password: "12345678", password_confirmation: "12345678")
 
-#User.create(email: "gsuarezc@unal.edu.co", first_name: "Gabriela",
-  #last_name: "Suárez Carvajal", password: "12345678", password_confirmation: "12345678")
+User.create(email: "gsuarezc@unal.edu.co", first_name: "Gabriela",
+  last_name: "Suárez Carvajal", password: "12345678", password_confirmation: "12345678")
 
-#User.create(email: "jaasuarezg@unal.edu.co", first_name: "Jairo",
-  #last_name: "Suárez Garnica", password: "12345678", password_confirmation: "12345678")
+User.create(email: "jaasuarezg@unal.edu.co", first_name: "Jairo",
+  last_name: "Suárez Garnica", password: "12345678", password_confirmation: "12345678")
 
-#User.create(email: "macortesn@unal.edu.co", first_name: "Miguel Angel",
-  #last_name: "Cortes Nivia", password: "12345678", password_confirmation: "12345678")
+User.create(email: "macortesn@unal.edu.co", first_name: "Miguel Angel",
+  last_name: "Cortes Nivia", password: "12345678", password_confirmation: "12345678")
 
-#User.create(email: "jnsastoquee@unal.edu.co", first_name: "Nicolas",
-  #last_name: "Sastoque", password: "12345678", password_confirmation: "12345678")
+User.create(email: "jnsastoquee@unal.edu.co", first_name: "Nicolas",
+  last_name: "Sastoque", password: "12345678", password_confirmation: "12345678")
 
 #Products
 Category.new(name: "Arte")
