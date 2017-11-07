@@ -2,7 +2,7 @@ require 'digest/md5'
 #require 'rqrcode'
 
 class BartersController < ApplicationController
-  before_action :set_barter, only: [:show, :edit, :update, :destroy]
+  before_action :set_barter, only: [:show, :edit, :update, :destroy, :change_ubication]
 
   # GET /barters
   # GET /barters.json
@@ -39,8 +39,13 @@ class BartersController < ApplicationController
 
   # GET /barters/1/edit
   def edit
+
+
   end
 
+  def change_ubication
+    @barter = Barter.find(params[:id])
+  end
   # POST /barters
   # POST /barters.json
   def create
@@ -64,7 +69,10 @@ class BartersController < ApplicationController
   # PATCH/PUT /barters/1.json
   def update
     respond_to do |format|
-      if @barter.update(barter_params)
+      if @barter.update(barter_params_ubication)
+        format.html { redirect_to user_home_path, notice: 'Ubicacion modificada, debes eperar confirmacion' }
+        format.json { render :show, status: :ok, location: @barter }
+      elsif @barter.update(barter_params)
         format.html { redirect_to user_home_path, notice: 'La oferta ha sido aceptada' }
         format.json { render :show, status: :ok, location: @barter }
       else
@@ -92,7 +100,11 @@ class BartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :latitude, :longitude, :address)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
+      #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
+    end
+    def barter_params_ubication
+      params.require(:barter).permit(:accept_user_one,:accept_user_two,:latitude, :longitude)
       #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 

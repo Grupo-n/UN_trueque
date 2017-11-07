@@ -18,7 +18,8 @@
 #  id_two_user    :integer
 #  title          :string
 #  address        :text
-#
+#  accept_user_one  :string
+#  accept_user_two  :string
 
 class Barter < ApplicationRecord
 
