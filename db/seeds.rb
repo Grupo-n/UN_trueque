@@ -1,19 +1,24 @@
 require 'faker'
 
 User.create(email: "joagranadosme@unal.edu.co", first_name: "Jonathan",
-  last_name: "Granados Méndez", password: "12345678", password_confirmation: "12345678")
+  last_name: "Granados Méndez", password: "12345678",
+   password_confirmation: "12345678", score: 5.0)
 
 User.create(email: "gsuarezc@unal.edu.co", first_name: "Gabriela",
-  last_name: "Suárez Carvajal", password: "12345678", password_confirmation: "12345678")
+  last_name: "Suárez Carvajal", password: "12345678",
+   password_confirmation: "12345678", score: 5.0)
 
 User.create(email: "jaasuarezg@unal.edu.co", first_name: "Jairo",
-  last_name: "Suárez Garnica", password: "12345678", password_confirmation: "12345678")
+  last_name: "Suárez Garnica", password: "12345678",
+   password_confirmation: "12345678", score: 5.0)
 
 User.create(email: "macortesn@unal.edu.co", first_name: "Miguel Angel",
-  last_name: "Cortes Nivia", password: "12345678", password_confirmation: "12345678")
+  last_name: "Cortes Nivia", password: "12345678",
+   password_confirmation: "12345678", score: 5.0)
 
 User.create(email: "jnsastoquee@unal.edu.co", first_name: "Nicolas",
-  last_name: "Sastoque", password: "12345678", password_confirmation: "12345678")
+  last_name: "Sastoque", password: "12345678",
+   password_confirmation: "12345678", score: 5.0)
 
 #Products
 Category.create(name: "Arte")
@@ -42,5 +47,6 @@ for i in 0..30
   Product.create(name: Faker::Commerce.product_name, p_type: rand(1..2),
   description: Faker::Commerce.department(2), available: true, quantity: 1,
   created_at: Faker::Time.between(2.months.ago, Date.today, :all), state: true,
-  user: User.find(1), category: rand(1..15), interests: rand(1..15))
+  user: User.find(1), category: rand(1..15), interests: rand(1..15),
+  duration: Faker::Time.between(2.months.ago, Date.today, :all))
 end

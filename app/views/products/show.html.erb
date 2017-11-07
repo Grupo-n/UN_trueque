@@ -30,6 +30,20 @@
           <h4><%= @user_name %></h4>
           <h4>Calificación: <%= @user.score %></h4>
 
+          <% if @product.p_type == 1 %>
+            <h4><strong>Estado: </strong></h4>
+            <% if @product.state == true %>
+              <h4>Nuevo</h4>
+            <% else %>
+              <h4>Usado</h4>
+            <% end %>
+          <% elsif @product.p_type == 2 %>
+            <h4><strong>Duración: </strong></h4>
+            <h4><%= @product.duration.strftime('%H:%M') %></h4>
+          <% else %>
+            <h4>Otro</h4>
+          <% end %>
+
           <h4 class="mt-12"><strong>Fecha de publicación: </strong></h4>
           <h4><%= @product.updated_at %></h4>
         </div>
