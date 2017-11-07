@@ -30,6 +30,7 @@
 
 */
 
+
 /* ==================================================
  General
  ================================================== */
@@ -72,6 +73,12 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 }
 .btn-right{
   float: right;
+}
+.circle-div{
+  border: 2px solid #1c5664;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
 }
 
 /* ==================================================
@@ -444,7 +451,6 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 .img-profile{
   width: 200px;
   height: 200px;
-  border: 5px solid #1c5664;
   padding:0;
   margin: 0;
 }
