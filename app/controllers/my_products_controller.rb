@@ -42,6 +42,7 @@ class MyProductsController < ApplicationController
     @user_one = User.get_user(@pone)
     @user_two = User.get_user(@ptwo)
     UserMailer.acceptoffer_email(@barter, @user_one, @user_two).deliver
+    SendMailersJob.set(wait: 10.seconds).perform_later(@barter, @user_one, @user_two)
   end
 
   private

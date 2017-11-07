@@ -34,4 +34,11 @@ class UserMailer < ApplicationMailer
     mail(to: @user_two.email, subject: 'Se ha realizado un trueque')
   end
 
+  def calification_email(barter, user_one, user_two)
+    @barter = barter
+    @user_one = user_one
+    @user_two = user_two
+    mail(to: @user_two.email, subject: 'Califica al usuario con el que realizaste una transacción ')
+  end
+
 end
