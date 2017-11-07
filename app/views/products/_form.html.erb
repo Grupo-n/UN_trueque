@@ -40,7 +40,9 @@
   <div class="offset-md-4 col-md-4">
     <div class="form-group">
       <%= form.label :p_type %>
-      <%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>
+      <!--<%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>-->
+      <!--<%= form.select :p_type, [0, 1] %>-->
+      <%= form.select :p_type, options_for_select([["Servicio", 0], ["Producto", 1]]) %>
     </div>
   </div>
 </div>
