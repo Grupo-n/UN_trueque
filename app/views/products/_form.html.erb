@@ -26,12 +26,12 @@
 
       <div class="form-group">
         <%= form.label :name %>
-        <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
+        <%= form.text_field :name, id: :product_name, autofocus: true %>
       </div>
 
       <div class="form-group">
         <%= form.label :p_type %>
-        <%= form.select :p_type, options_for_select([["Servicio", 0], ["Producto", 1]]) %>
+        <%= form.select :p_type, options_for_select([["Servicio", 0], ["Producto", 1]]), class: 'form-control' %>
       </div>
 
       <div class="form-group">
