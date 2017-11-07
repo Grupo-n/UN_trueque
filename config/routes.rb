@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       member do
         get :offer
         get :accept
+        get :succesfull_transaction
       end
 
       collection do

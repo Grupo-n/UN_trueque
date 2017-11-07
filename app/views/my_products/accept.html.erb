@@ -6,11 +6,12 @@
       <h6><strong>Lugar del trueque: </strong></h6>
       <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
 
-      <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
+      <%= b.submit 'Submit' %>
+      <span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-right" %></span>
 
     <% end %>
-    <!-- <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>-->
-    <!-- <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %> -->
-    <!--<%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %> -->
+    <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
+    <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
+    <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
   </div>
 </div>

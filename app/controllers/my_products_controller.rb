@@ -1,6 +1,6 @@
 class MyProductsController < ApplicationController
   before_action :set_product, only: [:offer]
-  before_action :set_barter, only: [:accept]
+  before_action :set_barter, only: [:accept, :succesfull_transaction]
 
   def index
     @user = current_user
@@ -36,6 +36,14 @@ class MyProductsController < ApplicationController
     @barters = Barter.offers_made(current_user)
   end
 
+  def succesfull_transaction
+    @pone = Product.find(@barter.product_one_id)
+    @ptwo = Product.find(@barter.product_two_id)
+    @user_one = User.get_user(@pone)
+    @user_two = User.get_user(@ptwo)
+    UserMailer.acceptoffer_email(@barter, @user_one, @user_two).deliver
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -50,6 +58,7 @@ class MyProductsController < ApplicationController
     def set_barter
       @barter = Barter.find(params[:id])
     end
+
 
     def barter_params
       params.require(:barter).permit(:product_one_id, :product_two_id, :description, :state)
