@@ -561,20 +561,13 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 }
 @media (max-width: 766px) {
   .mt{ margin-top: 170px}
-  .img-div-size{ height: 75px }
-  .img-size{ max-height: 75px }
-  .caption-div-size{ height: 75px }
-  .opacity h4 { font-size: 13px }
-  .opacity h6 { font-size: 9px }
-}
-@media (max-width: 575px) {
   .img-div-size{ height: 200px }
   .img-size{
     width: auto;
     max-height: 200px
-
   }
   .caption-div-size{ height: 100px }
   .opacity h4 { font-size: 20px }
   .opacity h6 { font-size: 15px }
 }
+
