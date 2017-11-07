@@ -83,7 +83,7 @@ class BartersController < ApplicationController
   def destroy
     @barter.destroy
     respond_to do |format|
-      format.html { redirect_to barters_url, notice: 'Barter was successfully destroyed.' }
+      format.html { redirect_to user_home_path, notice: 'La oferta ha sido cancelada.' }
       format.json { head :no_content }
     end
   end

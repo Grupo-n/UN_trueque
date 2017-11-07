@@ -1,12 +1,12 @@
 <div class="container mt">
-  
+
  <div class="row">
     <div class="col-sm-12">
       <h2 class="myh">Mis Servicios</h2>
       <%= link_to 'Nuevo', new_product_path, class:'btn btn-default btn-right' %>
     </div>
   </div>
-    
+
   <% if @products.blank? %>
     <h4>No hay productos</h4>
   <% else %>
@@ -15,7 +15,7 @@
         <div class="col-sm-3 row-eq-height">
           <div class="my-thumbnail">
             <div class="opacity">
-              <%= link_to my_offer_path(p) do %>
+              <%= link_to offer_my_product_path(p.id) do %>
                 <div class="superCenter" style="height:200px">
                   <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                 </div>
@@ -37,9 +37,9 @@
       <% end %>
     </div>
   <% end %>
-  
+
   <div class="offset-md-4 col-md-7">
     <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
   </div>
-  
+
 </div>

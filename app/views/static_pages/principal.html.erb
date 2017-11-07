@@ -1,6 +1,6 @@
 <!--%= stylesheet_link_tag "filename" %-->
 <div class="container mt">
-  
+
   <h1 class="myh center">Productos & Servicios</h1>
 
   <% if @products.blank? %>
@@ -8,13 +8,12 @@
   <% else %>
     <div class="row">
       <% @products.each do |p| %>
-        <div class="col-sm-3">
-          <div class="thumbnail">
-            <%= link_to show_path(p) do %>
-              <div class="opacity">
-                <!--a href="/w3images/lights.jpg" target="_blank"-->
+        <div class="col-sm-3 row-eq-height">
+          <div class="my-thumbnail">
+            <div class="opacity">
+              <%= link_to product_path(p) do %>
                 <div class="superCenter img-div-size" style="">
-                  <%= image_tag p.product_image.url(:medium), alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+                  <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                 </div>
                 <!--img src="/w3images/lights.jpg" alt="Lights" style="width:100%"-->
                 <div class="caption container-fluid caption-div-size" style="">
@@ -34,4 +33,3 @@
     </div>
   <% end %>
 </div>
-

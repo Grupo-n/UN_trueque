@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="row">
-    
+
     <% @barters.each do |barter| %>
 
       <% @pone = barter.get_product_one %>
@@ -46,8 +46,7 @@
           <h4>Rechazado</h4>
         <% end %>
         <div class="flexEnd" style="margin: 0 50px">
-          <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), barter, class:"btn btn-ghost" %>
-          <!--%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_barter_path(barter), class:"btn btn-ghost" %-->
+          <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), accept_my_product_path(barter), class:"btn btn-ghost" %>
           <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, class:"btn btn-ghost", method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>

@@ -29,8 +29,9 @@
                                 <h4 class="myhnot"><%= p.name %></h4>
                                 <h6><%= b.description %></h6>
                                 <br>
-                                <%= link_to 'Ver', product_path(p), class:'btn btn-ghost', style:"float: left"%>
-                                <%= link_to 'Aceptar', accept_path(b.id), class:'btn btn-ghost btn-right' %>
+                                <%= link_to 'Ver', barter_path(b), class:'btn-ghost', style:"float: left"%>
+                                <%= link_to 'Negociar', accept_my_product_path(b), class:'btn-ghost', style:"float: center" %>
+                                <%= link_to 'Rechazar', b, class:'btn-ghost',style: "float: right", method: :delete, data: { confirm: '¿Estás segur@?' } %>
                             </div>
                         </div>
                     </div>

@@ -78,7 +78,7 @@
                         <%= b.hidden_field :state, :value => 1 %>
                         <%= b.submit 'Ofertar', class: 'btn btn-default btn-right' %>
                     <% end %>
-                    <%= link_to 'Volver', :show, class:"btn btn-default" %>
+                    <%= link_to 'Volver', product_path, class:"btn btn-right" %>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
                         <% @myproducts.each do |product| %>
                             <div class="col-sm-4 row-eq-height">
                                 <div class="my-thumbnail opacity">
-                                    <%= link_to offer_path(@product, :offert => product) do %>
+                                    <%= link_to offer_product_path(@product, :offert => product) do %>
                                     <div class="superCenter" style="height:150px">
                                       <%= image_tag product.product_image.url(:medium), alt: "", style:"max-height:150px", class:"img-rounded" %>
                                     </div>

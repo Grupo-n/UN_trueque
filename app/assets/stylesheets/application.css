@@ -19,14 +19,14 @@
  *= require font-awesome
  *= require style
  */
- 
+
 
 /* ==================================================
  Colores
  ================================================== */
- 
+
 /*
-* Azul 3: 53a1af 
+* Azul 3: 53a1af
 
 */
 
@@ -35,7 +35,6 @@
  ================================================== */
 
 html, body{
-  overflow: scroll;
   min-width: 500px;
 }
 *, *:before, *:after {
@@ -83,34 +82,34 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	
+
 	-moz-justify-content: center;
 	-webkit-justify-content: center;
 	-ms-justify-content: center;
 	justify-content: center;
-	
+
 	-moz-align-items: center;
 	-webkit-align-items: center;
 	-ms-align-items: center;
 	align-items: center;
-    
+
 }
 .flexWrap{
   display: -moz-flex;
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-  
+
   -moz-justify-content: center;
 	-webkit-justify-content: center;
 	-ms-justify-content: center;
 	justify-content: center;
-  
+
   -moz-align-items: center;
 	-webkit-align-items: center;
 	-ms-align-items: center;
 	align-items: center;
-  
+
   -moz-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -122,12 +121,12 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	
+
 	-moz-align-items: center;
 	-webkit-align-items: center;
 	-ms-align-items: center;
 	align-items: center;
-	
+
 	-moz-flex-wrap: wrap;
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
@@ -240,7 +239,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   height:200px;
 }
 .img-size{
-  width:100%; 
+  width:100%;
   max-height:200px;
 }
 .caption-div-size{
@@ -504,7 +503,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   }
   .margin-25{ margin: 0 }
   .margin-5-50{ margin: 5px 0 }
-  
+
 }
 @media (max-width: 1010px) {
   .mt{ margin-top: 110px}
@@ -555,21 +554,21 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   }
 }
 @media (max-width: 766px) {
-  .mt{ margin-top: 170px}  
+  .mt{ margin-top: 170px}
   .img-div-size{ height: 75px }
   .img-size{ max-height: 75px }
   .caption-div-size{ height: 75px }
-  .opacity h4 { font-size: 13px } 
-  .opacity h6 { font-size: 9px } 
+  .opacity h4 { font-size: 13px }
+  .opacity h6 { font-size: 9px }
 }
 @media (max-width: 575px) {
   .img-div-size{ height: 200px }
-  .img-size{ 
+  .img-size{
     width: auto;
-    max-height: 200px 
-    
+    max-height: 200px
+
   }
   .caption-div-size{ height: 100px }
-  .opacity h4 { font-size: 20px } 
-  .opacity h6 { font-size: 15px } 
+  .opacity h4 { font-size: 20px }
+  .opacity h6 { font-size: 15px }
 }

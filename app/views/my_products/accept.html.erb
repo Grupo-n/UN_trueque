@@ -57,7 +57,7 @@
         <div style='width: 800px;'>
           <div id="mapStatic" style='width: 800px; height: 400px;'></div>
         </div>
-        <%= link_to 'Edit Ubication', :change_ubication, class:"minibtn" %>
+        <%= link_to 'Edit Ubication', change_ubication_barter_path(@barter), class:"minibtn" %>
       </div>
     </div>
 
@@ -79,8 +79,8 @@
           <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
           <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
 
-          <%= @barter.save%>
-          <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
+          <!--<%= b.submit 'Aceptar', class: 'btn  btn-right' %>-->
+          <span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-right" %></span>
         <% end %>
     </div>
 

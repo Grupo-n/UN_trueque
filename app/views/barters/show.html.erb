@@ -3,7 +3,7 @@
   <h4 id="notice" class="myh"><%= notice %></h4>
 
   <div class="row">
-    
+
     <div class="col-md-offset-1 col-md-4 center">
       <h2 class="myhnot mt-12 center"> Lo Que Quieres</h2>
       <br>
@@ -20,7 +20,7 @@
         <h6><%= @pone.description  %></h6>
       </div>
     </div>
-    
+
     <div class="col-md-1 superCenter">
       <div class="container-fluid">
       <span class="glyphicon glyphicon-arrow-right icono" style=""></span>
@@ -49,15 +49,14 @@
   <div class="row mt-12">
     <div class="col-md-offset-1 col-md-11">
       <h4 class="myhnot">Description:</h4>
-      <h4><%= @barter.description %></h4>  
+      <h4><%= @barter.description %></h4>
     </div>
   </div>
-  
+
   <div class="row mt-12">
     <div class="col-md-offset-1 col-md-11">
-      <%= link_to 'Back', barters_path ,class:"btn btn-default" %>
-      <%= link_to 'Edit', edit_barter_path(@barter), class:"btn btn-default" %>  
-      <%= link_to 'PDF' , @barter.id.to_s+".pdf",class:"btn btn-default" %>
+      <%= link_to 'Back', offers_received_my_products_path ,class:"btn btn-default" %>
+      <%= link_to 'Contraofertar', product_path(@ptwo), class:"btn btn-w" %>
     </div>
   </div>
 </div>
