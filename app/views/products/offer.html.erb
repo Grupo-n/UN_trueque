@@ -5,29 +5,24 @@
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
-<div class="container margin-top">
+<div class="container mt">
 
-    <h2 class="myh">Ofertar</h2>
-
+    <h2 class="myh">Estas ofertando por: <b><%= @product.name %></b></h2>
+    
     <div class="row">
+    
+        <div class="col-sm-6 superCenter">
+            <%= image_tag @product.product_image, alt: "", style:"", class:"img-rounded img-responsive" %>
+        </div>  
 
-        <div class="col-md-6">
-            <center>
-                <h2 class="myh">Estas ofertando por: <br> <strong><%= @product.name %></strong></h2>
-                <%= image_tag @product.product_image.url(:medium), alt: "", style:"width:50%; height:auto", class:"img-rounded" %>
-            </center>
-        </div>
-
-        <div class="col-md-6">
-            <div class="container-fluid panel panel-default">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
 
                 <div class="panel-heading">
                     <h2 class="myhnot">Tu Oferta</h2>
                 </div>
 
                 <div class="panel-body">
-
-
                     <form>
                         <label class="radio-inline">
                             <input type="radio" name="optradio">Producto
@@ -40,18 +35,17 @@
                         </label>
                     </form>
 
-                    <%= link_to "Nuevo", new_product_path, class:"btn" %>
-                    <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                    <%= link_to "Nuevo", new_product_path, class:"btn btn-default" %>
+                    <button type="button" class="btn btn-default btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
                     <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>' #modal' } %-->
 
                     <br>
-                    <div class="margin-5">
+                    <div class="m-5">
                         <% if @offert.id == nil %>
                             <h4>Debes seleccionar un producto.</h4>
                         <% else %>
-
                             <h4 class="myhnot">Tu oferta es: </h4>
-                            <%= image_tag @offert.product_image.url(:medium), alt: "", style:"width:100px; height:auto", class:"img-rounded margin-5" %>
+                            <%= image_tag @offert.product_image, alt: "", style:"height:100px", class:"img-rounded m-5" %>
                             <h6><strong>Nombre: </strong><%= @offert.name %></h6>
                             <% if @offert.p_type == 1 %>
                                 <h6><strong>Tipo: </strong>Producto</h6>
@@ -74,49 +68,48 @@
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
                         <%= b.hidden_field :id_two_user, :value => @offer_user.id %>
                         <%= b.hidden_field :state, :value => 1 %>
-                        <%= b.submit 'Ofertar', class: 'btn  btn-right' %>
+                        <%= b.submit 'Ofertar', class: 'btn btn-default btn-right' %>
                     <% end %>
-                    <%= link_to 'Volver', :show, class:"btn btn-right" %>
-                </div>
-
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title myhnot">Mis Productos y Servicios</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <% @myproducts.each do |product| %>
-                                <div class="col-sm-4 row-eq-height">
-                                    <div class="my-thumbnail opacity">
-                                        <%= link_to offer_path(@product, :offert => product) do %>
-                                        <div class="superCenter" style="height:150px">
-                                          <%= image_tag product.product_image.url(:medium), alt: "", style:"max-height:150px", class:"img-rounded" %>
-                                        </div>
-                                        <div class="caption container-fluid">
-                                            <h4><%= product.name %></h4>
-                                            <h6><%= product.description %></h6>
-                                        </div>
-                                        <% end %>
-                                    </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    <%= link_to 'Volver', :show, class:"btn btn-default" %>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title myhnot">Mis Productos y Servicios</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <% @myproducts.each do |product| %>
+                            <div class="col-sm-4 row-eq-height">
+                                <div class="my-thumbnail opacity">
+                                    <%= link_to offer_path(@product, :offert => product) do %>
+                                    <div class="superCenter" style="height:150px">
+                                      <%= image_tag product.product_image.url(:medium), alt: "", style:"max-height:150px", class:"img-rounded" %>
+                                    </div>
+                                    <div class="caption container-fluid">
+                                        <h4><%= product.name %></h4>
+                                        <h6><%= product.description %></h6>
+                                    </div>
+                                    <% end %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

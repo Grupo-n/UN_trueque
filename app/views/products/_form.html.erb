@@ -1,68 +1,49 @@
 <%= form_with(model: product, local: true, class:"myform") do |form| %>
   <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+      <b><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</b>
       <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
 
-<div class="row">
-  <div class="offset-md-4 col-md-4 center">
-      <%= image_tag @product.product_image.url(:medium), class: "img-fullproduct mt30"%>
-  </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.file_field :product_image %>
+  <div class="row">
+    <div class="offset-md-4 col-md-4 center">
+      <%= image_tag @product.product_image, class: "mt30"%>
     </div>
   </div>
-</div>
 
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+      <div class="form-group">
+        <%= form.file_field :product_image %>
+      </div>
 
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :product_name, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :p_type %>
+        <%= form.select :p_type, options_for_select([["Servicio", 0], ["Producto", 1]]) %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn btn-default full-width' %>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :p_type %>
-      <!--<%= form.number_field :p_type, id: :product_p_type, autofocus: true, class: 'form-control' %>-->
-      <!--<%= form.select :p_type, [0, 1] %>-->
-      <%= form.select :p_type, options_for_select([["Servicio", 0], ["Producto", 1]]) %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="offset-md-4 col-md-4">
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_field :description, id: :product_description, autofocus: true, class: 'form-control' %>
-    </div>
-  </div>
-</div>
-
-<%= form.hidden_field :available, :value=>true %>
-<%= form.hidden_field :category, :value=>1 %>
-
-<div class="row">
-  <div class="offset-md-5 col-md-2">
-    <%= form.submit t('.new_prod', default: 'Crear producto'), class: 'btn btn-full my-btn' %>
-  </div>
-</div>
+  <%= form.hidden_field :available, :value=>true %>
+  <%= form.hidden_field :category, :value=>1 %>
 
 <% end %>

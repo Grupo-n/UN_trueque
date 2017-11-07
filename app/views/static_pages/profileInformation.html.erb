@@ -5,8 +5,8 @@
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
-<div class="row margin-top">
-  <div class="col-md-3 ">
+<div class="row mt">
+  <div class="col-md-3">
     <div class="container">
       <div id="accordion-profile" class="panel-group">
         <div class="panel panel-default">
@@ -48,9 +48,9 @@
     <% if !current_user.nil? %>
       <%= image_tag(current_user.avatar.url(:large) , class: "img-profile img-circle") %></li>
     <% end %>
-    <h4 class="margin-top-12"><%= current_user.first_name + current_user.last_name  %></h4><br>
-    <h4 class="margin-top-12"><%= current_user.email %></h4><br>
-    <h4 class="margin-top-12">3217456987</h4>
-    <%= link_to  "Editar información" , :user_edit, class:"btn margin-top-12" %>
+    <h4 class="mt-12"><%= current_user.first_name + current_user.last_name  %></h4><br>
+    <h4 class="mt-12"><%= current_user.email %></h4><br>
+    <h4 class="mt-12">3217456987</h4>
+    <%= link_to  "Editar información" , :user_edit, class:"btn btn-default mt-12" %>
   </div>
 </div>
