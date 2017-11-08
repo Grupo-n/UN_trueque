@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   scope(path_names: { new: 'nuevo', show: 'ver', edit: 'editar' }) do
-    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product] do
+    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product, :destroy] do
       collection do
         match 'search' => 'application#search', via: [:get, :post], as: :search
       end
