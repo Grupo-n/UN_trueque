@@ -25,7 +25,15 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+		@product = Product.new(name:"camara",
+		                       p_type: 1,
+		                       description: "una camara super profesional",
+		                       product_image: sample_file()
+		                       )
+	end
+	
+	test "should be valid" do
+		assert @product.valid?
+	end
 end

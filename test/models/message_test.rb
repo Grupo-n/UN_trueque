@@ -13,7 +13,15 @@
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  def setup
+		@message = Message.new(name:"pedro",
+		                       email: "una@prueba.com",
+		                       content: "prueba de mensaje")
+	end
+
+	test "should be valid" do
+		assert @message.valid?
+	end
+  
 end

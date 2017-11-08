@@ -23,7 +23,24 @@
 require 'test_helper'
 
 class BarterTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  def setup
+    @barter = Barter.new()
+  end
+  
+  test "should be valid" do
+		assert @barter.valid?
+	end
+  
+  test "products should be different" do
+    @barter.product_one_id = 1
+    @barter.product_two_id = 1
+    assert_not @barter.valid?
+  end
+  
+  test "users should be different" do
+    @barter.id_one_user = 1
+    @barter.id_two_user = 1
+    assert_not @barter.valid?
+  end
 end

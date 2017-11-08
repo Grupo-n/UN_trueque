@@ -33,23 +33,16 @@
 #  score                  :float
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-
 nicolas:
   #id: 1     #:integer          not null, primary key
-  email: "jnse11@hotmail.com"   #:string           default(""), not null
+  email: "jnse123@example.com"   #:string           default(""), not null
   encrypted_password: 12345678       #:string           default(""), not null
   sign_in_count: 0      #:integer          default(0), not null
   failed_attempts: 0        #:integer          default(0), not null
-  created_at: 2017-09-27             #:datetime         not null
-  updated_at: 2017-10-26            #:datetime         not null
-  first_name: Nicolas             #:string
-  last_name: Sastoque              #:string
+  created_at: <%= DateTime.new(2016).to_s(:db) %> #:datetime         not null
+  updated_at: <%= DateTime.new(2017).to_s(:db) %> #:datetime         not null
+  first_name: "Nicolas"             #:string
+  last_name: "Sastoque"              #:string
 
 #<% 1000.times do |n| %>
 #user_<%= n %>:

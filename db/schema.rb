@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20171106033109) do
     t.datetime "updated_at", null: false
     t.float "latitude", default: 4.635487
     t.float "longitude", default: -74.082719
-    t.string "title"
-    t.text "address"
     t.integer "money"
     t.string "confirmation"
     t.integer "id_one_user"
     t.integer "id_two_user"
+    t.string "title"
+    t.text "address"
     t.string "accept_user_one", default: "false"
     t.string "accept_user_two", default: "false"
     t.index ["users_id"], name: "index_barters_on_users_id"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20171106033109) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.float "score"
+    t.decimal "score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
