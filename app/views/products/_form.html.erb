@@ -30,8 +30,16 @@
       </div>
 
       <div class="form-group">
-        <%= form.label "Tipo" %>
-        <%= form.select :p_type, options_for_select([["Servicio", 2], ["Producto", 1]]) %>
+        <%= form.label "Tipo" %><br>
+
+        <%= label_tag(:p_type_product, "Producto") %>
+        <%= form.radio_button :p_type,1 ,class:"buttons-product" %>
+
+        <%= label_tag(:p_type_service, "Servicio") %>
+        <%= form.radio_button :p_type  ,2 , class: "buttons-service" %>
+
+        <!--<%= form.select :p_type, options_for_select([["Servicio", 2], ["Producto", 1]]) %>-->
+
       </div>
 
       <div class="form-group">
@@ -49,15 +57,19 @@
         <%= form.collection_select(:interests, @categories, :id, :name) %>
       </div>
 
-      <div class="form-group">
-        <%= form.label "Duración" %>
-        <%= form.time_field(:duration) %>
+      <div class="">
+        <div class="form-group" id="buttons-service" style="display:none;">
+          <%= form.label "Duración" %>
+          <%= form.time_field(:duration) %>
+        </div>
+
+        <div class="form-group" id="buttons-product" style="display:none;">
+          <%= form.label "Estado" %>
+          <%= form.select :state, options_for_select([["Nuevo", true], ["Usado", false]]) %>
+        </div>
       </div>
 
-      <div class="form-group">
-        <%= form.label "Estado" %>
-        <%= form.select :state, options_for_select([["Nuevo", true], ["Usado", false]]) %>
-      </div>
+
 
       <%= form.hidden_field :available, :value=>true %>
 
@@ -65,3 +77,11 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(':radio').click(function() {
+      $('#' + $(this).attr('class')).fadeIn().siblings('div').hide();
+  }).filter(':checked').click();
+});
+</script>
