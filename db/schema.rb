@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024210939) do
+ActiveRecord::Schema.define(version: 20171106033109) do
 
   create_table "barters", force: :cascade do |t|
     t.string "description"
@@ -28,11 +28,21 @@ ActiveRecord::Schema.define(version: 20171024210939) do
     t.string "confirmation"
     t.integer "id_one_user"
     t.integer "id_two_user"
+    t.string "accept_user_one", default: "false"
+    t.string "accept_user_two", default: "false"
     t.index ["users_id"], name: "index_barters_on_users_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user"
+    t.integer "barter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
