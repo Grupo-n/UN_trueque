@@ -65,6 +65,8 @@ Rails.application.routes.draw do
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
 
 
+  #Generar factura transaccion completa
+  get 'my_products/:id/succesfull_transaction/:hash' => "my_products#generate_barter_pdf", as: 'generate_facture'
 =begin
   #Productos usuario
   get 'my_products/index'

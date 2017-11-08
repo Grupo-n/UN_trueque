@@ -42,6 +42,6 @@
 <div class="row">
   <div class="col-md-12 center">
     <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
-    <%= link_to 'PDF Transacción' , @barter.id.to_s+".pdf", class:"minibtn" %>
+    <%= link_to 'PDF Transacción' , "succesfull_transaction/"+@barter.hash_facture.to_s+".pdf", class:"minibtn" %>
   </div>
 </div>
