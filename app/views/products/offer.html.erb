@@ -34,12 +34,12 @@
                     </form>
 
                     <div id="buttons-product" style="display:none;">
-                      <%= link_to "Nuevo", new_product_path, class:"btn" %>
-                      <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
+                      <%= link_to "Nuevo", new_product_path, class:"btn btn-default" %>
+                      <button type="button" class="btn btn-default btn-right" data-toggle="modal" data-target="#modal">Mis Productos</button>
                     </div>
                     <div id="buttons-service" style="display:none;">
-                      <%= link_to "Nuevo", new_product_path, class:"btn" %>
-                      <button type="button" class="btn btn-right" data-toggle="modal" data-target="#modal">Mis Servicios</button>
+                      <%= link_to "Nuevo", new_product_path, class:"btn btn-default" %>
+                      <button type="button" class="btn btn-default btn-right" data-toggle="modal" data-target="#modal">Mis Servicios</button>
                     </div>
 
                     <!--%= link_to  "Mis Productos", nil, { :class => 'btn btn-right margin-5', 'data-toggle' => 'modal', 'data-target'=>' #modal' } %-->
@@ -65,7 +65,7 @@
 
                 </div>
 
-                <div class="panel-footer">
+                <div class="panel-footer container-fluid">
                     <%= form_for @barter do |b| %>
                         <%= b.text_area :description, class: 'form-control', rows: '5', placeholder: 'Añade un comentario aquí' %>
                         <!--h6><strong>Lugar del trueque: </strong></h6-->
@@ -78,7 +78,7 @@
                         <%= b.hidden_field :state, :value => 1 %>
                         <%= b.submit 'Ofertar', class: 'btn btn-default btn-right' %>
                     <% end %>
-                    <%= link_to 'Volver', product_path, class:"btn btn-right" %>
+                    <%= link_to 'Volver', product_path, class:"btn btn-default" %>
                 </div>
             </div>
         </div>
