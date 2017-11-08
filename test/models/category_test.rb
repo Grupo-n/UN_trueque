@@ -19,5 +19,16 @@ class CategoryTest < ActiveSupport::TestCase
   test "should be valid" do
 		assert @category.valid?
 	end
+	
+	test "wrong name" do
+	  @category.name = ""
+	  assert_not @category.valid?
+	end
+	
+	test "other wrong name" do
+	  @category.name = "       "
+	  assert_not @category.valid?
+	end
+	  
   
 end

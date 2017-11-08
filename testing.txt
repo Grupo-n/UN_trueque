@@ -1,2 +1,0 @@
-rails test test/models/user_test.rb 
-rails test test/models/barter_test.rb

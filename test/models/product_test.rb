@@ -25,7 +25,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  def setup
+  def setup 
 		@product = Product.new(name:"camara",
 		                       p_type: 1,
 		                       description: "una camara super profesional",

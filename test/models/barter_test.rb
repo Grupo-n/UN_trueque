@@ -31,7 +31,18 @@ class BarterTest < ActiveSupport::TestCase
   test "should be valid" do
 		assert @barter.valid?
 	end
-  
+	
+	test "description without limit " do
+		@barter.description = 'a'*10000
+		assert @barter.valid?
+	end
+	
+	test "confirmation without limit " do
+		@barter.confirmation = 'a'*10000
+		assert @barter.valid?
+	end
+
+=begin  
   test "products should be different" do
     @barter.product_one_id = 1
     @barter.product_two_id = 1
@@ -43,4 +54,6 @@ class BarterTest < ActiveSupport::TestCase
     @barter.id_two_user = 1
     assert_not @barter.valid?
   end
+=end
+  
 end
