@@ -1,4 +1,3 @@
-
 <% content_for :head do %>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMML9mHoxFIC-3CKz_x2-bwQ2s92O4cmE&callback=initMap"></script>
   <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
@@ -7,28 +6,45 @@
 <% end %>
 
 
-<div class="container margin-top">
-  <h2 class="myhnot">Cambia ubicacion de encuentro</h2>
-  <!--<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>-->
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="container mt">
+  <div class="row">
+    <div class="col-sm-6">
+      <!--%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %-->
+      <div class="full-width" style=''>
+        <div id="map" class="full-width" style='height: 400px'></div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+      
+        <div class="panel-heading">
+          <h2 class="myhnot">Cambia ubicacion de encuentro</h2>
+        </div>
+      
+        <div class="panel-body"  style="height:270px">
+          <h4 class="parrafo">
+            Si estas de acuerdo con esta lugar, presiona acepta, de lo contrario, selecciona la ubicacion dando click en 
+            el lugar que desees. 
+            <strong>Cuando ambos participantes de la transaccion acepten, el intercambio sera concretado</strong>
+          </h4>
+        </div>
+      
+        <div class="panel-footer container-fluid">
+          <%= form_for @barter do |b| %>
+            <% if @barter.id_one_user == current_user.id %>
+              <%= b.select(:accept_user_one, [['Aceptar', 'true'], ['Rechazar', 'false']], {class: "form-control"}) %>
+            <% elsif @barter.id_two_user == current_user.id %>
+              <%= b.select(:accept_user_two, [['Aceptar', 'true'], ['Rechazar', 'false']], class: "form-control") %>
+            <% end %>
+            <%= b.hidden_field :latitude , id:"barter_latitude"%>
+            <%= b.hidden_field :longitude, id: "barter_longitude" %>
+      
+            <%= b.submit 'Aceptar', class: 'btn btn-default btn-right' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <h6>Si estas de acuerdo con esta lugar, presiona acepta, de lo contrario, selecciona la ubicacion dando click en el lugar que desees. <strong>Cuando ambos participantes de la transaccion acepten, el intercambio sera concretado</strong></h6>
-  <div class="panel-footer">
-    <%= form_for @barter do |b| %>
-      <% if @barter.id_one_user == current_user.id %>
-        <%= b.select(:accept_user_one, [['Aceptar', 'true'], ['Rechazar', 'false']]) %>
-      <% elsif @barter.id_two_user == current_user.id %>
-        <%= b.select(:accept_user_two, [['Aceptar', 'true'], ['Rechazar', 'false']]) %>
-      <% end %>
-      <%= b.hidden_field :latitude , id:"barter_latitude"%>
-      <%= b.hidden_field :longitude, id: "barter_longitude" %>
-
-      <%= b.submit 'Aceptar', class: 'btn btn-right' %>
-    <% end %>
-
-
 </div>
 
 

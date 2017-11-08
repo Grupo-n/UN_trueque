@@ -80,6 +80,9 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   width: 200px;
   height: 200px;
 }
+.parrafo{
+  line-height: 120%
+}
 
 /* ==================================================
  Flex-Boxes
