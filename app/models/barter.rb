@@ -69,11 +69,11 @@ class Barter < ApplicationRecord
     end
 
     def self.offers_received(user)
-      return Barter.where("id_one_user = ?", user.id)
+      return Barter.where("id_one_user = ? AND state = '1'", user.id, )
     end
 
     def self.offers_made(user)
-      return Barter.where("id_two_user = ?", user.id)
+      return Barter.where("id_two_user = ? AND state = '1'", user.id)
     end
 
     def self.my_transactions(user)
