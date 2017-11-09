@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require gmaps/google
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
@@ -23,5 +24,4 @@
 //= require Chart.bundle
 //= require chartkick
 //= require underscore
-//= require gmaps/google
 //= require_tree .
