@@ -47,6 +47,6 @@ for i in 0..30
   Product.create(name: Faker::Commerce.product_name, p_type: rand(1..2),
   description: Faker::Commerce.department(2), available: true, quantity: 1,
   created_at: Faker::Time.between(2.months.ago, Date.today, :all), state: true,
-  user: User.find(1), category: rand(1..15), interests: rand(1..15),
+  user: User.find(rand(1..5)), category: rand(1..15), interests: rand(1..15),
   duration: Faker::Time.between(2.months.ago, Date.today, :all))
 end
