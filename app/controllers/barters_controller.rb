@@ -78,6 +78,10 @@ class BartersController < ApplicationController
           @product_one.save
           @product_two.save
           @barter.save
+          @user_one = @barter.get_user_one
+          @user_two = @barter.get_user_two
+          UserMailer.acceptoffer_email(@barter, @user_one, @user_two).deliver
+          SendMailersJob.set(wait: 10.seconds).perform_later(@barter, @user_one, @user_two)
           format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
           format.json { render :show, status: :ok, location: @barter }
         else

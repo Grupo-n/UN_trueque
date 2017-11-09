@@ -37,6 +37,14 @@ class Barter < ApplicationRecord
       Product.find(self.product_two_id)
     end
 
+    def get_user_one
+      User.find(self.id_one_user)
+    end
+
+    def get_user_two
+      User.find(self.id_two_user)
+    end
+
     def get_QR
       RQRCode::QRCode.new(Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s))
     end
