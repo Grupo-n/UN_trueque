@@ -55,14 +55,17 @@
       </div>
 
       <div class="col-xs-3 flexWrap">
-        <h4><%= barter.description %></h4>
-        <% if barter.state==1 %>
-          <h4>Pendiente</h4>
-        <% elsif barter.state==2 %>
-          <h4>Aprobado</h4>
-        <% elsif barter.state==3 %>
-          <h4>Rechazado</h4>
-        <% end %>
+        <div class="container-fluid">
+          <h4><%= barter.description %></h4>
+          <% if barter.state==1 %>
+            <h4>Pendiente</h4>
+          <% elsif barter.state==2 %>
+            <h4>Aprobado</h4>
+          <% elsif barter.state==3 %>
+            <h4>Rechazado</h4>
+          <% end %>
+          
+        </div>s
         <div class="flexEnd" style="margin: 0 50px">
           <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), accept_my_product_path(barter), class:"btn btn-ghost" %>
           <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, class:"btn btn-ghost", method: :delete, data: { confirm: 'Are you sure?' } %>

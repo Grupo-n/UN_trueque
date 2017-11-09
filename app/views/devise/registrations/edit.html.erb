@@ -1,21 +1,22 @@
 <%= bootstrap_devise_error_messages! %>
-<div class="container">
-  <div class="panel-body">
+<div class="container mt">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="form-group center">
-         <%= f.file_field :avatar %>
+          <div class="form-group center">
+           <%= f.file_field :avatar %>
            <% if @user.avatar? %>
             <%= image_tag @user.avatar.url(:large) %>
-          <% end %>
-        </div>
-          <div class="form-group">
-          <%= f.label :Nombre %>
-          <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+           <% end %>
           </div>
           <div class="form-group">
-          <%= f.label :Apellidos %>
-          <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+            <%= f.label :Nombre %>
+            <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Apellidos %>
+            <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
           </div>
           <div class="form-group">
             <%= f.label :email %>
@@ -33,12 +34,8 @@
             <%= f.label :Contraseña_actual%> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'Necesitamos tu contraseña actual para realizar los cambios') %>)</i>
             <%= f.password_field :current_password, class: 'form-control' %>
           </div>
-
-          <div class="row">
-            <div class="offset-md-3 col-md-6">
-              <%= f.submit t('.update', default: 'Actualizar'), class: 'btn btn-default' %>
-            </div>
-          </div>
+  
+          <%= f.submit t('.update', default: 'Actualizar'), class: 'btn btn-default full-width' %>
         <% end %>
       </div>
     </div>
