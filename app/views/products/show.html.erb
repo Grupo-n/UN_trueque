@@ -39,7 +39,7 @@
             <% end %>
           <% elsif @product.p_type == 2 %>
             <h4><strong>Duración: </strong></h4>
-            <h4><%= @product.duration.strftime('%H:%M') %></h4>
+            <h4><%= @product.duration %></h4>
           <% else %>
             <h4>Otro</h4>
           <% end %>
