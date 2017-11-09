@@ -435,7 +435,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   ================================================== */
 
 #stadis-title{
-  border-bottom:
+  border-bottom: 2px solid  #1d5664;
 }
 #products-per-day{
   margin: auto;
@@ -573,4 +573,3 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
   .opacity h4 { font-size: 20px }
   .opacity h6 { font-size: 15px }
 }
-
