@@ -65,12 +65,14 @@ class BartersController < ApplicationController
   # PATCH/PUT /barters/1.json
   def update
     respond_to do |format|
-      if @barter.update(barter_params_ubication)
-        format.html { redirect_to user_home_path, notice: 'Ubicacion modificada, debes eperar confirmacion' }
-        format.json { render :show, status: :ok, location: @barter }
-      elsif @barter.update(barter_params)
-        format.html { redirect_to user_home_path, notice: 'La oferta ha sido aceptada' }
-        format.json { render :show, status: :ok, location: @barter }
+      if @barter.update(barter_params)
+        if @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
+          format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Ubicacion modificada, debes eperar confirmacion'}
+          format.json { render :show, status: :ok, location: @barter }
+        else
+          format.html { redirect_to user_home_path, notice: 'Has aceptado la oferta, el otro usuario debe confirmar'}
+          format.json { render :show, status: :ok, location: @barter }
+        end
       else
         format.html { render :edit }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
@@ -94,7 +96,7 @@ class BartersController < ApplicationController
     end
 
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :accept_user_one, :accept_user_two)
       #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 
