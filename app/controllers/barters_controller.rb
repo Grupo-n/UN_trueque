@@ -59,16 +59,15 @@ class BartersController < ApplicationController
     respond_to do |format|
       if @barter.save
         UserMailer.new_barter(@barter, @product, @user, @userbarters).deliver
+        @barter.hash_facture = @barter.get_Hash.to_s
+        @barter.save
         format.html { redirect_to root_path, notice: '¡Oferta realizada!' }
         format.json { render :show, status: :created, location: @barter }
       else
-        format.html { render change_ubication_barter_path(@barter) }
+        format.html { redirect_to offer_product_path(@product), notice: @barter.errors }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
-
-    @barter.hash_facture = @barter.get_Hash.to_s
-    @barter.save
   end
 
   # PATCH/PUT /barters/1
@@ -90,7 +89,7 @@ class BartersController < ApplicationController
           format.json { render user_home_path, status: :ok, location: @barter }
         end
       else
-        format.html { redirect_to change_ubication_barter_path(@barter), notice: @barter.errors  }
+        format.html { redirect_to change_ubication_barter_path(@barter), notice: @barter.errors }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
