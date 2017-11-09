@@ -38,3 +38,9 @@ nicolas:
   encrypted_password: "12345678" 
   first_name: "Nicolas"  
   last_name: "Sastoque" 
+
+two:
+  email: MyString
+  encrypted_password: MyString
+  first_name: MyString
+  last_name: MyString

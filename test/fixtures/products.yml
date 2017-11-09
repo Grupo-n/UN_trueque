@@ -30,3 +30,10 @@ one:
   description: MyString
   
   user: nicolas
+  
+two:
+  name: MyString
+  p_type: 1
+  description: MyString
+  
+  user: two

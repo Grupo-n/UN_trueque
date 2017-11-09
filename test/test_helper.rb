@@ -12,21 +12,8 @@ class ActiveSupport::TestCase
       File.new("test/fixtures/#{filename}")
     end
   end
-  
+
   class ActiveSupport::TestCase
     include SampleFileHelper
   end
-  
-  
-  
-  module SignInHelper
-    def sign_in(user)
-      session[:user_id] = user.id
-    end
-  end
-   
-  class ActionController::TestCase
-    include SignInHelper
-  end
-    
 end
