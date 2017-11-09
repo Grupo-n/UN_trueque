@@ -1,0 +1,62 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jquery.rateyo.min" %>
+<% end %>
+
+
+<div class="container margin-top" style="margin-top:200px;">
+  <% if @ven.id == current_user.id %>
+  <% other_user=@com %>
+  <% else %>
+  <% other_user=@ven %>
+  <% end %>
+
+
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 center">
+
+        <h1 class="myh">¡Califica a <%= other_user.first_name %>!</h1>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 center">
+        <%= image_tag(other_user.avatar.url(:large) , class: "img-profile img-circle") %></li>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 center">
+        <div id="rateYo" style="margin:auto;"></div>
+        <div class="counter"></div>
+    </div>
+  </div>
+
+  <%= hidden_field_tag 'user_score' ,5 %>
+
+</div>
+
+</div>
+
+
+<%= javascript_include_tag "jquery.rateyo"%>
+
+
+
+
+<script type="text/javascript">
+$(function () {
+  $("#rateYo").rateYo({
+    rating: 5,
+    spacing: "10px",
+    onChange: function (rating, rateYoInstance) {
+      $(this).next().text(rating);
+    },
+    multiColor: {
+      "startColor": "#FF0000", //RED
+      "endColor"  : "#428bca"  //GREEN
+    }
+  }).on("rateyo.set", function (e, data) {
+      alert("La clasificacion dada es " + data.rating + " , si estas de acuerdo presiona 'aceptar' !");
+      document.getElementById('user_score').value = data.rating;
+  });
+});
+</script>

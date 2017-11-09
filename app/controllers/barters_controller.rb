@@ -2,7 +2,7 @@ require 'digest/md5'
 #require 'rqrcode'
 
 class BartersController < ApplicationController
-  before_action :set_barter, only: [:show, :edit, :update, :destroy, :change_ubication]
+  before_action :set_barter, only: [:show, :edit, :update, :destroy, :change_ubication, :score]
 
   # GET /barters
   # GET /barters.json
@@ -32,6 +32,15 @@ class BartersController < ApplicationController
   def new
     @barter = Barter.new
   end
+
+
+  def score
+    @pone = @barter.get_product_one
+    @ptwo = @barter.get_product_two
+    @ven = @pone.get_user
+    @com = @ptwo.get_user
+  end
+
 
   # GET /barters/1/edit
   def edit
@@ -75,7 +84,7 @@ class BartersController < ApplicationController
         elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
           @barter.make_transaction
           UserMailer.acceptoffer_email(@barter, @barter.get_user_one, @barter.get_user_two).deliver
-          SendMailersJob.set(wait: 10.seconds).perform_later(@barter, @user_one, @user_two)
+          SendMailersJob.set(wait: 30.seconds).perform_later(@barter, @user_one, @user_two)
           format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
           format.json { render :show, status: :ok, location: @barter }
         else
