@@ -59,6 +59,9 @@ class BartersController < ApplicationController
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
+
+    @barter.hash_facture = @barter.get_Hash.to_s
+    @barter.save
   end
 
   # PATCH/PUT /barters/1

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   scope(path_names: { new: 'nuevo', show: 'ver', edit: 'editar' }) do
-    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product] do
+    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product, :destroy] do
       collection do
         match 'search' => 'application#search', via: [:get, :post], as: :search
       end
@@ -67,6 +67,8 @@ Rails.application.routes.draw do
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
 
 
+  #Generar factura transaccion completa
+  get 'my_products/:id/succesfull_transaction/:hash' => "my_products#generate_barter_pdf", as: 'generate_facture'
 =begin
   #Productos usuario
   get 'my_products/index'
