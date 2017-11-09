@@ -90,7 +90,7 @@ class BartersController < ApplicationController
           format.json { render user_home_path, status: :ok, location: @barter }
         end
       else
-        format.html { redirect_to change_ubication_barter_path(@barter) }
+        format.html { redirect_to change_ubication_barter_path(@barter), notice: @barter.errors  }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
