@@ -44,8 +44,6 @@ class BartersController < ApplicationController
 
   # GET /barters/1/edit
   def edit
-
-
   end
 
   def change_ubication
@@ -64,7 +62,7 @@ class BartersController < ApplicationController
         format.html { redirect_to root_path, notice: '¡Oferta realizada!' }
         format.json { render :show, status: :created, location: @barter }
       else
-        format.html { render :new }
+        format.html { render change_ubication_barter_path(@barter) }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
@@ -92,7 +90,7 @@ class BartersController < ApplicationController
           format.json { render user_home_path, status: :ok, location: @barter }
         end
       else
-        format.html { render :edit }
+        format.html { redirect_to change_ubication_barter_path(@barter) }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
@@ -114,7 +112,8 @@ class BartersController < ApplicationController
     end
 
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :accept_user_one, :accept_user_two, :meeting_date, :meeting_time)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :accept_user_one, :accept_user_two, :meeting_date, :meeting_time, :latitude, :longitude
+)
       #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 

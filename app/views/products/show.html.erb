@@ -45,7 +45,7 @@
           <% end %>
 
           <h4 class="mt-12"><strong>Fecha de publicación: </strong></h4>
-          <h4><%= @product.updated_at %></h4>
+          <h4><%= @product.updated_at.strftime("%Y-%m-%d") %></h4>
         </div>
 
         <div class="panel-footer">
