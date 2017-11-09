@@ -29,12 +29,18 @@ class Product < ApplicationRecord
     validates :name, presence: true
     validates :p_type, presence: true
     validates :description, presence: true, length: {maximum: 100}
+    validates :duration, presence: true
+    validates :state, presence: true
 
-    has_attached_file :product_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
+    has_attached_file :product_image, default_url: "missing.png"
     validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 
     def get_user
       User.find(self.user_id)
+    end
+
+    def category_name
+      Category.find(self.category).name
     end
 
     def self.descendent

@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       @product.user = current_user
       if @product.save
-        format.html { redirect_to my_products_index_path, notice: 'Product was successfully created.' }
+        format.html { redirect_to my_products_path, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -87,7 +87,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to user_home_path, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -100,7 +100,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available, :category)
+      params.require(:product).permit(:product_image, :name, :p_type, :description, :offert, :available, :category, :duration, :state)
     end
 
 end

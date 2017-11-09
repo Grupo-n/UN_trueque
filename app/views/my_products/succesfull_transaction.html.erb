@@ -1,0 +1,67 @@
+<div class="container mt">
+
+  <h1 class="myh center">¡Transacción exitosa!</h1>
+
+  <div class="row">
+
+    <div class="col-sm-5 center">
+      <h2 class="myhnot mt-12 center">Producto adquirido</h2>
+      <br>
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+      </div>
+      <div class="caption container-fluid caption-div-size" style="">
+        <h4><%= @pone.name %></h4>
+        <% if @pone.p_type == 1 %>
+          <h6>Producto</h6>
+        <% else %>
+          <h6>Servicio</h6>
+        <% end %>
+        <h6><%= @pone.description  %></h6>
+      </div>
+    </div>
+
+    <div class="col-sm-2 superCenter">
+      <div class="container-fluid">
+        <span class="glyphicon glyphicon-arrow-right myhnot" style="font-size:100px"></span>
+        <span class="glyphicon glyphicon-arrow-left myhnot" style="font-size:100px"></span>
+      </div>
+    </div>
+
+
+    <div class="col-sm-5 center">
+      <h2 class="myhnot mt-12 center">Producto ofertado</h2>
+      <br>
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+      </div>
+      <div class="caption container-fluid caption-div-size" style="">
+        <h4><%= @pone.name %></h4>
+        <% if @pone.p_type == 1 %>
+          <h6>Producto</h6>
+        <% else %>
+          <h6>Servicio</h6>
+        <% end %>
+        <h6><%= @pone.description  %></h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-12">
+    <div class="col-md-offset-1 col-md-11">
+      <h4 class="myhnot">Description:</h4>
+      <h4><%= @barter.description %></h4>
+    </div>
+  </div>
+
+  <div class="row mt-12">
+    <div class="col-md-offset-1 col-md-11">
+      <a class="ui teal btn btn-ghost" href="facture.pdf">Descargar PDF</a>
+      <%= link_to 'PDF Transacción' , "succesfull_transaction/"+@barter.hash_facture.to_s+".pdf", class:"btn btn-ghost" %>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</div>

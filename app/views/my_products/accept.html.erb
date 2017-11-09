@@ -1,23 +1,276 @@
-<div class="container margin-top">
-  <h2 class="myhnot">Mapa</h2>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@barter.latitude}%2C#{@barter.longitude}" %>
-  <div class="panel-footer">
-    <%= form_for @barter do |b| %>
-      <h6><strong>Lugar del trueque: </strong></h6>
-      <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
-      <%= @product_one.available = false %>
-      <%= @product_one.save %>
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvbcyIqQk5U9SJvT1I801xHm7e9zF_0E8&callback=initMap"></script>
+<script src="https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+ only if you need custom infoboxes
+<%= javascript_include_tag "map"%> -->
 
-      <%= @product_two.available = false %>
-      <%= @product_two.save %>
-      <%= @barter.state = 2 %>
-      <%= @barter.save%>
+<div class="container mt">
+  <div class="row">
+    <div class="col-sm-6">
 
-      <%= b.submit 'Aceptar', class: 'btn  btn-right' %>
+      <div class="container-fluid row">
+        <div class="col-sm-5">
+          <%  @pone = @barter.get_product_one %>
+          <h4 class="mt-12">
+            <span class="myhnot">Tu Producto:
+            </span>
+            <span><%= @pone.name %></span>
+          </h4>
+        </div>
 
-    <% end %>
-    <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
-    <%= link_to 'PDF' , @barter.id.to_s+".pdf", class:"minibtn" %>
-    <%= link_to 'Edit PDF', edit_barter_path(@barter), class:"minibtn" %>
+        <div class="col-sm-2 superCenter">
+          <div class="container-fluid">
+            <span class="glyphicon glyphicon-arrow-right" style="font-size:30px"></span>
+            <span class="glyphicon glyphicon-arrow-left" style="font-size:30px"></span>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+          <%  @ptwo = @barter.get_product_two %>
+          <h4 class="mt-12">
+            <span class="myhnot">Lo Que Te Ofrecen:
+            </span>
+            <span><%= @ptwo.name %></span>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <br>
+        <h4 class="mt-12 myhnot">Hora de encuentro: <h5><%= @barter.meeting_time.strftime("%I:%M %p") %></h5></h4>
+        <h4 class="mt-12 myhnot">Fecha: <h5><%= @barter.meeting_date.to_formatted_s(:long) %></h5></h4>
+        <br>
+        <h4 class="myhnot">Punto de encuentro</h4>
+        <div class="full-width" style=''>
+          <div id="mapStatic" class="full-width" style='height: 400px'></div>
+        </div>
+        <%= link_to 'Edit Ubication', change_ubication_barter_path(@barter), class:"btn btn-default" %>
+      </div>
+
+    </div>
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h2 class="myhnot">Mensajes</h2>
+        </div>
+
+        <div class="panel-body">
+          <div class="container-fluid" style="height: 400px; overflow-y: scroll;">
+            <% if @comments.nil? %>
+            <p>Aún no hay comentarios</p>
+          <% else %>
+            <% @comments.each do |c| %>
+            <p><%= c.get_user %>
+              dijo:</p>
+            <p><%= c.content %></p>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="panel-footer container-fluid">
+          <%= form_for @comment  do |c| %>
+          <%= c.hidden_field :barter, :value => @barter.id %>
+          <%= c.hidden_field :user, :value => @user.id %>
+          <%= c.text_area :content, style:"width:100%; background-color:#fff;" %>
+          <%= c.submit 'Comentar', class: 'btn btn-ghost btn-right' %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10"></div>
+  </div>
+
+  <%= form_for @barter do |b| %>
+  <% if @barter.id_one_user == current_user.id %>
+    <%= b.hidden_field :accept_user_one, :value => 'true' %>
+  <% elsif @barter.id_two_user == current_user.id %>
+    <%= b.hidden_field :accept_user_two, :value => 'true' %>
+  <% end %>
+  <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
+  <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
+  <%= b.submit 'Aceptar',class: 'btn btn-default btn-right' %>
+  <!--%= b.submit 'Aceptar', class: 'btn  btn-right' %-->
+  <!--<span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-default btn-right" %></span>-->
+  <% end %>
 </div>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNhPSkW2TwVnc6BZ1kBHIcCkWFu9pJXas&callback=initMapStatic" async defer></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps4rails/2.1.2/gmaps4rails.min.js"></script>
+
+
+<%= javascript_include_tag "markerclusterer.min"%>
+
+<script type="text/javascript">
+
+var mapStyle = [
+
+  {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 13
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#144b53"
+            },
+            {
+                "lightness": 14
+            },
+            {
+                "weight": 1.4
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#08304b"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#0c4152"
+            },
+            {
+                "lightness": 5
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#0b434f"
+            },
+            {
+                "lightness": 25
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#0b3d51"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#146474"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#021019"
+            }
+        ]
+    }
+
+
+];
+function initMapStatic(){
+  var marker;
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'mapStatic'},
+   provider: {
+        zoom:      15,
+        center:    new google.maps.LatLng(4.635487, -74.082719),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles:    mapStyle
+      }
+
+
+  }, function(){
+
+      marker = handler.addMarker({
+        lat: document.getElementById('barter_latitude_static').value ,
+        lng: document.getElementById('barter_longitude_static').value
+      });
+      handler.map.centerOn(marker);
+  });
+}
+</script>

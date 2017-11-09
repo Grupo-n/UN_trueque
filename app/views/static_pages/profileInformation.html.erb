@@ -5,52 +5,52 @@
   <%= stylesheet_link_tag "application" %>
 <% end %>
 
-<div class="row margin-top">
-  <div class="col-md-3 ">
-    <div class="container">
-      <div id="accordion-profile" class="panel-group">
-        <div class="panel panel-default">
-          <h4><%= link_to "Mis Publicaciones", my_products_index_path, class:"link" %></h4>
-        </div>
-        <div class="panel panel-default">
-          <h4><%= link_to  "Mis Productos", my_products_myobjects_path, class:"link" %></h4>
-        </div>
-        <div class="panel panel-default">
-          <h4><%= link_to  "Mis Servicios", my_products_myservices_path, class:"link" %></h4>
-        </div>
-        <div class="panel panel-default">
-          <h4><a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="link">Mis Ofertas</a></h4>
-          <div id="collapse3" class="panel-collapse collapse">
-            <div class="panel-body">
-              <ul>
-                <li><h6><%= link_to  "Realizadas", my_products_offers_made_path, class:"link" %></h6></li>
-                <li><h6><%= link_to  "Recibidas", my_products_offers_received_path, class:"link"  %></h6></li>
-              </ul>
+<div class="container-fluid mt">
+  <div class="row ">
+    <div class="col-md-3">
+      <div class="container">
+        <div id="accordion-profile" class="panel-group">
+          <div class="panel panel-default">
+            <h4><%= link_to "Mis Publicaciones", my_products_path, class:"link" %></h4>
+          </div>
+          <div class="panel panel-default">
+            <h4><%= link_to  "Mis Productos", myobjects_my_products_path, class:"link" %></h4>
+          </div>
+          <div class="panel panel-default">
+            <h4><%= link_to  "Mis Servicios", myservices_my_products_path, class:"link" %></h4>
+          </div>
+          <div class="panel panel-default">
+            <h4><a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="link">Mis Ofertas</a></h4>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li><h6><%= link_to  "Realizadas", offers_made_my_products_path, class:"link" %></h6></li>
+                  <li><h6><%= link_to  "Recibidas", offers_received_my_products_path, class:"link"  %></h6></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mis Transacciones", mytransactions_path %></h4>
+          <div class="panel panel-default">
+            <h4><%= link_to  "Mis Transacciones", mytransactions_my_products_path, class:"link" %></h4>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><%= link_to  "Mi Perfil", :user_information %></h4>
+          <div class="panel panel-default">
+              <h4><%= link_to  "Mi Perfil", :user_information, class:"link" %></h4>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-md-6 center">
-    <h2 class="myh">Informacion de perfil</h2>
-    <% if !current_user.nil? %>
-      <%= image_tag(current_user.avatar.url(:large) , class: "img-profile img-circle") %></li>
-    <% end %>
-    <h4 class="margin-top-12"><%= current_user.first_name + current_user.last_name  %></h4><br>
-    <h4 class="margin-top-12"><%= current_user.email %></h4><br>
-    <h4 class="margin-top-12">3217456987</h4>
-    <%= link_to  "Editar información" , :user_edit, class:"btn margin-top-12" %>
+  
+    <div class="col-md-offset-1 col-md-4 center">
+      <div class="flexWrap">
+        <h2 class="myh">Informacion de perfil</h2>
+        <% if !current_user.nil? %>
+          <div class="circle-div"><%= image_tag(current_user.avatar.url(:large) , class: "img-profile img-circle") %></div>
+        <% end %>
+      </div>
+      <h4 class="mt-12"><%= current_user.first_name + current_user.last_name  %></h4><br>
+      <h4 class="mt-12"><%= current_user.email %></h4><br>
+      <h4 class="mt-12">3217456987</h4>
+      <%= link_to  "Editar información" , :user_edit, class:"btn btn-default mt-12" %>
+    </div>
   </div>
 </div>

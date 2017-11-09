@@ -1,47 +1,38 @@
 <!--%= stylesheet_link_tag "filename" %-->
-<div class="container margin-top">
+<div class="container mt">
 
-
-  <div class="row">
-    <div class="offset-sm-2 col-sm-8 center">
-      <h1 class="myh">Productos & Servicios</h1>
-    </div>
-  </div>
+  <h1 class="myh center">Productos & Servicios</h1>
 
   <% if @products.blank? %>
     <h4>No hay productos</h4>
   <% else %>
-
     <div class="row">
       <% @products.each do |p| %>
         <div class="col-sm-3 row-eq-height">
           <div class="my-thumbnail">
             <div class="opacity">
-              <%= link_to show_path(p) do %>
-                <div class="superCenter" style="height:200px">
+              <%= link_to product_path(p) do %>
+                <div class="superCenter img-div-size" style="">
                   <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                 </div>
-                <div class="caption container-fluid">
+                <!--img src="/w3images/lights.jpg" alt="Lights" style="width:100%"-->
+                <div class="caption container-fluid caption-div-size" style="">
                   <h4><%= p.name %></h4>
                   <% if p.p_type == 1 %>
                     <h6>Producto</h6>
                   <% else %>
                     <h6>Servicio</h6>
                   <% end %>
-                  <h6><%= p.description  %></h6>
-                  <h6><%= @categories.find(p.category).name %></h6>
+                  <h6><%= p.category_name  %></h6>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
-
   <div class="offset-md-4 col-md-7">
-    <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
-  </div>
-
+  <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
 </div>
-<%= link_to "logout", destroy_user_session_path, method: :delete %>
+</div>
