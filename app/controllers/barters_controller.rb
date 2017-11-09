@@ -70,7 +70,15 @@ class BartersController < ApplicationController
     respond_to do |format|
       if @barter.update(barter_params)
         if @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
-          format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Ubicacion modificada, debes eperar confirmacion'}
+          @barter.state = 2
+          @product_one = @barter.get_product_one
+          @product_two = @barter.get_product_two
+          @product_one.available = false
+          @product_two.available = false
+          @product_one.save
+          @product_two.save
+          @barter.save
+          format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
           format.json { render :show, status: :ok, location: @barter }
         else
           format.html { redirect_to user_home_path, notice: 'Has aceptado la oferta, el otro usuario debe confirmar'}

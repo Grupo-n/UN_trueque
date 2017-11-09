@@ -1,10 +1,10 @@
 <% content_for :head do %>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMML9mHoxFIC-3CKz_x2-bwQ2s92O4cmE&callback=initMap"></script>
-  <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-  <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
-  <%= javascript_include_tag "map"%>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMML9mHoxFIC-3CKz_x2-bwQ2s92O4cmE&callback=initMap"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+<!-- only if you need custom infoboxes -->
+<%= javascript_include_tag "map"%>
 <% end %>
-
 
 <div class="container mt">
   <div class="row">
@@ -21,25 +21,20 @@
           <h2 class="myhnot">Cambia ubicacion de encuentro</h2>
         </div>
 
-        <div class="panel-body"  style="height:270px">
+        <div class="panel-body" style="height:270px">
           <h4 class="parrafo">
-            Si estas de acuerdo con esta lugar, presiona acepta, de lo contrario, selecciona la ubicacion dando click en
-            el lugar que desees.
+            Si estas de acuerdo con esta lugar, presiona acepta, de lo contrario, selecciona la ubicacion dando click en el lugar que desees.
             <strong>Cuando ambos participantes de la transaccion acepten, el intercambio sera concretado</strong>
           </h4>
         </div>
 
         <div class="panel-footer container-fluid">
           <%= form_for @barter do |b| %>
-            <% if @barter.id_one_user == current_user.id %>
-              <%= b.select(:accept_user_one, [['Aceptar', 'true'], ['Rechazar', 'false']], {class: "form-control"}) %>
-            <% elsif @barter.id_two_user == current_user.id %>
-              <%= b.select(:accept_user_two, [['Aceptar', 'true'], ['Rechazar', 'false']], class: "form-control") %>
-            <% end %>
-            <%= b.hidden_field :latitude , id:"barter_latitude"%>
-            <%= b.hidden_field :longitude, id: "barter_longitude" %>
-
-            <%= b.submit 'Aceptar', class: 'btn btn-default btn-right' %>
+          <%= b.hidden_field :accept_user_one, :value => 'false' %>
+          <%= b.hidden_field :accept_user_two, :value => 'false' %>
+          <%= b.hidden_field :latitude , id:"barter_latitude"%>
+          <%= b.hidden_field :longitude, id: "barter_longitude" %>
+          <%= b.submit 'Aceptar', class: 'btn btn-default btn-right' %>
           <% end %>
         </div>
       </div>
@@ -47,6 +42,4 @@
   </div>
 </div>
 
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript"></script>

@@ -1,8 +1,9 @@
 <% content_for :head do %>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMML9mHoxFIC-3CKz_x2-bwQ2s92O4cmE&callback=initMapStatic"></script>
-  <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-  <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
-  <%= javascript_include_tag "map"%>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMML9mHoxFIC-3CKz_x2-bwQ2s92O4cmE&callback=initMapStatic"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+<!-- only if you need custom infoboxes -->
+<%= javascript_include_tag "map"%>
 <% end %>
 
 <div class="container mt">
@@ -12,7 +13,11 @@
       <div class="container-fluid row">
         <div class="col-sm-5">
           <%  @pone = @barter.get_product_one %>
-          <h4 class="mt-12"><span class="myhnot">Tu Producto: </span><span><%= @pone.name %></span> </h4>
+          <h4 class="mt-12">
+            <span class="myhnot">Tu Producto:
+            </span>
+            <span><%= @pone.name %></span>
+          </h4>
         </div>
 
         <div class="col-sm-2 superCenter">
@@ -24,13 +29,18 @@
 
         <div class="col-sm-5">
           <%  @ptwo = @barter.get_product_two %>
-          <h4 class="mt-12"><span class="myhnot">Lo Que Te Ofrecen: </span><span><%= @ptwo.name %></span></h4>
+          <h4 class="mt-12">
+            <span class="myhnot">Lo Que Te Ofrecen:
+            </span>
+            <span><%= @ptwo.name %></span>
+          </h4>
         </div>
       </div>
 
       <div class="container-fluid">
         <br>
-        <h4 class="mt-12 myhnot">Hora de encuentro: </h4>
+        <h4 class="mt-12 myhnot">Hora de encuentro:
+        </h4>
         <h4><%= @barter.updated_at %></h4>
         <br>
         <h4 class="myhnot">Punto de encuentro</h4>
@@ -39,7 +49,6 @@
         </div>
         <%= link_to 'Edit Ubication', change_ubication_barter_path(@barter), class:"btn btn-default" %>
       </div>
-
 
     </div>
 
@@ -53,22 +62,23 @@
         <div class="panel-body">
           <div class="container-fluid" style="height: 400px; overflow-y: scroll;">
             <% if @comments.nil? %>
-              <p>Aún no hay comentarios</p>
-            <% else %>
-              <% @comments.each do |c| %>
-                <p><%= c.get_user %> dijo:</p>
-                <p><%= c.content %></p>
-              <% end %>
+            <p>Aún no hay comentarios</p>
+          <% else %>
+            <% @comments.each do |c| %>
+            <p><%= c.get_user %>
+              dijo:</p>
+            <p><%= c.content %></p>
+            <% end %>
             <% end %>
           </div>
         </div>
 
         <div class="panel-footer container-fluid">
           <%= form_for @comment  do |c| %>
-            <%= c.hidden_field :barter, :value => @barter.id %>
-            <%= c.hidden_field :user, :value => @user.id %>
-            <%= c.text_area :content, style:"width:100%; background-color:#fff;" %>
-            <%= c.submit 'Comentar', class: 'btn btn-ghost btn-right' %>
+          <%= c.hidden_field :barter, :value => @barter.id %>
+          <%= c.hidden_field :user, :value => @user.id %>
+          <%= c.text_area :content, style:"width:100%; background-color:#fff;" %>
+          <%= c.submit 'Comentar', class: 'btn btn-ghost btn-right' %>
           <% end %>
         </div>
 
@@ -77,27 +87,19 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-10">
-
-    </div>
+    <div class="col-sm-offset-1 col-sm-10"></div>
   </div>
 
   <%= form_for @barter do |b| %>
-    <% @product_one.available = false %>
-    <% @product_one.save %>
-
-    <% @product_two.available = false %>
-    <% @product_two.save %>
-
-    <% if @barter.accept_user_one and @barter.accept_user_two %>
-      <% @barter.state = 2 %>
-    <% else %>
-      <% @barter.state = 1 %>
-    <% end %>
-    <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
-    <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
-
-    <!--%= b.submit 'Aceptar', class: 'btn  btn-right' %-->
-    <span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-default btn-right" %></span>
+  <% if @barter.id_one_user == current_user.id %>
+    <%= b.hidden_field :accept_user_one, :value => 'true' %>
+  <% elsif @barter.id_two_user == current_user.id %>
+    <%= b.hidden_field :accept_user_two, :value => 'true' %>
+  <% end %>
+  <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
+  <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
+  <%= b.submit 'Aceptar',class: 'btn btn-default btn-right' %>
+  <!--%= b.submit 'Aceptar', class: 'btn  btn-right' %-->
+  <!--<span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-default btn-right" %></span>-->
   <% end %>
 </div>
