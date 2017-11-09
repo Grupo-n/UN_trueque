@@ -73,17 +73,8 @@ class BartersController < ApplicationController
           format.html { redirect_to accept_my_product_path(@barter), notice: 'Has cambiado la ubicación o hora de la oferta'}
           format.json { render accept_my_product_path(@barter), status: :ok, location: @barter }
         elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
-          @barter.state = 2
-          @product_one = @barter.get_product_one
-          @product_two = @barter.get_product_two
-          @product_one.available = false
-          @product_two.available = false
-          @product_one.save
-          @product_two.save
-          @barter.save
-          @user_one = @barter.get_user_one
-          @user_two = @barter.get_user_two
-          UserMailer.acceptoffer_email(@barter, @user_one, @user_two).deliver
+          @barter.make_transaction
+          UserMailer.acceptoffer_email(@barter, @barter.get_user_one, @barter.get_user_two).deliver
           SendMailersJob.set(wait: 10.seconds).perform_later(@barter, @user_one, @user_two)
           format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
           format.json { render :show, status: :ok, location: @barter }

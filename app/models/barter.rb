@@ -45,6 +45,13 @@ class Barter < ApplicationRecord
       User.find(self.id_two_user)
     end
 
+    def make_transaction
+      self.state = 2
+      self.get_product_one.update({:available=>false})
+      self.get_product_two.update({:available=>false})
+      self.save
+    end
+
     def get_QR
       RQRCode::QRCode.new(Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s))
     end
