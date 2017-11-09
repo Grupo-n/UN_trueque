@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to => "welcome#new"
 
   resources :comments
+  resources :categories
 
   #Devise
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :barters, path: 'barters', only: [:show, :new, :edit, :create, :update, :destroy] do
       member do
         get :change_ubication
+        get :score
       end
     end
   end
