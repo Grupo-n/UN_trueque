@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106033109) do
+ActiveRecord::Schema.define(version: 20171108040835) do
 
   create_table "barters", force: :cascade do |t|
     t.string "description"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171106033109) do
     t.text "address"
     t.string "accept_user_one", default: "false"
     t.string "accept_user_two", default: "false"
+    t.string "hash_facture"
     t.index ["users_id"], name: "index_barters_on_users_id"
   end
 
