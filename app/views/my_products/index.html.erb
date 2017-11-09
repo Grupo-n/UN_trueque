@@ -17,7 +17,7 @@
             <div class="opacity">
               <%= link_to offer_my_product_path(p) do %>
                 <div class="superCenter img-div-size" style="">
-                  <%= image_tag p.product_image, alt: "", style:"max-height:200px;", class:"img-rounded" %>
+                  <%= image_tag p.product_image.url(:original), alt: "", style:"max-height:200px;", class:"img-rounded" %>
                 </div>
                 <!--img src="/w3images/lights.jpg" alt="Lights" style="width:100%"-->
                 <div class="caption container-fluid caption-div-size" style="">
