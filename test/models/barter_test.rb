@@ -28,31 +28,33 @@
 require 'test_helper'
 
 class BarterTest < ActiveSupport::TestCase
-=begin  
+
   def setup
-    @barter = Barter.new(product_one_id: products(:one).id)
+    @barter = barters(:one)
+    
   end
   
   test "should be valid" do
 		assert @barter.valid?
 	end
-	
+
 	test "description without limit " do
 		@barter.description = 'a'*10000
 		assert @barter.valid?
 	end
-	
+
 	test "confirmation without limit " do
 		@barter.confirmation = 'a'*10000
 		assert @barter.valid?
 	end
-
+=begin 
   test "products should be different" do
     @barter.product_one_id = 1
     @barter.product_two_id = 1
+    debugger
     assert_not @barter.valid?
   end
-  
+
   test "users should be different" do
     @barter.id_one_user = 1
     @barter.id_two_user = 1

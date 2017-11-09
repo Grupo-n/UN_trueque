@@ -31,6 +31,8 @@ one:
   description: MyString
   product_one_id: products(:one).id
   product_two_id: products(:two).id
+  meeting_date: DateTime.parse("20180429162748")
+
 
 two:
   description: MyString
