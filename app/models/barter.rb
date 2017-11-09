@@ -30,6 +30,8 @@ class Barter < ApplicationRecord
     has_many :products
 
     validate :meeting_not_in_past
+    validate :product_two_equal_nil
+    validates :product_one_id, presence: true
 
     geocoded_by :address
     after_validation :geocode, :if => :address_changed?
@@ -87,7 +89,13 @@ class Barter < ApplicationRecord
 
     def meeting_not_in_past
       if self.meeting_date < Date.today
-        errors.add(:meeting_date, "No puede viajar en el tiempo we :v")
+        self.errors.add(:meeting_date, "No puede viajar en el tiempo we :v")
+      end
+    end
+
+    def product_two_equal_nil
+      if self.product_two_id.nil?
+        self.errors.add(:product_two_id, "Debes escoger un producto")
       end
     end
 
