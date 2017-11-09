@@ -11,6 +11,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template "devise/registrations/new"
     
     post user_registration_path, params: {user: {first_name: "Nico" , last_name: "Yeah", email: "123@correo.com", password: "12345678", password_confirmation: "12345678"}}
-    
+    assert_redirected_to :root
   end
 end
