@@ -76,7 +76,7 @@ class BartersController < ApplicationController
     respond_to do |format|
       if @barter.update(barter_params)
         if @barter.accept_user_one == 'false' and @barter.accept_user_two == 'false'
-          format.html { redirect_to accept_my_product_path(@barter), notice: 'Has cambiado la ubicación o hora de la oferta'}
+          format.html { redirect_to accept_my_product_path(@barter), notice: 'Has cambiado la ubicación u hora de la oferta'}
           format.json { render accept_my_product_path(@barter), status: :ok, location: @barter }
         elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
           @barter.make_transaction

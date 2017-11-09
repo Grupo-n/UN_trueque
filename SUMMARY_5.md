@@ -18,3 +18,4 @@ Posibles características para siguiente Sprint
 > - Seguridad de la aplicacion.
 > - API para servicios moviles de la aplicacion
 > - Crear mas Jobs para la aplicacion.
+> - Agregar perfil de cada usuario, donde otro usuario pueda ver los comentarios que tiene y su calificacion
