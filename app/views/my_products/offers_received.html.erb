@@ -13,43 +13,61 @@
   <div class="row">
     <% @barters.each do |barter| %>
 
-      <% @pone = barter.get_product_one %>
-      <% @ptwo = barter.get_product_two %>
+    <% @pone = barter.get_product_one %>
+    <% @ptwo = barter.get_product_two %>
 
-      <div class="col-xs-4">
-        <div class="superCenter img-div-size" style="">
-          <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
-        </div>
+    <div class="col-xs-4">
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
       </div>
+      <div class="caption container-fluid caption-div-size center" style="">
+        <h4><%= @pone.name %></h4>
+        <% if @pone.p_type == 1 %>
+        <h6>Producto</h6>
+      <% else %>
+        <h6>Servicio</h6>
+        <% end %>
+        <h6><%= @pone.description  %></h6>
+      </div>
+    </div>
 
-      <div class="col-xs-1 superCenter">
-        <div class="container-fluid">
+    <div class="col-xs-1 superCenter">
+      <div class="container-fluid">
         <span class="glyphicon glyphicon-arrow-right icono" style=""></span>
         <span class="glyphicon glyphicon-arrow-left icono" style=""></span>
-        </div>
       </div>
+    </div>
 
-      <div class="col-xs-4">
-        <div class="superCenter img-div-size" style="">
-          <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
-        </div>
+    <div class="col-xs-4">
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
       </div>
-
-      <div class="col-xs-3 flexWrap">
-        <h4><%= barter.description %></h4>
-        <% if barter.state==1 %>
-          <h4>Pendiente</h4>
-        <% elsif barter.state==2 %>
-          <h4>Aprobado</h4>
-        <% elsif barter.state==3 %>
-          <h4>Rechazado</h4>
+      <div class="caption container-fluid caption-div-size center" style="">
+        <h4><%= @ptwo.name %></h4>
+        <% if @ptwo.p_type == 1 %>
+        <h6>Producto</h6>
+      <% else %>
+        <h6>Servicio</h6>
         <% end %>
-        <div class="flexEnd" style="margin: 0 50px">
-          <%= link_to raw('<span class="glyphicon glyphicon-resize-horizontal"></span>'), accept_my_product_path(barter), class:"btn btn-ghost"%>
-          <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), barter, class:"btn btn-ghost" %>
-          <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, method: :delete, class:"btn btn-ghost", data: { confirm: '¿Estás segur@?' } %>
-        </div>
+        <h6><%= @ptwo.description  %></h6>
       </div>
+    </div>
+
+    <div class="col-xs-3 flexWrap">
+      <h4><%= barter.description %></h4>
+      <% if barter.state==1 %>
+      <h4>Pendiente</h4>
+      <% elsif barter.state==2 %>
+      <h4>Aprobado</h4>
+      <% elsif barter.state==3 %>
+      <h4>Rechazado</h4>
+      <% end %>
+      <div class="flexEnd" style="margin: 0 50px">
+        <%= link_to raw('<span class="glyphicon glyphicon-resize-horizontal"></span>'), accept_my_product_path(barter), class:"btn btn-ghost"%>
+        <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), barter, class:"btn btn-ghost" %>
+        <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, method: :delete, class:"btn btn-ghost", data: { confirm: '¿Estás segur@?' } %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>

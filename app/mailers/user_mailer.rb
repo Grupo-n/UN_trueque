@@ -28,10 +28,9 @@ class UserMailer < ApplicationMailer
     @user_two = user_two
     @pone = Product.find(@barter.product_one_id)
     @ptwo = Product.find(@barter.product_two_id)
-    puts @user_one
     @url = 'http://untrueque.herokuapp.com'
-    mail(to: @user_one.email, subject: 'Se ha realizado un trueque')
-    mail(to: @user_two.email, subject: 'Se ha realizado un trueque')
+    mail(to: [@user_one.email, @user_two.email], subject: 'Se ha realizado un trueque')
+    #mail(to: @user_two.email, subject: 'Se ha realizado un trueque')
   end
 
   def calification_email(barter, user_one, user_two)

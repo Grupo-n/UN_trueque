@@ -81,7 +81,7 @@ class BartersController < ApplicationController
         elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
           @barter.make_transaction
           UserMailer.acceptoffer_email(@barter, @barter.get_user_one, @barter.get_user_two).deliver
-          SendMailersJob.set(wait: 30.seconds).perform_later(@barter, @user_one, @user_two)
+          SendMailersJob.set(wait: 30.seconds).perform_later(@barter, @barter.get_user_one, @barter.get_user_two)
           format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
           format.json { render :show, status: :ok, location: @barter }
         else

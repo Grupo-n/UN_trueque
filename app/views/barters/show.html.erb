@@ -35,13 +35,13 @@
         <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
       </div>
       <div class="caption container-fluid caption-div-size" style="">
-        <h4><%= @pone.name %></h4>
-        <% if @pone.p_type == 1 %>
+        <h4><%= @ptwo.name %></h4>
+        <% if @ptwo.p_type == 1 %>
           <h6>Producto</h6>
         <% else %>
           <h6>Servicio</h6>
         <% end %>
-        <h6><%= @pone.description  %></h6>
+        <h6><%= @ptwo.description  %></h6>
       </div>
     </div>
   </div>
