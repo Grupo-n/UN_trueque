@@ -10,3 +10,8 @@ RUN: rails test test/models/name.rb
 
 RUN: rails test test/mailers/name.rb
 > - user_mailer_test.rb
+
+Test de integración: 
+-------------
+RUN: rails test test/integration/name.rb
+> - users_login_test.rb 
