@@ -104,13 +104,12 @@
 
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNhPSkW2TwVnc6BZ1kBHIcCkWFu9pJXas&callback=initMapStatic"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNhPSkW2TwVnc6BZ1kBHIcCkWFu9pJXas&callback=initMapStatic" async defer></script>
 <script src="https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
 <script type="text/javascript">
-var marker;
-var handler;
+
 var mapStyle = [
 
   {
@@ -252,9 +251,8 @@ var mapStyle = [
 
 ];
 function initMapStatic(){
-
-  marker;
-  handler = Gmaps.build('Google');
+  var marker;
+  var handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'mapStatic'},
    provider: {
         zoom:      15,
