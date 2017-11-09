@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <h2 class="myh">Lo que han ofrecido por tu <br> <strong><%= @product.name %></strong></h2>
                 <div class="center" style="height:250px">
-                    <%= image_tag @product.product_image.url(:medium), alt: "", style:"max-height:250px", class:"img-rounded" %>
+                    <%= image_tag @product.product_image, alt: "", style:"max-height:250px", class:"img-rounded" %>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                     <div class="my-thumbnail">
                         <div class="opacity">
                             <div class="superCenter" style="height:200px">
-                                <%= image_tag p.product_image.url(:medium), alt: "", style:"max-height:200px;", class:"img-rounded" %>
+                                <%= image_tag p.product_image, alt: "", style:"max-height:200px;", class:"img-rounded" %>
                             </div>
                             <div class="caption container-fluid">
                                 <h4 class="myhnot"><%= p.name %></h4>

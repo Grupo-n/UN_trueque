@@ -104,7 +104,7 @@
                                 <div class="my-thumbnail opacity">
                                     <%= link_to offer_product_path(@product, :offert => product) do %>
                                     <div class="superCenter" style="height:150px">
-                                      <%= image_tag product.product_image.url(:medium), alt: "", style:"max-height:150px", class:"img-rounded" %>
+                                      <%= image_tag product.product_image, alt: "", style:"max-height:150px", class:"img-rounded" %>
                                     </div>
                                     <div class="caption container-fluid">
                                         <h4><%= product.name %></h4>
