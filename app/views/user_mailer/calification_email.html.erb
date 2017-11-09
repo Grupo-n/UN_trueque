@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-6 center">
+        <h2 class="myhnot margin-top-12 center"> Producto adquirido</h2>
+        <h5 class="margin-5"><%=  @pone.name %></h5>
+        <h5 class="margin-5"><%=  @pone.description %></h5>
+
+
+      </div>
+
+
+      <div class="col-md-6 center">
+        <h2 class="myhnot margin-top-12 center"> Producto ofertado</h2>
+        <h5 class="margin-5"><%=  @ptwo.name %></h6>
+        <h5 class="margin-5"><%=  @ptwo.description %></h5>
+
+      </div>
+    </div>
+    <%= link_to 'Ver', @path, class:'btn btn-ghost', style:"float: left"%>
+  </body>
+</html>

@@ -37,6 +37,10 @@ class UserMailer < ApplicationMailer
     @barter = barter
     @user_one = user_one
     @user_two = user_two
+    @pone = Product.find(@barter.product_one_id)
+    @ptwo = Product.find(@barter.product_two_id)
+    @path = score_barter_url(@barter)
+    @url = 'http://untrueque.herokuapp.com'
     mail(to: @user_two.email, subject: 'Califica al usuario con el que realizaste una transacción ')
   end
 

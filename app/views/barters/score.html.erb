@@ -57,6 +57,7 @@ $(function () {
   }).on("rateyo.set", function (e, data) {
       alert("La clasificacion dada es " + data.rating + " , si estas de acuerdo presiona 'aceptar' !");
       document.getElementById('user_score').value = data.rating;
+      window.location.href = '../../static_pages/principal';
   });
 });
 </script>
