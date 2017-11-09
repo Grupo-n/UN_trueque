@@ -7,85 +7,51 @@
 
 <div class="container mt">
   <div class="row">
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-5 center">
+    <div class="col-sm-6">
+
+      <div class="container-fluid row">
+        <div class="col-sm-5">
           <%  @pone = @barter.get_product_one %>
-          <h2 class="myhnot mt-12 center"> Tu Producto </h2><br><br>
-          <br>
-          <div class="superCenter img-div-size" style="">
-            <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
-          </div>
-          <div class="caption container-fluid caption-div-size" style="">
-            <h4><%= @pone.name %></h4>
-            <% if @pone.p_type == 1 %>
-              <h6>Producto</h6>
-            <% else %>
-              <h6>Servicio</h6>
-            <% end %>
-            <h6><%= @pone.description  %></h6>
-          </div>
+          <h4 class="mt-12"><span class="myhnot">Tu Producto: </span><span><%= @pone.name %></span> </h4>
         </div>
 
-        <div class="col-md-1 superCenter">
+        <div class="col-sm-2 superCenter">
           <div class="container-fluid">
-          <span class="glyphicon glyphicon-arrow-right icono" style=""></span>
-          <span class="glyphicon glyphicon-arrow-left icono" style=""></span>
+            <span class="glyphicon glyphicon-arrow-right" style="font-size:30px"></span>
+            <span class="glyphicon glyphicon-arrow-left" style="font-size:30px"></span>
           </div>
         </div>
 
-        <div class="col-md-5 center">
+        <div class="col-sm-5">
           <%  @ptwo = @barter.get_product_two %>
-          <h2 class="myhnot mt-12 center"> Lo Que Te Ofrecen </h2>
-          <br>
-          <div class="superCenter img-div-size" style="">
-            <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
-          </div>
-          <div class="caption container-fluid caption-div-size" style="">
-            <h4><%= @ptwo.name %></h4>
-            <% if @ptwo.p_type == 1 %>
-              <h6>Producto</h6>
-            <% else %>
-              <h6>Servicio</h6>
-            <% end %>
-            <h6><%= @ptwo.description  %></h6>
-          </div>
+          <h4 class="mt-12"><span class="myhnot">Lo Que Te Ofrecen: </span><span><%= @ptwo.name %></span></h4>
         </div>
       </div>
+
       <div class="container-fluid">
-        <h2 class="myh">Mapa</h2>
-        <div style='width: 800px;'>
-          <div id="mapStatic" style='width: 800px; height: 400px;'></div>
+        <br>
+        <h4 class="mt-12 myhnot">Hora de encuentro: </h4>
+        <h4><%= @barter.updated_at %></h4>
+        <br>
+        <h4 class="myhnot">Punto de encuentro</h4>
+        <div class="full-width" style=''>
+          <div id="mapStatic" class="full-width" style='height: 400px'></div>
         </div>
-        <%= link_to 'Edit Ubication', change_ubication_barter_path(@barter), class:"minibtn" %>
+        <%= link_to 'Edit Ubication', change_ubication_barter_path(@barter), class:"btn btn-default" %>
       </div>
+
+
     </div>
 
-    <div >
-        <%= form_for @barter do |b| %>
-          <h6><strong>Lugar del trueque: </strong></h6>
-          <%= b.text_area :address, class: 'form-control', placeholder: 'Universidad Nacional de Colombia' %>
-          <%= @product_one.available = false %>
-
-          <%= @product_two.available = false %>
-
-          <%= b.hidden_field :accept_user_one, :value => 'true' %>
-          <%= b.hidden_field :accept_user_two, :value => 'true' %>
-          <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
-          <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
-
-          <%= b.submit 'Aceptar' %>
-          <span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-right" %></span>
-        <% end %>
-    </div>
-
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <div class="panel panel-default">
+
         <div class="panel-heading">
           <h2 class="myhnot">Mensajes</h2>
         </div>
+
         <div class="panel-body">
-          <div class="container-fluid" style="height: 600px; overflow-y: scroll;">
+          <div class="container-fluid" style="height: 400px; overflow-y: scroll;">
             <% if @comments.nil? %>
               <p>Aún no hay comentarios</p>
             <% else %>
@@ -96,7 +62,8 @@
             <% end %>
           </div>
         </div>
-        <div class="panel-footer">
+
+        <div class="panel-footer container-fluid">
           <%= form_for @comment  do |c| %>
             <%= c.hidden_field :barter, :value => @barter.id %>
             <%= c.hidden_field :user, :value => @user.id %>
@@ -104,7 +71,33 @@
             <%= c.submit 'Comentar', class: 'btn btn-ghost btn-right' %>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+
+    </div>
+  </div>
+
+  <%= form_for @barter do |b| %>
+    <% @product_one.available = false %>
+    <% @product_one.save %>
+
+    <% @product_two.available = false %>
+    <% @product_two.save %>
+
+    <% if @barter.accept_user_one and @barter.accept_user_two %>
+      <% @barter.state = 2 %>
+    <% else %>
+      <% @barter.state = 1 %>
+    <% end %>
+    <%= b.hidden_field :latitude , id:"barter_latitude_static"%>
+    <%= b.hidden_field :longitude, id: "barter_longitude_static" %>
+
+    <!--%= b.submit 'Aceptar', class: 'btn  btn-right' %-->
+    <span><%= link_to 'Aceptar', succesfull_transaction_my_product_path(@barter.id), class:"btn btn-default btn-right" %></span>
+  <% end %>
 </div>

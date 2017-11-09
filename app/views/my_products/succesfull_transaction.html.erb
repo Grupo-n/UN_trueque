@@ -1,47 +1,66 @@
-<div class="container margin-top">
+<div class="container mt">
+
+  <h1 class="myh center">¡Transacción exitosa!</h1>
 
   <div class="row">
-    <div class="offset-sm-2 col-sm-8 center">
-      <h1 class="myh">¡Transacción exitosa!</h1>
+
+    <div class="col-sm-5 center">
+      <h2 class="myhnot mt-12 center">Producto adquirido</h2>
+      <br>
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+      </div>
+      <div class="caption container-fluid caption-div-size" style="">
+        <h4><%= @pone.name %></h4>
+        <% if @pone.p_type == 1 %>
+          <h6>Producto</h6>
+        <% else %>
+          <h6>Servicio</h6>
+        <% end %>
+        <h6><%= @pone.description  %></h6>
+      </div>
+    </div>
+
+    <div class="col-sm-2 superCenter">
+      <div class="container-fluid">
+        <span class="glyphicon glyphicon-arrow-right myhnot" style="font-size:100px"></span>
+        <span class="glyphicon glyphicon-arrow-left myhnot" style="font-size:100px"></span>
+      </div>
+    </div>
+
+
+    <div class="col-sm-5 center">
+      <h2 class="myhnot mt-12 center">Producto ofertado</h2>
+      <br>
+      <div class="superCenter img-div-size" style="">
+        <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+      </div>
+      <div class="caption container-fluid caption-div-size" style="">
+        <h4><%= @pone.name %></h4>
+        <% if @pone.p_type == 1 %>
+          <h6>Producto</h6>
+        <% else %>
+          <h6>Servicio</h6>
+        <% end %>
+        <h6><%= @pone.description  %></h6>
+      </div>
     </div>
   </div>
 
-<div class="row">
-  <div class="col-md-6 center">
-    <h2 class="myhnot margin-top-12 center"> Producto adquirido</h2>
-
-    <%= image_tag @pone.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
-    <h5 class="margin-5"><%=  @pone.name %></h5>
-    <h5 class="margin-5"><%=  @pone.description %></h5>
-
-
+  <div class="row mt-12">
+    <div class="col-md-offset-1 col-md-11">
+      <h4 class="myhnot">Description:</h4>
+      <h4><%= @barter.description %></h4>
+    </div>
   </div>
 
-
-  <div class="col-md-6 center">
-    <h2 class="myhnot margin-top-12 center"> Producto ofertado</h2>
-    <%= image_tag @ptwo.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
-    <h5 class="margin-5"><%=  @ptwo.name %></h6>
-    <h5 class="margin-5"><%=  @ptwo.description %></h5>
-
+  <div class="row mt-12">
+    <div class="col-md-offset-1 col-md-11">
+      <a class="ui teal btn btn-ghost" href="facture.pdf">Descargar PDF</a>
+      <%= link_to 'PDF Transacción' , @barter.id.to_s+".pdf", class:"btn btn-ghost" %>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12 center">
-    <h4 class="myhnot margin-top-12 center">Description:</h4>
-    <h6 class="margin-5"><%= @barter.description %></h6>
-  </div>
-
 </div>
-
-  <br>
-
-</div>
-
-<div class="row">
-  <div class="col-md-12 center">
-    <a class="ui teal button minibtn" href="facture.pdf">Descargar PDF</a>
-    <%= link_to 'PDF Transacción' , "succesfull_transaction/"+@barter.hash_facture.to_s+".pdf", class:"minibtn" %>
-  </div>
 </div>
