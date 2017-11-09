@@ -37,8 +37,27 @@ class Barter < ApplicationRecord
       Product.find(self.product_two_id)
     end
 
+    def get_user_one
+      User.find(self.id_one_user)
+    end
+
+    def get_user_two
+      User.find(self.id_two_user)
+    end
+
+    def make_transaction
+      self.state = 2
+      self.get_product_one.update({:available=>false})
+      self.get_product_two.update({:available=>false})
+      self.save
+    end
+
     def get_QR
       RQRCode::QRCode.new(Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s))
+    end
+
+    def get_Hash
+      Digest::MD5.hexdigest(self.get_product_one.id.to_s + "-" + self.get_product_two.id.to_s)
     end
 
     def get_comments
@@ -50,11 +69,11 @@ class Barter < ApplicationRecord
     end
 
     def self.offers_received(user)
-      return Barter.where("id_one_user = ?", user.id)
+      return Barter.where("id_one_user = ? AND state = '1'", user.id, )
     end
 
     def self.offers_made(user)
-      return Barter.where("id_two_user = ?", user.id)
+      return Barter.where("id_two_user = ? AND state = '1'", user.id)
     end
 
     def self.my_transactions(user)

@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   #Pagina principal
   root :to => "welcome#new"
 
-  resources :comments
-
   #Devise
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -17,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   scope(path_names: { new: 'nuevo', show: 'ver', edit: 'editar' }) do
-    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product] do
+    resources :products, path: 'products', only: [:new, :show, :edit, :create, :update, :set_product, :destroy] do
       collection do
         match 'search' => 'application#search', via: [:get, :post], as: :search
       end
@@ -46,6 +44,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope(path_names: {index: 'comments'}) do
+    resources :comments, only: [:create, :new, :set_comment]
+  end
+
   #Información de usuario
   get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information
 
@@ -65,6 +67,8 @@ Rails.application.routes.draw do
   get 'statistics/products', :to => "products#statistics", :as => :products_statistics
 
 
+  #Generar factura transaccion completa
+  get 'my_products/:id/succesfull_transaction/:hash' => "my_products#generate_barter_pdf", as: 'generate_facture'
 =begin
   #Productos usuario
   get 'my_products/index'

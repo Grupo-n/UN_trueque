@@ -59,18 +59,29 @@ class BartersController < ApplicationController
         format.json { render json: @barter.errors, status: :unprocessable_entity }
       end
     end
+
+    @barter.hash_facture = @barter.get_Hash.to_s
+    @barter.save
   end
 
   # PATCH/PUT /barters/1
   # PATCH/PUT /barters/1.json
   def update
     respond_to do |format|
-      if @barter.update(barter_params_ubication)
-        format.html { redirect_to user_home_path, notice: 'Ubicacion modificada, debes eperar confirmacion' }
-        format.json { render :show, status: :ok, location: @barter }
-      elsif @barter.update(barter_params)
-        format.html { redirect_to user_home_path, notice: 'La oferta ha sido aceptada' }
-        format.json { render :show, status: :ok, location: @barter }
+      if @barter.update(barter_params)
+        if @barter.accept_user_one == 'false' and @barter.accept_user_two == 'false'
+          format.html { redirect_to accept_my_product_path(@barter), notice: 'Has cambiado la ubicación o hora de la oferta'}
+          format.json { render accept_my_product_path(@barter), status: :ok, location: @barter }
+        elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
+          @barter.make_transaction
+          UserMailer.acceptoffer_email(@barter, @barter.get_user_one, @barter.get_user_two).deliver
+          SendMailersJob.set(wait: 10.seconds).perform_later(@barter, @user_one, @user_two)
+          format.html { redirect_to succesfull_transaction_my_product_path(@barter), notice: 'Transaccion exitosa'}
+          format.json { render :show, status: :ok, location: @barter }
+        else
+          format.html { redirect_to user_home_path, notice: 'Has aceptado la oferta, el otro usuario debe confirmar'}
+          format.json { render user_home_path, status: :ok, location: @barter }
+        end
       else
         format.html { render :edit }
         format.json { render json: @barter.errors, status: :unprocessable_entity }
@@ -94,7 +105,7 @@ class BartersController < ApplicationController
     end
 
     def barter_params
-      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user)
+      params.require(:barter).permit(:description, :product_one_id, :product_two_id, :state, :confirmation, :id_one_user, :id_two_user, :accept_user_one, :accept_user_two)
       #params.require(:barter).permit(:description, :product_one_id, :product_two_id, :title, :address)
     end
 

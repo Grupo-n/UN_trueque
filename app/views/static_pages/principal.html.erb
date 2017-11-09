@@ -23,7 +23,7 @@
                   <% else %>
                     <h6>Servicio</h6>
                   <% end %>
-                  <h6><%= p.description  %></h6>
+                  <h6><%= p.category_name  %></h6>
                 </div>
               </div>
             <% end %>
@@ -32,4 +32,7 @@
       <% end %>
     </div>
   <% end %>
+  <div class="offset-md-4 col-md-7">
+  <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
+</div>
 </div>

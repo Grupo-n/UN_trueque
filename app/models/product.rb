@@ -3,7 +3,7 @@
 # Table name: products
 #
 #  id                         :integer          not null, primary key
-#  name                       :string
+#  name                       :string           1->Product and 2->Servie
 #  p_type                     :integer
 #  description                :string
 #  users_id                   :integer
@@ -33,6 +33,10 @@ class Product < ApplicationRecord
 
     def get_user
       User.find(self.user_id)
+    end
+
+    def category_name
+      Category.find(self.category).name
     end
 
     def self.descendent

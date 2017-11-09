@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to accept_path(@comment.barter)
+      redirect_to accept_my_product_path(@comment.barter)
     else
     end
   end
