@@ -21,7 +21,7 @@ RUN: rails test test/controllers/name.rb
 > - welcome_controller_test.rb
 
 RUN: rails test test/jobs/name.rb
-> - users_login_test.rb
+> - send_mailers_job_test.rb
 
 
 Test de integración: 
