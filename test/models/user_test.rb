@@ -38,10 +38,11 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
 	def setup
-		@user = User.new()
+		@user = User.new(email: "exam@ple.com", password: "12345678")
+		#debugger
 	end
 
 	test "should be valid" do
-		assert_not @user.valid?
+		assert @user.valid?
 	end
 end

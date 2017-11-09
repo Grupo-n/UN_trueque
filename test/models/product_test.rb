@@ -29,6 +29,7 @@ class ProductTest < ActiveSupport::TestCase
 		@product = Product.new(name:"camara",
 		                       p_type: 1,
 		                       description: "una camara super profesional",
+		                       user_id: users(:nicolas).id,
 		                       product_image: sample_file()
 		                       )
 	end
@@ -36,4 +37,25 @@ class ProductTest < ActiveSupport::TestCase
 	test "should be valid" do
 		assert @product.valid?
 	end
+	
+	test "description should be present" do
+		@product.description = nil
+		assert_not @product.valid?
+	end
+	
+	test "user should exist" do
+		@product.user_id = nil
+		assert_not @product.valid?
+	end
+	
+	test "p_type should be present" do
+		@product.p_type = nil
+		assert_not @product.valid?
+	end
+	
+	test "maximum description lenght " do
+		@product.description = 'x'*101
+		assert_not @product.valid?
+	end
+	
 end
