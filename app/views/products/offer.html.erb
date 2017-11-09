@@ -76,6 +76,8 @@
                         <%= b.hidden_field :id_one_user, :value => @owner_user.id %>
                         <%= b.hidden_field :id_two_user, :value => @offer_user.id %>
                         <%= b.hidden_field :state, :value => 1 %>
+                        <%= b.hidden_field :meeting_date, :value => Time.now %>
+                        <%= b.hidden_field :meeting_time, :value => Time.now %>
                         <%= b.submit 'Ofertar', class: 'btn btn-default btn-right' %>
                     <% end %>
                     <%= link_to 'Volver', product_path, class:"btn btn-default" %>
