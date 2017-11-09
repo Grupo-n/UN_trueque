@@ -28,9 +28,9 @@
 require 'test_helper'
 
 class BarterTest < ActiveSupport::TestCase
-  
+=begin  
   def setup
-    @barter = Barter.new()
+    @barter = Barter.new(product_one_id: products(:one).id)
   end
   
   test "should be valid" do
@@ -47,7 +47,6 @@ class BarterTest < ActiveSupport::TestCase
 		assert @barter.valid?
 	end
 
-=begin  
   test "products should be different" do
     @barter.product_one_id = 1
     @barter.product_two_id = 1
@@ -60,5 +59,4 @@ class BarterTest < ActiveSupport::TestCase
     assert_not @barter.valid?
   end
 =end
-  
 end

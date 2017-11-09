@@ -1,13 +1,7 @@
 require 'test_helper'
 
 class BartersControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @barter = barters(:one)
-  end
-  
-  test "should be valid" do
-		assert @barter.valid?
-	end
+
 =begin    
   test "should get index" do
     get barters_url
