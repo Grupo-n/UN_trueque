@@ -2,30 +2,37 @@
 #
 # Table name: barters
 #
-#  id             :integer          not null, primary key
-#  description    :string
-#  product_one_id :integer
-#  product_two_id :integer
-#  state          :integer
-#  users_id       :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  latitude       :float            default(4.635487)
-#  longitude      :float            default(-74.082719)
-#  money          :integer
-#  confirmation   :string
-#  id_one_user    :integer
-#  id_two_user    :integer
-#  title          :string
-#  address        :text
-#  accept_user_one  :string
-#  accept_user_two  :string
+#  id              :integer          not null, primary key
+#  description     :string
+#  product_one_id  :integer
+#  product_two_id  :integer
+#  state           :integer
+#  users_id        :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  latitude        :float            default(4.635487)
+#  longitude       :float            default(-74.082719)
+#  money           :integer
+#  confirmation    :string
+#  id_one_user     :integer
+#  id_two_user     :integer
+#  title           :string
+#  address         :text
+#  accept_user_one :string           default("false")
+#  accept_user_two :string           default("false")
+#  hash_facture    :string
+#  meeting_date    :date
+#  meeting_time    :time
+#
 
 class Barter < ApplicationRecord
 
     has_many :products
 
-    #attr_accessible :address, :latitude, :longitude
+    validate :meeting_not_in_past
+    validate :product_two_equal_nil
+    validates :product_one_id, presence: true
+
     geocoded_by :address
     after_validation :geocode, :if => :address_changed?
 
@@ -78,6 +85,18 @@ class Barter < ApplicationRecord
 
     def self.my_transactions(user)
       return Barter.where("(id_one_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)
+    end
+
+    def meeting_not_in_past
+      if self.meeting_date < Date.today
+        self.errors.add(:meeting_date, "No puede viajar en el tiempo we :v")
+      end
+    end
+
+    def product_two_equal_nil
+      if self.product_two_id.nil?
+        self.errors.add(:product_two_id, "Debes escoger un producto")
+      end
     end
 
 end

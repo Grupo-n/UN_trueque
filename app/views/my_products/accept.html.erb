@@ -37,9 +37,8 @@
 
       <div class="container-fluid">
         <br>
-        <h4 class="mt-12 myhnot">Hora de encuentro:
-        </h4>
-        <h4><%= @barter.updated_at %></h4>
+        <h4 class="mt-12 myhnot">Hora de encuentro: <h5><%= @barter.meeting_time.strftime("%I:%M %p") %></h5></h4>
+        <h4 class="mt-12 myhnot">Fecha: <h5><%= @barter.meeting_date.to_formatted_s(:long) %></h5></h4>
         <br>
         <h4 class="myhnot">Punto de encuentro</h4>
         <div class="full-width" style=''>

@@ -36,9 +36,7 @@
           <%= b.hidden_field :longitude, id: "barter_longitude" %>
           <% @barter.meeting_date < Time.now ? $date = Time.now.strftime("%Y-%m-%d") : $date = @barter.meeting_date %>
           <%= b.date_field :meeting_date, :value => $date %>
-          <% @barter.meeting_time < Time.now ? $time = Time.now : $time = @barter.meeting_time %>
-          <%= b.time_field :meeting_time, :value => Time.now.strftime("%h-%m")  %>
-          <!--%= datetime_local_field(:user, :graduation_day) %-->
+          <%= b.time_field :meeting_time, :value => @barter.meeting_time.strftime('%H:%M') %>
           <%= b.submit 'Aceptar', class: 'btn btn-default btn-right' %>
           <% end %>
         </div>
