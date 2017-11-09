@@ -69,7 +69,10 @@ class BartersController < ApplicationController
   def update
     respond_to do |format|
       if @barter.update(barter_params)
-        if @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
+        if @barter.accept_user_one == 'false' and @barter.accept_user_two == 'false'
+          format.html { redirect_to accept_my_product_path(@barter), notice: 'Has cambiado la ubicación o hora de la oferta'}
+          format.json { render accept_my_product_path(@barter), status: :ok, location: @barter }
+        elsif @barter.accept_user_one == 'true' and @barter.accept_user_two == 'true'
           @barter.state = 2
           @product_one = @barter.get_product_one
           @product_two = @barter.get_product_two
@@ -86,7 +89,7 @@ class BartersController < ApplicationController
           format.json { render :show, status: :ok, location: @barter }
         else
           format.html { redirect_to user_home_path, notice: 'Has aceptado la oferta, el otro usuario debe confirmar'}
-          format.json { render :show, status: :ok, location: @barter }
+          format.json { render user_home_path, status: :ok, location: @barter }
         end
       else
         format.html { render :edit }
