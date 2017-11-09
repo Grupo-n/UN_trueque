@@ -6,4 +6,14 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  module SampleFileHelper
+    def sample_file(filename = "missing.png")
+      File.new("test/fixtures/#{filename}")
+    end
+  end
+
+  class ActiveSupport::TestCase
+    include SampleFileHelper
+  end
 end

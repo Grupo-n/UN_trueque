@@ -33,14 +33,14 @@
 #  score                  :decimal(, )
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+nicolas:
+  email: "jnse123@example.com" 
+  encrypted_password: "12345678" 
+  first_name: "Nicolas"  
+  last_name: "Sastoque" 
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+two:
+  email: MyString
+  encrypted_password: MyString
+  first_name: MyString
+  last_name: MyString

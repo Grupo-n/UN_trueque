@@ -20,7 +20,6 @@
 #  available                  :boolean
 #  quantity                   :integer
 #  state                      :boolean
-#
 
 class Product < ApplicationRecord
 

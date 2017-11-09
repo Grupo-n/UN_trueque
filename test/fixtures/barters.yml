@@ -29,6 +29,8 @@
 
 one:
   description: MyString
+  product_one_id: products(:one).id
+  product_two_id: products(:two).id
 
 two:
   description: MyString

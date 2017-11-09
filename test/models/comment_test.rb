@@ -13,7 +13,24 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+ 
+  def setup
+    @comment = Comment.new()
+  end
+  
+  test "should be valid" do
+		assert @comment.valid?
+	end
+	
+	test "content without limit " do
+		@comment.content = 'a'*10000
+		assert @comment.valid?
+	end
+	
+	test "user and barter can be the same " do
+		@comment.user = 123
+		@comment.id = 123
+		assert @comment.valid?
+	end
+	
 end
