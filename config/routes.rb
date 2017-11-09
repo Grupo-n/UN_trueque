@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   #Pagina principal
   root :to => "welcome#new"
 
-  resources :comments
-  resources :categories
-
   #Devise
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
