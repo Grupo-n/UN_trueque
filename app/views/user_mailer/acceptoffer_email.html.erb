@@ -8,7 +8,7 @@
       <div class="col-md-6 center">
         <h2 class="myhnot margin-top-12 center"> Producto adquirido</h2>
 
-        <%= image_tag @pone.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
+        <%= image_tag @pone.product_image.url(:original), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
         <h5 class="margin-5"><%=  @pone.name %></h5>
         <h5 class="margin-5"><%=  @pone.description %></h5>
 
@@ -18,7 +18,7 @@
 
       <div class="col-md-6 center">
         <h2 class="myhnot margin-top-12 center"> Producto ofertado</h2>
-        <%= image_tag @ptwo.product_image.url(:medium), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
+        <%= image_tag @ptwo.product_image.url(:original), alt: "", style:"width:200px; height:auto", class:"img-rounded" %>
         <h5 class="margin-5"><%=  @ptwo.name %></h6>
         <h5 class="margin-5"><%=  @ptwo.description %></h5>
 

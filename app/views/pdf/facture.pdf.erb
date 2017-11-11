@@ -18,7 +18,7 @@
 
             <div id="info-po">
               <h1>Producto Ofrecido</h1>
-              <%= wicked_pdf_image_tag @pone.product_image.url(:medium) %>
+              <%= wicked_pdf_image_tag @pone.product_image.url(:original) %>
               <h3><%= @pone.name %></h3>
               <% if @ptwo.p_type == 1 %>
                 <h3>Producto</h3>
@@ -31,7 +31,7 @@
 
             <div id="info-pc">
               <h1>Producto Adquirido</h1>
-              <%= wicked_pdf_image_tag @ptwo.product_image.url(:medium) %>
+              <%= wicked_pdf_image_tag @ptwo.product_image.url(:original) %>
               <h3><%= @ptwo.name %></h3>
               <% if @ptwo.p_type == 1 %>
                 <h3>Producto</h3>
@@ -48,7 +48,7 @@
 
             <div id="info-po">
               <h1>Info. Vendedor</h1>
-              <%= wicked_pdf_image_tag @ven.avatar.url(:medium) %>
+              <%= wicked_pdf_image_tag @ven.avatar.url(:original) %>
               <h3><%= @ven.first_name+" "+ @ven.last_name %></h3>
               <h3><%= @ven.email %></h3>
 
@@ -56,7 +56,7 @@
 
             <div id="info-pc">
               <h1>Info. comprador</h1>
-              <%= wicked_pdf_image_tag @com.avatar.url(:medium) %>
+              <%= wicked_pdf_image_tag @com.avatar.url(:original) %>
               <h3><%= @com.first_name+" "+ @com.last_name %></h3>
               <h3><%= @com.email %></h3>
 
