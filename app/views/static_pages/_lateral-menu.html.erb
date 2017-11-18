@@ -1,0 +1,128 @@
+<header class="main-header" role="banner">
+  <div class="header-menubar">
+    <div class="header-menubar-inner">
+      <div class="header-menubar-top">
+        <!--
+          <a href="#nav-menu" class="mobile-menu-button mobile-menu-open" data-toggle-menu="">
+            <svg class="icon-menu-open"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-menu-link"></use></svg>
+          </a>
+          <a href="#nav-menu" class="mobile-menu-button mobile-menu-close" data-toggle-menu="">
+            <svg class="icon-menu-close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg>
+          </a>-->
+
+          <div id="mobile-menu" class="mobile-menu-button">
+            <i id="icon-menu" class="fa fa-bars gly-menu" aria-hidden="true"></i>
+          </div>
+
+          <div id="mobile-search"ref="#nav-menu" class="mobile-search-button" data-toggle-menu="">
+            <i id="icon-search" class="fa fa-search gly-menu" aria-hidden="true"></i>
+          </div>
+
+          <div class="header-branding">
+              <%= link_to image_tag("logo3.png", alt: "logo UNTrueque", class:"header-logo-image"), :user_home, class:"logo-image" %>
+          </div>
+        </div>
+
+        <div class="header-links-container">
+          <div class="header-links-scroll-container">
+            <div class="header-menubar-upper">
+
+              <% if !current_user.nil? %>
+                <div class="container center" id="div-img-lat"><%= image_tag(current_user.avatar.url(:large) , class: "img-profile-nav") %></div>
+              <% end %>
+              <ul class="navigation navigation-style-left" id="main-navigation" data-navigation-style="left">
+                <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
+                <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-shopping-cart") + "  Vender", new_product_path  %></li>
+                <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-envelope") + "  Contácto", contact_path  %></li>
+                <% if !current_user.nil? %>
+                <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-user") + "  Perfil", :user_information %></li>
+                <% end %>
+                <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-log-out") + "  Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="header-toolbar">
+<!-- snippet location forms_search -->
+    <div class="row">
+      <div class="col-md-12 center">
+        <%= search_form_for @search, url: user_home_url do |f| %>
+        <div class="input-group" id="search-bar">
+            <%= f.text_field :name_cont, class: "search_form_for form-control", placeholder:  "Buscar" %>
+            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+            <%= f.select(:p_type_eq, [["Servicio", 2], ["Producto", 1]], {include_blank: 'Tipo...'}, { :class => 'form-control' }) %>
+            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+            <%= f.collection_select(:category_eq, @categories, :id, :name,{include_blank: 'Categoria...'},{:class=>'form-control'}) %>
+            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+
+            <%= button_tag(type: "submit", class: "form-control", url: "static_pages/principal") do %>
+              <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+
+        </div>
+
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $("#mobile-menu").click(function(){
+      var value=$(".header-menubar").css("left");
+      var mt=$(".header-toolbar").css("margin-top");
+      if(value=="0px"){
+        $(".header-menubar").animate({left: "-300px"});
+        $("#icon-menu").removeClass("fa-arrow-circle-left").addClass("fa-bars");
+      }
+      else{
+        if(mt!="0px"){
+          $(".header-toolbar").animate({marginTop: "0px"});
+          $("#icon-search").removeClass("fa-times").addClass("fa-search");
+        }
+        $(".header-menubar").animate({left: "0px"});
+        $("#icon-menu").removeClass("fa-bars").addClass("fa-arrow-circle-left");
+      }
+
+    });
+
+    $("#mobile-search").click(function(){
+      var value=$(".header-menubar").css("left");
+      var h=$(".header-branding").css("height");
+      var mt=$(".header-toolbar").css("margin-top");
+      if(value=="0px"){
+        $(".header-menubar").animate({left: "-300px"});
+        $("#icon-menu").removeClass("fa-arrow-circle-left").addClass("fa-bars");
+      }
+
+
+      if (mt=="0px") {
+        $(".header-toolbar").animate({marginTop: h});
+        $("#icon-search").removeClass("fa-search").addClass("fa-times");
+      }
+      else {
+        $(".header-toolbar").animate({marginTop: "0px"});
+        $("#icon-search").removeClass("fa-times").addClass("fa-search");
+      }
+
+
+
+
+
+    });
+});
+
+</script>

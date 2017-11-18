@@ -50,7 +50,9 @@ Rails.application.routes.draw do
   end
 
   #Información de usuario
-  get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information
+  #get 'user/view-profile', :to =>'static_pages#profileInformation', :as => :user_information
+
+  get 'user/view-profile', :to =>'my_products#profile_information', :as => :user_information
 
   #Editar informacion de usuario
   as :user do

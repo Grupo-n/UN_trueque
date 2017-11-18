@@ -39,6 +39,18 @@ class MyProductsController < ApplicationController
     @barters = Barter.offers_made(current_user)
   end
 
+  def profile_information
+    
+    @user = current_user
+    @proandserv = current_user.products.descendent.paginate(:page => params[:page], :per_page => 12)
+    @products = current_user.products.objects.paginate(:page => params[:page], :per_page => 12)
+    @services = current_user.products.services.paginate(:page => params[:page], :per_page => 12)
+    @barters = Barter.my_transactions(current_user)
+    @barters = Barter.offers_received(current_user)
+    @barters = Barter.offers_made(current_user)
+
+  end
+
   def succesfull_transaction
     @pone = Product.find(@barter.product_one_id)
     @ptwo = Product.find(@barter.product_two_id)

@@ -1,36 +1,52 @@
 <!--%= stylesheet_link_tag "filename" %-->
-<div class="container mt">
+<div class="container mt-50">
 
   <h1 class="myh center">Productos & Servicios</h1>
 
   <% if @products.blank? %>
     <h4>No hay productos</h4>
   <% else %>
-    <div class="row">
-      <% @products.each do |p| %>
-        <div class="col-sm-3 row-eq-height">
-          <div class="my-thumbnail">
-            <div class="opacity">
-              <%= link_to product_path(p) do %>
-                <div class="superCenter img-div-size" style="">
-                  <%= image_tag p.product_image.url(:original), alt: "", style:"max-height:200px;", class:"img-rounded" %>
-                </div>
-                <div class="caption container-fluid caption-div-size" style="">
-                  <h4><%= p.name %></h4>
-                  <% if p.p_type == 1 %>
-                    <h6>Producto</h6>
-                  <% else %>
-                    <h6>Servicio</h6>
-                  <% end %>
-                  <h6><%= p.category_name  %></h6>
-                </div>
-              </div>
-            <% end %>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="row">
+        <% @products.each do |p| %>
+
+
+        <div class="col-sm-4 col-lg-3 col-xs-6">
+          <%= link_to product_path(p), class: "" do %>
+          <div class="card card-block" style="text-align:center;">
+              <%= image_tag p.product_image.url(:original), alt: "", style:"max-height:200px;", class:"team-img img-rounded" %>
+            <div class="card-title-wrap">
+              <span class="card-title"><%= p.name %></span>
+              <span class="card-text"><%= p.category_name %></span>
+            </div>
+            <div class="team-over">
+              <span class="card-text" style="color:#fff !important;">
+                <% if p.p_type == 1 %>
+                <h6>Producto</h6>
+              <% else %>
+                <h6>Servicio</h6>
+              <% end %>
+              </span>
+
+              <nav class="social-nav">
+                  <i class="fa fa-plus-circle personal-gly" aria-hidden="true"></i>
+              </nav>
+            </div>
           </div>
+          <% end %>
+
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+  </section>
+
   <% end %>
+
+
+
   <div class="offset-md-4 col-md-7">
   <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
 </div>
