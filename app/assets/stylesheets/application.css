@@ -216,7 +216,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 }
 
 .btn-default {
-  background-color: #1c5664;
+  background-color: #1e6c87;
   font-weight: 800;
   color: #fff;
 }
@@ -871,6 +871,30 @@ form {
   display: block;
 }
 
+
+/*Offer*/
+
+
+.borderd{
+  border-style: double;
+  padding-top:5px;
+  padding-bottom:5px;
+  border-color:#1e6c87;
+  border-width:8px;
+}
+
+/*Offer made*/
+
+.other-gly{
+  font-size: 40px !important;
+  color:#1e6c87;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.col-xs-5{
+  width: 41.66666667% !important;
+}
 
 /*RESPONSIVE DESIGN*/
 

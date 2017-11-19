@@ -1,7 +1,7 @@
 <div class="container-fluid mt-50">
   <div class="row ">
 
-    <div class="col-xs-12 col-sm-6 col-md-4 center">
+    <div class="col-xs-12 col-sm-12 col-md-4 center">
       <div class="flexWrap">
         <h2 class="myh">Informacion de perfil</h2>
         <% if !current_user.nil? %>
@@ -14,7 +14,7 @@
       <%= link_to "Editar información" , :user_edit, class:"btn btn-default mt-12" %>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="col-xs-12 col-sm-12 col-md-8">
       <div id="tabs-container">
         <div class="row">
           <div class="col-md-12">
@@ -34,7 +34,6 @@
             </ul>
           </div>
         </div>
-
 
         <div class="tab container-fluid">
 
@@ -62,9 +61,9 @@
                   <% else %>
 
                     <% @proandserv.each do |p| %>
-                          <% if p.p_type == 1 %>
-                          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 row-eq-height filter products">
-                          <% else %>
+                      <% if p.p_type == 1 %>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 row-eq-height filter products">
+                        <% else %>
                           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 row-eq-height filter services">
                           <% end %>
                           <%= link_to offer_my_product_path(p) do %>
@@ -111,7 +110,6 @@
           </div>
         </div>
       </section>
-
       <div class="row">
         <div class="col-md-12">
           <%= link_to 'Nuevo', new_product_path, class:'btn btn-default btn-right' %>
@@ -122,13 +120,104 @@
           <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
         </ul>
       </div>
-
     </div>
-
-    <div id="tab-2" class="tab-content"></div>
-    <div id="tab-3" class="tab-content"></div>
-    <div id="tab-4" class="tab-content"></div>
   </div>
+
+  <div id="tab-2" class="tab-content">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="myh">Mis Transacciones</h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-3" class="tab-content">
+
+      <div class="col-md-12">
+        <h2 class="myh">Ofertas Realizadas</h2>
+        <div class="row" style="border-bottom: 1px solid rgb(221, 221, 221)">
+          <div class="col-xs-6 center">
+            <h4>Lo Que Quieres</h4>
+          </div>
+          <div class="col-xs-6 center">
+            <h4>Lo Que Ofreciste</h4>
+          </div>
+        </div>
+        <div class="row">
+          <% @barters.each do |barter| %>
+
+            <% @pone = barter.get_product_one %>
+            <% @ptwo = barter.get_product_two %>
+
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="superCenter img-div-size" style="">
+                <%= image_tag @pone.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+              </div>
+              <div class="caption container-fluid caption-div-size center" style="">
+                <h4><%= @pone.name %></h4>
+                  <% if @pone.p_type == 1 %>
+                <h6>Producto</h6>
+                  <% else %>
+                <h6>Servicio</h6>
+                  <% end %>
+                <h6><%= @pone.description  %></h6>
+              </div>
+            </div>
+
+            <div class="col-1 col-sm-1 col-md-1 superCenter">
+              <div class="container-fluid">
+              <span>
+                <i class="fa fa-exchange other-gly" aria-hidden="true"></i>
+              </span>
+              </div>
+            </div>
+
+            <div class="col-xs-5 col-sm-4 col-md-4">
+              <div class="superCenter img-div-size" style="">
+                <%= image_tag @ptwo.product_image, alt: "", style:"", class:"img-rounded img-responsive img-size" %>
+              </div>
+              <div class="caption container-fluid caption-div-size center" style="">
+                <h4><%= @ptwo.name %></h4>
+                <% if @ptwo.p_type == 1 %>
+                  <h6>Producto</h6>
+                <% else %>
+                  <h6>Servicio</h6>
+                <% end %>
+                <h6><%= @ptwo.description  %></h6>
+              </div>
+            </div>
+
+            <div class="col-xs-3 flexWrap">
+              <div class="container-fluid">
+                <h4><%= barter.description %></h4>
+                <% if barter.state==1 %>
+                  <h4>Pendiente</h4>
+                <% elsif barter.state==2 %>
+                  <h4>Aprobado</h4>
+                <% elsif barter.state==3 %>
+                  <h4>Rechazado</h4>
+                <% end %>
+
+              </div>
+              <div class="flexEnd" style="margin: 0 50px">
+                <%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), accept_my_product_path(barter), class:"btn btn-ghost" %>
+                <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), barter, class:"btn btn-ghost", method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="tab-4" class="tab-content">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="myh">Ofertas Recibidas</h2>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 </div>
 

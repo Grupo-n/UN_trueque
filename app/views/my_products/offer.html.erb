@@ -1,47 +1,104 @@
 <div class="container mt">
-    <div class="row">
-        <div class="offset-md-3 col-sm-6 center">
-            <div class="container-fluid">
-                <h2 class="myh">Lo que han ofrecido por tu <br> <strong><%= @product.name %></strong></h2>
-                <div class="center" style="height:250px">
-                    <%= image_tag @product.product_image, alt: "", style:"max-height:250px", class:"img-rounded" %>
-                </div>
-            </div>
+  <div class="row">
+    <div class="offset-md-3 col-sm-6 center">
+      <div class="container-fluid borderd">
+        <h2 class="myh">Lo que han ofrecido por tu
+          <br>
+          <strong><%= @product.name %></strong>
+        </h2>
+        <div class="center" style="height:250px">
+          <%= image_tag @product.product_image, alt: "", style:"max-height:250px", class:"img-rounded" %>
         </div>
+      </div>
     </div>
+  </div>
 
-    <br>
-    <% if @barters.blank? %>
-        <div class="col-md-6">
+  <br>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="row">
+        <% if @barters.blank? %>
+          <div class="col-md-6">
             <h4>Aún no has recibido ofertas para este producto.</h4>
+          </div>
+        <% else %>
+          <% @barters.each do |b| %>
+            <% p = Product.find(b.product_two_id) %>
+              <div class="col-md-3 row-eq-height">
+
+                <div class="card card-block" style="text-align:center;">
+
+                  <%= image_tag p.product_image.url(:original), alt: "", style:"max-height:200px;", class:"team-img img-rounded" %>
+                  <div class="card-title-wrap">
+                    <span class="card-title"><%= p.name %></span>
+                    <span class="card-text"><%= p.category_name %></span>
+
+                  </div>
+                  <div class="team-over">
+                    <span class="card-text" style="color:#fff !important;">
+                      <% if p.p_type == 1 %>
+                        <h6>Producto</h6>
+                      <% else %>
+                        <h6>Servicio</h6>
+                      <% end %>
+                    </span>
+
+                    <nav class="social-nav">
+                      <%= link_to barter_path(b) do %>
+                        <i class="fa fa-eye gly-nav" aria-hidden="true"></i>
+                      <% end %>
+                      <%= link_to accept_my_product_path(b) do %>
+                        <i class="fa fa-comments gly-nav" aria-hidden="true"></i>
+                      <% end %>
+
+                      <%= link_to b, method: :delete, data: { confirm: '¿Estás segur@?'} do %>
+                        <i class="fa fa-ban gly-nav" aria-hidden="true"></i>
+                      <% end %>
+              </nav>
+            </div>
+          </div>
+
         </div>
-    <% else %>
-        <div class="row">
-            <% @barters.each do |b| %>
-                <% p = Product.find(b.product_two_id) %>
-                <div class="col-md-3 row-eq-height">
-                    <div class="my-thumbnail">
-                        <div class="opacity">
-                            <div class="superCenter" style="height:200px">
-                                <%= image_tag p.product_image, alt: "", style:"max-height:200px;", class:"img-rounded" %>
-                            </div>
-                            <div class="caption container-fluid">
-                                <h4 class="myhnot"><%= p.name %></h4>
-                                <h6><%= b.description %></h6>
-                                <br>
-                                <%= link_to 'Ver', barter_path(b), class:'btn btn-ghost', style:"float: left"%>
-                                <%= link_to 'Negociar', accept_my_product_path(b), class:'btn btn-ghost', style:"float: center" %>
-                                <%= link_to 'Rechazar', b, class:'btn btn-ghost',style: "float: right", method: :delete, data: { confirm: '¿Estás segur@?' } %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-        </div>
+      <% end %>
     <% end %>
 
+  </div>
+</div>
 
-    <div class="offset-md-4 col-md-7">
-        <ul class="pagination pagination-lg"> <%= will_paginate @barters, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
-    </div>
+</section>
+<% if @barters.blank? %>
+<div class="col-md-6">
+  <h4>Aún no has recibido ofertas para este producto.</h4>
+</div>
+<% else %>
+<div class="row">
+  <% @barters.each do |b| %>
+    <% p = Product.find(b.product_two_id) %>
+      <div class="col-md-3 row-eq-height">
+        <div class="my-thumbnail">
+          <div class="opacity">
+            <div class="superCenter" style="height:200px">
+              <%= image_tag p.product_image, alt: "", style:"max-height:200px;", class:"img-rounded" %>
+            </div>
+            <div class="caption container-fluid">
+              <h4 class="myhnot"><%= p.name %></h4>
+              <h6><%= b.description %></h6>
+              <br>
+              <%= link_to 'Ver', barter_path(b), class:'btn btn-ghost', style:"float: left"%>
+              <%= link_to 'Negociar', accept_my_product_path(b), class:'btn btn-ghost', style:"float: center" %>
+              <%= link_to 'Rechazar', b, class:'btn btn-ghost',style: "float: right", method: :delete, data: { confirm: '¿Estás segur@?' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="offset-md-4 col-md-7">
+  <ul class="pagination pagination-lg">
+    <%= will_paginate @barters, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
+  </ul>
+</div>
 </div>
