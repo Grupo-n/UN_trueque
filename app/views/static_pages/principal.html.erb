@@ -1,5 +1,5 @@
 <!--%= stylesheet_link_tag "filename" %-->
-<div class="container mt-50">
+<div class="container-fluid mt-50">
 
   <h1 class="myh center borderb">Productos & Servicios</h1>
 
@@ -8,10 +8,10 @@
   <% else %>
 
   <section class="team" id="team">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <% @products.each do |p| %>
-        <div class="col-sm-4 col-lg-3 col-xs-12">
+        <div class="col-sm-4 col-lg-4 col-xs-12">
           <%= link_to product_path(p), class: "" do %>
           <div class="card card-block" style="text-align:center;">
               <%= image_tag p.product_image.url(:original), alt: "", style:"max-height:200px;", class:"team-img2 img-rounded" %>

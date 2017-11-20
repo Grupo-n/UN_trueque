@@ -66,9 +66,9 @@
 
                     <% @proandserv.each do |p| %>
                       <% if p.p_type == 1 %>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 row-eq-height filter products">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 row-eq-height filter products">
                         <% else %>
-                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 row-eq-height filter services">
+                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 row-eq-height filter services">
                           <% end %>
                           <%= link_to offer_my_product_path(p) do %>
 
