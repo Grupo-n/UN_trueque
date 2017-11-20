@@ -44,6 +44,7 @@ class MyProductsController < ApplicationController
     @ptwo = Product.find(@barter.product_two_id)
     @user_one = User.get_user(@pone)
     @user_two = User.get_user(@ptwo)
+    @url = @barter.get_Hash
   end
 
 
