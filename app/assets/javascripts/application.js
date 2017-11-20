@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require rails-ujs
 //= require popper
 //= require tether.min
@@ -25,3 +24,11 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+
+/*MENU LATERAL*/
+
+$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+});

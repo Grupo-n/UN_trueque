@@ -45,7 +45,7 @@ a {
 
 
 section {
-  padding: 85px 0;
+  padding: 50px 0px;
 }
 
 .card {
@@ -53,7 +53,7 @@ section {
   padding: 0;
   border: 0;
   border-radius: 0;
-  margin: 0;
+  margin-bottom: 15px;
   overflow: hidden;
 }
 
@@ -685,7 +685,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card:hover .card-title-wrap {
-  background-color: #199EB8;
+  background-color: #1f788e;
 }
 
 .team .card:hover .card-title-wrap .card-title, .team .card:hover .card-title-wrap .card-text {
@@ -697,7 +697,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(2, 25, 41, 0.7);
   top: 0;
   left: 0;
   text-align: center;

@@ -1,10 +1,12 @@
-<div class="container mt">
-<div class="row">
-    <div class="offset-md-3 col-md-6 center">
-      <h2 class="myh">Edita tu producto</h2>
-    </div>
-</div>
+<div class="container-fluid mt-50">
+<h2 class="myh center">Edita tu producto</h2>
 
 <%= render 'form', product: @product %>
-<%= link_to 'Back', my_products_path, class: 'btn my-btn' %>
+
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6 left">
+    <%= link_to 'Volver', :user_information, class: 'btn btn-default' %>
+  </div>
+</div>
 </div>
