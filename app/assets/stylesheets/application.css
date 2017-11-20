@@ -682,7 +682,7 @@ div, h1, h2, h3, h4, h5, h6, p, .btn {
 /*BODY*/
 
 body {
-  margin-left: 330px;
+  margin-left: 250px;
   position: relative;
 }
 
@@ -707,7 +707,7 @@ body {
 .header-menubar {
   color: #fff;
   background: #001929;
-  width: 330px;
+  width: 250px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -718,7 +718,7 @@ body {
 }
 
 .header-logo-image {
-  width: 300px;
+  width: 220px;
   margin:auto;
 }
 
