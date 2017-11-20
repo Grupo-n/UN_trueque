@@ -39,7 +39,7 @@
     </div>
   <% end %>
 
-  <div class="offset-md-4 col-md-7">
+  <div class="col-md-offset-4 col-md-7">
     <ul class="pagination pagination-lg"> <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%> </ul>
   </div>
 
