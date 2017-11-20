@@ -1,6 +1,6 @@
 <div class="container mt">
   <div class="row">
-    <div class="offset-md-3 col-sm-6 center">
+    <div class="col-md-offset-3 col-md-6 center">
       <div class="container-fluid borderd">
         <h2 class="myh">Lo que han ofrecido por tu
           <br>
@@ -67,34 +67,6 @@
 </div>
 
 </section>
-<% if @barters.blank? %>
-<div class="col-md-6">
-  <h4>Aún no has recibido ofertas para este producto.</h4>
-</div>
-<% else %>
-<div class="row">
-  <% @barters.each do |b| %>
-    <% p = Product.find(b.product_two_id) %>
-      <div class="col-md-3 row-eq-height">
-        <div class="my-thumbnail">
-          <div class="opacity">
-            <div class="superCenter" style="height:200px">
-              <%= image_tag p.product_image, alt: "", style:"max-height:200px;", class:"img-rounded" %>
-            </div>
-            <div class="caption container-fluid">
-              <h4 class="myhnot"><%= p.name %></h4>
-              <h6><%= b.description %></h6>
-              <br>
-              <%= link_to 'Ver', barter_path(b), class:'btn btn-ghost', style:"float: left"%>
-              <%= link_to 'Negociar', accept_my_product_path(b), class:'btn btn-ghost', style:"float: center" %>
-              <%= link_to 'Rechazar', b, class:'btn btn-ghost',style: "float: right", method: :delete, data: { confirm: '¿Estás segur@?' } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
 
 <div class="offset-md-4 col-md-7">
   <ul class="pagination pagination-lg">

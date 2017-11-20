@@ -28,7 +28,7 @@
             <div class="header-menubar-upper">
 
               <% if !current_user.nil? %>
-                <div class="container center" id="div-img-lat"><%= image_tag(current_user.avatar.url(:large) , class: "img-profile-nav") %></div>
+                <div class="center" id="div-img-lat"><%= image_tag(current_user.avatar.url(:large) , class: "img-profile-nav") %></div>
               <% end %>
               <ul class="navigation navigation-style-left" id="main-navigation" data-navigation-style="left">
                 <li class="nav-menu-item"><%= link_to  glyph(:"glyphicon glyphicon-home") + "  Inicio", :user_home  %></li>
@@ -75,11 +75,43 @@
     </div>
 
   </div>
+<!-- BARRA DE Busqueda prueba js-->
+<!--
+  <div class="row">
+    <div class="col-xs-12 col-md-6 center">
+      <%= search_form_for @search, url: user_home_url do |f| %>
+      <div class="input-group search" id="search-bar">
+          <%= f.text_field :name_cont, class: "search_form_for form-control search-box", placeholder:  "Buscar" %>
+          <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+          <%= f.select(:p_type_eq, [["Servicio", 2], ["Producto", 1]], {include_blank: 'Tipo...'}, { :class => 'form-control search-box' }) %>
+          <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+          <%= f.collection_select(:category_eq, @categories, :id, :name,{include_blank: 'Categoria...'},{:class=>'form-control search-box'}) %>
+          <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+
+          <span class="search-button">
+            <%= button_tag(type: "submit", class: "btn-oculto", url: "static_pages/principal") do %>
+            <% end %>
+              <span class="search-icon"></span>
+          </span>
+      </div>
+      <% end %>
+    </div>
+  </div>-->
+
 </header>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
+  $('.search .form-control').toggle();
+  $('.btn-oculto').toggle();
+
+  $('.search-button').click(function(){
+    $('.search .form-control').toggle();
+    $('.btn-oculto').toggle();
+    $(this).parent().toggleClass('open');
+  });
 
     $("#mobile-menu").click(function(){
       var value=$(".header-menubar").css("left");
@@ -101,7 +133,7 @@ $(document).ready(function(){
 
     $("#mobile-search").click(function(){
       var value=$(".header-menubar").css("left");
-      var h=$(".header-branding").css("height");
+      var h=$(".header-menubar-top").css("height");
       var mt=$(".header-toolbar").css("margin-top");
       if(value=="0px"){
         $(".header-menubar").animate({left: "-300px"});

@@ -41,11 +41,18 @@ td.white { border-color: #fff; }
   text-align: center;
   float: left;
 }
+#info-po img{
+  width: 200px;
+}
 
 #info-pc{
   width: 50%;
   text-align: center;
   float: right;
+}
+
+#info-pc img{
+  width: 200px;
 }
 
 
