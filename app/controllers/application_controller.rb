@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-    @search = Product.where.not(user_id: current_user.id).search(params[:q])
+    @search = Product.descendent.search(params[:q])
     if params[:search]
       search_params = CGI::escapeHTML(params[:search])
       redirect_to ("/static_pages/principal?utf8=%E2%9C%93&search=#{search_params}")
