@@ -42,9 +42,9 @@ class MyProductsController < ApplicationController
   def profile_information
 
     @user = current_user
-    @proandserv = current_user.products.descendent.paginate(:page => params[:page], :per_page => 12)
-    @products = current_user.products.objects.paginate(:page => params[:page], :per_page => 12)
-    @services = current_user.products.services.paginate(:page => params[:page], :per_page => 12)
+    @proandserv = current_user.products.descendent.paginate(:page => params[:page], :per_page => 8)
+    @products = current_user.products.objects.paginate(:page => params[:page], :per_page => 8)
+    @services = current_user.products.services.paginate(:page => params[:page], :per_page => 8)
     @barters = Barter.my_transactions(current_user)
     @bartersreceived = Barter.offers_received(current_user)
     @bartersmade = Barter.offers_made(current_user)
@@ -60,7 +60,7 @@ class MyProductsController < ApplicationController
     @ptwo = Product.find(@barter.product_two_id)
     @user_one = User.get_user(@pone)
     @user_two = User.get_user(@ptwo)
-    @url = @barter.get_Hash
+    @url = @barter.get_HashURL
   end
 
 

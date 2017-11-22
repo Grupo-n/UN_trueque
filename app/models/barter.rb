@@ -52,7 +52,7 @@ class Barter < ApplicationRecord
       User.find(self.id_two_user)
     end
 
-    def get_Hash
+    def get_HashURL
       return "succesfull_transaction/"+self.hash_facture.to_s+".pdf"
     end
     def make_transaction

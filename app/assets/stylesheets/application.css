@@ -1059,6 +1059,19 @@ form {
 .imgw2{
   width: 200px;
 }
+
+
+
+
+/*SPAN CARD*/
+.card-title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
 /*RESPONSIVE DESIGN*/
 
 /* Small devices (smartphone) */

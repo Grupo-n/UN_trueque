@@ -63,7 +63,7 @@
               <div class="container-fluid">
                 <div class="row">
 
-                  <% if @products.blank? %>
+                  <% if @proandserv.blank? %>
                     <h4>Debes agregar productos</h4>
                   <% else %>
 
@@ -124,7 +124,7 @@
       </div>
       <div class="col-md-offset-4 col-md-7">
         <ul class="pagination pagination-lg">
-          <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
+          <%= will_paginate @proandserv, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
         </ul>
       </div>
     </div>
