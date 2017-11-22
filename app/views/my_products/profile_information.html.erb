@@ -409,7 +409,7 @@
           <h4 class="myh left">Transacciones/Ofertas</h4>
         </div>
         <div class="col-xs-6 col-md-5 center">
-          <%= pie_chart @mybarters.group(:id_one_user).count, id: "offers", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Servicios publicados" %>
+          <%= pie_chart @mybarters.group(:state).count, id: "offers", width: "500px", height: "300px" %>
         </div>
       </div>
 
