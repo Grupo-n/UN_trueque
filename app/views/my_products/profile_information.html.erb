@@ -33,7 +33,10 @@
                 <a href="#tab-3">Ofertas realizadas</a>
               </li>
               <li>
-                <a href="#tab-4">Ofertas Recibidas,</a>
+                <a href="#tab-4">Ofertas Recibidas</a>
+              </li>
+              <li>
+                <a href="#tab-5">Estadisticas</a>
               </li>
             </ul>
           </div>
@@ -52,7 +55,7 @@
               <div class="col-md-12 center">
                 <button class="btn btn-default filter-button" data-filter="all">Todo</button>
                 <button class="btn btn-default filter-button" data-filter="products">Productos</button>
-                <button class="btn btn-default filter-button" data-filter="services">Serivicios</button>
+                <button class="btn btn-default filter-button" data-filter="services">Servicios</button>
               </div>
             </div>
 
@@ -393,6 +396,43 @@
       </div>
     <% end %>
   </div>
+    <div id="tab-5" class="tab-content">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="myh">Estadisticas de usuario</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="myh left">Transacciones/Ofertas</h4>
+        </div>
+        <div class="col-xs-6 col-md-5 center">
+          <%= pie_chart @mybarters.group(:id_one_user).count, id: "offers", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Servicios publicados" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="myh left">Productos publicados por día</h4>
+        </div>
+        <div class="col-xs-6 col-md-5 center">
+          <%= area_chart @products.group_by_day(:created_at).count ,id: "products-per-day", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Productos publicados" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="myh left">Servicios publicados por día</h4>
+        </div>
+        <div class="col-xs-6 col-md-5 center">
+          <%= area_chart @services.group_by_day(:created_at).count ,id: "services-per-day", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Servicios publicados" %>
+        </div>
+      </div>
+
+
+    </div>
 </div>
 </div>
 <!--
@@ -468,6 +508,7 @@ $(document).ready(function () {
       $(".mask2").css("height",hm);
       $(".mask2").css("width",wm);
     }
+
 
   });
 

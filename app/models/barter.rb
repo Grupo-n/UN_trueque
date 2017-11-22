@@ -90,6 +90,10 @@ class Barter < ApplicationRecord
       return Barter.where("(id_one_user = ? OR id_two_user = ?) AND state = '2'", user.id, user.id)
     end
 
+    def self.my_barters(user)
+      return Barter.where("(id_one_user = ? OR id_two_user = ?)", user.id, user.id)
+    end
+
     def meeting_not_in_past
       if self.meeting_date < Date.today
         self.errors.add(:meeting_date, "No puede viajar en el tiempo we :v")

@@ -48,8 +48,12 @@ class MyProductsController < ApplicationController
     @barters = Barter.my_transactions(current_user)
     @bartersreceived = Barter.offers_received(current_user)
     @bartersmade = Barter.offers_made(current_user)
+    @myproducts = current_user.products.objects
+    @myservices = current_user.products.services
+    @mybarters = Barter.my_barters(current_user)
 
   end
+
 
   def succesfull_transaction
     @pone = Product.find(@barter.product_one_id)
