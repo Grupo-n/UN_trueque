@@ -76,7 +76,7 @@ class MyProductsController < ApplicationController
 
         respond_to do |format|
           format.html
-          format.pdf{render template:"pdf/facture", pdf: @barter.get_Hash.to_s}
+          format.pdf{render template:"pdf/facture", pdf: @barter.get_HashURL.to_s}
         end
 
   end
