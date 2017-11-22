@@ -33,10 +33,7 @@
                 <a href="#tab-3">Ofertas realizadas</a>
               </li>
               <li>
-                <a href="#tab-4">Ofertas Recibidas</a>
-              </li>
-              <li>
-                <a href="#tab-5">Estadisticas</a>
+                <a href="#tab-4">Ofertas Recibidas,</a>
               </li>
             </ul>
           </div>
@@ -55,7 +52,7 @@
               <div class="col-md-12 center">
                 <button class="btn btn-default filter-button" data-filter="all">Todo</button>
                 <button class="btn btn-default filter-button" data-filter="products">Productos</button>
-                <button class="btn btn-default filter-button" data-filter="services">Servicios</button>
+                <button class="btn btn-default filter-button" data-filter="services">Serivicios</button>
               </div>
             </div>
 
@@ -63,7 +60,7 @@
               <div class="container-fluid">
                 <div class="row">
 
-                  <% if @proandserv.blank? %>
+                  <% if @products.blank? %>
                     <h4>Debes agregar productos</h4>
                   <% else %>
 
@@ -124,7 +121,7 @@
       </div>
       <div class="col-md-offset-4 col-md-7">
         <ul class="pagination pagination-lg">
-          <%= will_paginate @proandserv, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
+          <%= will_paginate @products, renderer: BootstrapPagination::Rails, class: "pagination pagination-lg", :previous_label => t("Anterior"), :next_label => t("Siguiente")%>
         </ul>
       </div>
     </div>
@@ -396,43 +393,6 @@
       </div>
     <% end %>
   </div>
-    <div id="tab-5" class="tab-content">
-
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="myh">Estadisticas de usuario</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class="myh left">Transacciones/Ofertas</h4>
-        </div>
-        <div class="col-xs-6 col-md-5 center">
-          <%= pie_chart @mybarters.group(:state).count, id: "offers", width: "500px", height: "300px" %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class="myh left">Productos publicados por día</h4>
-        </div>
-        <div class="col-xs-6 col-md-5 center">
-          <%= area_chart @products.group_by_day(:created_at).count ,id: "products-per-day", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Productos publicados" %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class="myh left">Servicios publicados por día</h4>
-        </div>
-        <div class="col-xs-6 col-md-5 center">
-          <%= area_chart @services.group_by_day(:created_at).count ,id: "services-per-day", width: "500px", height: "300px", xtitle: "Dia", ytitle: "Servicios publicados" %>
-        </div>
-      </div>
-
-
-    </div>
 </div>
 </div>
 <!--
@@ -508,7 +468,6 @@ $(document).ready(function () {
       $(".mask2").css("height",hm);
       $(".mask2").css("width",wm);
     }
-
 
   });
 
