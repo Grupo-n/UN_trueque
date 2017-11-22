@@ -20,6 +20,11 @@ User.create(email: "jnsastoquee@unal.edu.co", first_name: "Nicolas",
   last_name: "Sastoque", password: "12345678",
    password_confirmation: "12345678", score: 5.0)
 
+User.all.each do |d|
+  d.confirmed_at=Time.now
+  d.save
+end
+
 #Products
 Category.create(name: "Arte")
 Category.create(name: "Libros y fotocopias")
