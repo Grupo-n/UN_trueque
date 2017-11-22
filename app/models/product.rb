@@ -40,16 +40,16 @@ class Product < ApplicationRecord
       Category.find(self.category).name
     end
 
-    def self.descendent
-      return Product.where("available = ?", true).order('created_at DESC')
+    def self.descendent(user)
+      Product.where("available = ? and user_id != ?", true, user.id).order('created_at DESC')
     end
 
     def self.objects
-      return Product.where("p_type = ? AND available = ?", 1, true).order('created_at DESC')
+      Product.where("p_type = ? AND available = ?", 1, true).order('created_at DESC')
     end
 
     def self.services
-      return Product.where("p_type = ? AND available = ?", 2, true).order('created_at DESC')
+      Product.where("p_type = ? AND available = ?", 2, true).order('created_at DESC')
     end
 
 end
