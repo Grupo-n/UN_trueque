@@ -21,8 +21,6 @@
 #  accept_user_one :string           default("false")
 #  accept_user_two :string           default("false")
 #  hash_facture    :string
-#  meeting_date    :date
-#  meeting_time    :time
 #
 
 require 'test_helper'
