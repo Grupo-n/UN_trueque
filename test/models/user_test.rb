@@ -111,7 +111,7 @@ class UserTest < ActiveSupport::TestCase
 
 	# Enviar un correo al usuario en caso de cambio de contraseña.
 
-	test 'Impedir que un usuario pueda colocar una contrasena vieja2' do
+	test 'Enviar un correo al usuario en caso de cambio de contraseña.' do
 		@user = users(:tom)
 		@user.password = '/QWERTYqwerty123456789/'
 		@user.password_confirmation = '/QWERTYqwerty123456789/'
@@ -119,15 +119,11 @@ class UserTest < ActiveSupport::TestCase
 		assert_equal 1, ActionMailer::Base.deliveries.length
 	end
 
-	# Enviar un correo al usuario en caso de cambio de contraseña.
-
-	test 'Impedir que un usuario pueda colocar una contrasena vieja2' do
-		@user = users(:tom)
-		@user.password = '/QWERTYqwerty123456789/'
-		@user.password_confirmation = '/QWERTYqwerty123456789/'
-		assert @user.save
+  test 'should be confirmable' do
+    @user = User.new(email: 'admin@admin.com', password: '123456789')
+    @user.save
+    assert @user.confirm
 		assert_equal 1, ActionMailer::Base.deliveries.length
-	end
-
+  end
 
 end
