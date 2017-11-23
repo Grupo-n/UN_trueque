@@ -40,7 +40,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :services
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable, :lockable, :omniauthable, :omniauth_providers => [:facebook]
   has_attached_file :avatar, styles: { large:"450x400", medium: "300x300", thumb: "60x60" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
