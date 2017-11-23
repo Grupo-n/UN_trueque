@@ -40,9 +40,18 @@ class User < ApplicationRecord
   has_many :products
   has_many :services
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :confirmable, :validatable, :lockable, :password_archivable, :omniauthable, :omniauth_providers => [:facebook]
   has_attached_file :avatar, styles: { large:"450x400", medium: "300x300", thumb: "60x60" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validate :password_complexity
+
+  def password_complexity
+    if password.present?
+       if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./)
+         errors.add :password, "deberia incluir al menos una minuscula, una mayúscula y un dígito"
+       end
+    end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
