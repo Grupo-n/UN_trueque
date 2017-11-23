@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108040835) do
+ActiveRecord::Schema.define(version: 20171109092400) do
 
   create_table "barters", force: :cascade do |t|
     t.string "description"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20171108040835) do
     t.string "accept_user_one", default: "false"
     t.string "accept_user_two", default: "false"
     t.string "hash_facture"
+    t.date "meeting_date"
+    t.time "meeting_time"
     t.index ["users_id"], name: "index_barters_on_users_id"
   end
 
@@ -54,6 +56,14 @@ ActiveRecord::Schema.define(version: 20171108040835) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "old_passwords", force: :cascade do |t|
+    t.string "encrypted_password", null: false
+    t.string "password_archivable_type", null: false
+    t.integer "password_archivable_id", null: false
+    t.datetime "created_at"
+    t.index ["password_archivable_type", "password_archivable_id"], name: "index_password_archivable"
   end
 
   create_table "products", force: :cascade do |t|
@@ -111,15 +121,5 @@ ActiveRecord::Schema.define(version: 20171108040835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid"
   end
-
-  create_table :old_passwords do |t|
-    t.string :encrypted_password, :null => false
-    t.string :password_archivable_type, :null => false
-    t.integer :password_archivable_id, :null => false
-    t.datetime :created_at
-  end
-  
-add_index :old_passwords, [:password_archivable_type, :password_archivable_id], :name => :index_password_archivable
-
 
 end

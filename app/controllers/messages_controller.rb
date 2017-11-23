@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def new
    @message = Message.new
   end

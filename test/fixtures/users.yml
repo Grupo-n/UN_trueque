@@ -34,13 +34,19 @@
 #
 
 nicolas:
-  email: "jnse123@example.com" 
-  encrypted_password: "12345678" 
-  first_name: "Nicolas"  
-  last_name: "Sastoque" 
+  email: "jnse123@example.com"
+  encrypted_password: "12345678"
+  first_name: "Nicolas"
+  last_name: "Sastoque"
 
 two:
   email: MyString
   encrypted_password: MyString
   first_name: MyString
   last_name: MyString
+
+tom:
+  first_name: Tom
+  last_name: Test
+  email: test@example.org
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

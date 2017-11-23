@@ -36,13 +36,98 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  
-	def setup
-		@user = User.new(email: "exam@ple.com", password: "12345678")
-		#debugger
+
+	# Contraseña mínimo 8 caracteres y contraseña con complejidad.
+
+	test 'Contraseña mínimo 8 caracteres y contrasena con complejidad.' do
+		# test length password
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '1')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '12')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '123')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '1234')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '12345')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '123456')
+		assert_not @user.save
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '1234567')
+		assert_not @user.save
+
+		# solo numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: '12345678')
+		assert_not @user.save
+		# solo caracteres en miniscula
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'qwertyuiop')
+		assert_not @user.save
+		# solo caracteres en minuscula
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWEERTERTERRET')
+		assert_not @user.save
+
+		# caracteres en minuscula y en mayusculas
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'qwertyASDFG')
+		assert_not @user.save
+
+		# solo caracteres en miniscula y numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'qwerty124563')
+		assert_not @user.save
+		# solo caracteres en minuscula y numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTY123456')
+		assert_not @user.save
+
+		# mayusculas y minusculas pero no numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTYqwerty')
+		assert_not @user.save
+		# mayusculas y numbers
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTY123456789')
+		assert_not @user.save
+		# minusculas y numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'qwerty123456789')
+		assert_not @user.save
+
+		# minusculas y numeros
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTYqwerty123456789')
+		assert @user.save
 	end
 
-	test "should be valid" do
-		assert @user.valid?
+	# Impedir que un usuario pueda colocar una contraseña vieja
+
+	test 'Impedir que un usuario pueda colocar una contraseña vieja' do
+		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTYqwerty123456789')
+		@user.save
+		@user = User.find_by(email: 'qwerty@unal.edu.co')
+		@user.password = 'QWERTYqwerty123456789'
+		@user.password_confirmation = 'QWERTYqwerty123456789'
+		assert_not @user.save
+		@user = User.find_by(email: 'qwerty@unal.edu.co')
+		@user.password = '/QWERTYqwerty123456789/'
+		@user.password_confirmation = '/QWERTYqwerty123456789/'
+		assert @user.save
 	end
+
+	# Enviar un correo al usuario en caso de cambio de contraseña.
+
+	test 'Impedir que un usuario pueda colocar una contrasena vieja2' do
+		@user = users(:tom)
+		@user.password = '/QWERTYqwerty123456789/'
+		@user.password_confirmation = '/QWERTYqwerty123456789/'
+		assert @user.save
+		assert_equal 1, ActionMailer::Base.deliveries.length
+	end
+
+	# Enviar un correo al usuario en caso de cambio de contraseña.
+
+	test 'Impedir que un usuario pueda colocar una contrasena vieja2' do
+		@user = users(:tom)
+		@user.password = '/QWERTYqwerty123456789/'
+		@user.password_confirmation = '/QWERTYqwerty123456789/'
+		assert @user.save
+		assert_equal 1, ActionMailer::Base.deliveries.length
+	end
+
+
 end
