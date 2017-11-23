@@ -95,14 +95,14 @@ class Barter < ApplicationRecord
     end
 
     def meeting_not_in_past
-      if self.meeting_date < Date.today
-        self.errors.add(:meeting_date, "No puede viajar en el tiempo we :v")
+      if (self.meeting_date+self.meeting_time.seconds_since_midnight.seconds) < Time.now
+        self.errors.add(:meeting_date, "¡No puedes poner una cita en el pasado!")
       end
     end
 
     def product_two_equal_nil
       if self.product_two_id.nil?
-        self.errors.add(:product_two_id, "Debes escoger un producto")
+        self.errors.add(:product_two_id, "¡Debes escoger un producto!")
       end
     end
 
