@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  
+
   def index
   end
 
@@ -9,8 +9,6 @@ class WelcomeController < ApplicationController
     else
       redirect_to welcome_index_path
     end
-  end
-  
-  
+  end 
 
 end
