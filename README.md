@@ -1,15 +1,29 @@
-# UN_Trueque
+# REQUERIMIENTOS A HACER
 
-UN Trueque es una aplicacion web orientada para estudiantes de la Universidad Nacional de Colombia que quieran realizar ventas, intercambios
-o donaciones de productos academicos como fotocopias, elementos electronicos, guas, libros y materiales de laboratorio; y servicios como tutorias, clases y
-trabajos.
+* El sistema solo permitirá usar ciertas funcionalidades a usuarios registrados
 
-## grupo_n
+``rails test test/controllers/users_controller.rb``
 
-* Jairo Suarez - jaasuarezga@unal.edu.co
-* Miguel Cortes - macortesn@unal.edu.co
-* Gabriela Suarez - gsuarezc@unal.edu.co
-* Nicolas Sastoque - jnsastoquee@unal.edu.co
-* Jonathan Granados - joagranadosme@unal.edu.co
+* Contraseña mínimo 8 caracteres y contraseña con complejidad.
 
-[Visita UN_trueque](https://untrueque.herokuapp.com/)
+``rails test test/models/user_test.rb:42``
+
+* Impedir que un usuario pueda colocar una contraseña vieja
+
+``rails test test/models/user_test.rb:99``
+
+* Enviar un correo al usuario en caso de cambio de contraseña
+
+``rails test test/models/user_test.rb:114``
+
+* La cuenta se bloqueará después de 5 intentos de ingreso fallidos.
+
+``rails test test/integration/users_login_test.rb``
+
+* El usuario deberá confirmar su cuenta via email
+
+``rails test test/models/user_test.rb:124``
+
+* Autentificación con la red social facebook
+
+``rails test test/models/user_test.rb:133``

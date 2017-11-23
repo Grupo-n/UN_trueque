@@ -39,7 +39,7 @@ class UserTest < ActiveSupport::TestCase
 
 	# Contraseña mínimo 8 caracteres y contraseña con complejidad.
 
-	test 'Contraseña mínimo 8 caracteres y contrasena con complejidad.' do
+	test 'Minimum password 8 characters and password with complexity.' do
 		# test length password
 		@user = User.new(email: 'qwerty@unal.edu.co', password: '')
 		assert_not @user.save
@@ -96,7 +96,7 @@ class UserTest < ActiveSupport::TestCase
 
 	# Impedir que un usuario pueda colocar una contraseña vieja
 
-	test 'Impedir que un usuario pueda colocar una contraseña vieja' do
+	test 'Prevent a user from placing an old password' do
 		@user = User.new(email: 'qwerty@unal.edu.co', password: 'QWERTYqwerty123456789')
 		@user.save
 		@user = User.find_by(email: 'qwerty@unal.edu.co')
@@ -111,7 +111,7 @@ class UserTest < ActiveSupport::TestCase
 
 	# Enviar un correo al usuario en caso de cambio de contraseña.
 
-	test 'Enviar un correo al usuario en caso de cambio de contraseña.' do
+	test 'Send an email to the user in case of password change.' do
 		@user = users(:tom)
 		@user.password = '/QWERTYqwerty123456789/'
 		@user.password_confirmation = '/QWERTYqwerty123456789/'
@@ -119,11 +119,26 @@ class UserTest < ActiveSupport::TestCase
 		assert_equal 1, ActionMailer::Base.deliveries.length
 	end
 
-  test 'should be confirmable' do
-    @user = User.new(email: 'admin@admin.com', password: '123456789')
+	# confirmable
+
+  test 'should be confirmable  and send email' do
+    @user = User.new(email: 'admin@admin.com', password: 'Bodf123456789')
     @user.save
+		assert_equal 2, ActionMailer::Base.deliveries.length
     assert @user.confirm
-		assert_equal 1, ActionMailer::Base.deliveries.length
   end
+
+	# Autentificación con la red social facebook
+
+	test 'Authentication with the social network facebook' do
+		@user = User.new
+		@user.email = 'admin@admin.com'
+		@user.password = 'Bodf123456789'
+		@user.provider = 'facebook'
+		@user.uid = 'sfdkjgkfgadskfsdafd5456465465afd'
+		assert @user.save
+	end
+
+
 
 end

@@ -3,21 +3,30 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-  # Pantalla para registrar de usuarios en el sistema (primer y segundo nombre y password )
-
-  test "should register new user" do
-
-    post user_registration_path, params: {user: {first_name: "Nico" , last_name: "Yeah", email: "123@correo.com", password: "12345678", password_confirmation: "12345678"}}
-    assert_redirected_to :root
-  end
-
 
   # La cuenta se bloqueará después de 5 intentos de ingreso fallidos
-
-  test "La cuenta se bloqueará después de 5 intentos de ingreso fallidos" do
+  test 'Account is blocked after 5 unsuccessful login attempts' do
     user = users(:tom)
     5.times { user.valid_for_authentication?{ false } }
     assert user.reload.access_locked?
   end
+
+  # Screen to change the user's password. You must ask for the previous password and the new password
+  # test 'Screen to change the user"s password. You must ask for the previous password and the new password' do
+  #   @user = users(:tom)
+  #   sign_in @user
+  #   post edit_user_password_path,
+  #     params: {
+  #       user:
+  #       {
+  #         first_name: @user.first_name,
+  #         last_name: @user.last_name,
+  #         password: 'Qq123456789',
+  #         password_confirmation: 'Qq123456789',
+  #         current_password: 'Tom2017Tom'
+  #       }
+  #     }
+  #   assert_response :root
+  # end
 
 end
