@@ -4,7 +4,8 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+#Use for devise security
+gem 'devise_security_extension', git: 'https://github.com/phatworx/devise_security_extension.git'
 #Use ransack for scoping, searching and filtering
 gem 'ransack'
 #Use will_paginate-bootstrap for pagination
