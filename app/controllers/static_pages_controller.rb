@@ -4,12 +4,12 @@ before_action :search
 
   def principal
     @categories = Category.all
-    @search = Product.descendent(current_user).search(params[:q])
+    @search = Product.get_all(current_user).search(params[:q])
     @products = @search.result.paginate(:page => params[:page], :per_page => 12)
   end
 
   def profileInformation
-    render '/static_pages/profileInformation'
+    #render '/static_pages/profileInformation'
   end
 
   private
